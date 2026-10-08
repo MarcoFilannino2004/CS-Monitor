@@ -10,10 +10,54 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stile.css') }}">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     {% include 'navbar.html' %}
 
-    <main class="container mt-5">
+    <main class="container mt-5 flex-grow-1">
+        <h2 class="mb-4">Statistiche eventi</h2>
+        <section class="container my-3">
+            
+            <div class="row g-2">
+
+                <div class="col-6 col-md-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body p-2">
+                            <small>Eventi totali</small>
+                            <h5 class="mb-0">{{ statistiche.totale }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body p-2">
+                            <small>Eventi critici</small>
+                            <h5 class="text-danger mb-0">{{ statistiche.critici or 0 }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body p-2">
+                            <small>Eventi nuovi</small>
+                            <h5 class="text-warning mb-0">{{ statistiche.nuovi or 0 }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="card text-center shadow-sm">
+                        <div class="card-body p-2">
+                            <small>Eventi risolti</small>
+                            <h5 class="text-success mb-0">{{ statistiche.risolti or 0 }}</h5>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
 
         <section class="mb-4">
 
@@ -65,16 +109,28 @@
 
                 </div>
 
-                <div class="mt-3">
-                    <button type="submit" class="btn btn-primary">Applica filtri</button>
+                <div class="mb-3 mt-2">
+                    <input type="text" name="testo" class="form-control"
+                        placeholder="Cerca per ID, IP o descrizione..."
+                        value="{{ testo_ricerca or '' }}">
+                </div>
+
+                <div class="mt-3 d-flex align-items-center gap-2">
+                    <button type="submit" class="btn btn-applicaFiltri">Applica filtri</button>
+
                     <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Reimposta filtri</a>
+
+                    <a href="{{ url_for('esportaEventi', gravita=gravita or '', stato=stato or '', ordine=ordine, testo=testo_ricerca or '') }}"
+                        class="btn btn-success">
+                        <i class="bi bi-download"></i> Esporta CSV
+                    </a>
                 </div>
 
             </form>
 
         </section>
 
-
+        
         <h2>Eventi di sicurezza</h2>
 
         <div class="table-responsive">
@@ -118,7 +174,7 @@
         </div>
 
     </main>
-
+    {% include 'footer.html' %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -40,7 +40,7 @@ def inserisciEvento(evento: EventoSicurezza):
 
 
 # READ - Tutti gli eventi
-def visualizzaEventi(gravita=None, stato=None, ordine="recenti"):
+def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None):
     connessione = None
     cursore = None
 
@@ -57,6 +57,14 @@ def visualizzaEventi(gravita=None, stato=None, ordine="recenti"):
         """
 
         valori = []
+
+        if testo:
+            if testo.isdigit():
+                query += " AND e.id_evento = %s"
+                valori.append(int(testo))
+            else:
+                query += " AND (e.indirizzo_ip LIKE %s OR e.descrizione LIKE %s)"
+                valori.extend([f"%{testo}%", f"%{testo}%"])
 
         if gravita:
             query += " AND e.gravita = %s"
@@ -187,3 +195,27 @@ def eliminaEvento(id_evento: int):
             cursore.close()
         if connessione is not None and connessione.is_connected():
             connessione.close()
+
+def statisticheEventi():
+    connessione = creaConnessione()
+    cursore = connessione.cursor(dictionary=True)
+
+    try:
+        query = """
+            SELECT
+                COUNT(*) AS totale,
+                SUM(CASE WHEN gravita = 'Critica' THEN 1 ELSE 0 END) AS critici,
+                SUM(CASE WHEN stato = 'Nuovo' THEN 1 ELSE 0 END) AS nuovi,
+                SUM(CASE WHEN stato = 'Risolto' THEN 1 ELSE 0 END) AS risolti
+            FROM eventi
+        """
+
+        cursore.execute(query)
+        statistiche = cursore.fetchone()
+
+        return statistiche
+
+    finally:
+        cursore.close()
+        connessione.close()
+

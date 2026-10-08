@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/stile.css') }}">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     {% include 'navbar.html' %}
-    <main class="container py-5">
+    <main class="container py-5 flex-grow-1">
+
 
         <h1 class="mb-4">Registra nuovo evento</h1>
 
@@ -55,12 +56,12 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary">Registra evento</button>
+            <button type="submit" class="btn btn-applicaFiltri">Registra evento</button>
             <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Annulla</a>
 
         </form>
 
     </main>
-
+    {% include 'footer.html' %}
 </body>
 </html>

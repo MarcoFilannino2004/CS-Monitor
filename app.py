@@ -1,8 +1,10 @@
-from flask import Flask, render_template, abort, request, redirect, url_for
-from database.eventi_repository import visualizzaEventi, cercaEvento, inserisciEvento,modificaEvento, eliminaEvento
+from flask import Flask, render_template, abort, request, redirect, url_for, send_file
+from database.eventi_repository import visualizzaEventi, cercaEvento, inserisciEvento,modificaEvento, eliminaEvento, statisticheEventi
 from models.evento_sicurezza import EventoSicurezza
 from database.categorie_repository import visualizzaCategorie
 import mysql.connector
+import os
+import csv
 
 app = Flask(__name__)
 
@@ -14,14 +16,15 @@ def home():
 
 @app.route("/dashboard")
 def dashboard():
-
-    gravita = request.args.get("gravita", "")
-    stato = request.args.get("stato", "")
+    gravita = request.args.get("gravita")
+    stato = request.args.get("stato")
     ordine = request.args.get("ordine", "recenti")
+    testo = request.args.get("testo", "").strip()
 
-    eventi = visualizzaEventi(gravita, stato, ordine)
+    eventi = visualizzaEventi(gravita, stato, ordine, testo)
+    statistiche = statisticheEventi()
 
-    return render_template("eventi.html", eventi=eventi, gravita=gravita, stato=stato, ordine=ordine)
+    return render_template("eventi.html", eventi=eventi, gravita=gravita, stato=stato, ordine=ordine, testo_ricerca=testo, statistiche=statistiche)
 
 @app.route("/eventi/<int:id_evento>")
 def dettagliEvento(id_evento):
@@ -52,7 +55,7 @@ def nuovoEvento():
             evento = EventoSicurezza(None, id_categoria, indirizzo_ip, descrizione, gravita)
             inserisciEvento(evento)
 
-            return redirect(url_for("home"))
+            return redirect(url_for("dashboard"))
 
         except (ValueError, TypeError, mysql.connector.Error) as e:
             errore = str(e)
@@ -66,7 +69,7 @@ def ricercaEvento():
     id_evento = request.args.get("id_evento", type=int)
 
     if id_evento is None or id_evento <= 0:
-        return redirect(url_for("home"))
+        return redirect(url_for("dashboard"))
 
     evento = cercaEvento(id_evento)
 
@@ -74,6 +77,7 @@ def ricercaEvento():
         abort(404)
 
     return redirect(url_for("dettagliEvento", id_evento=id_evento))
+
 
 @app.route("/eventi/<int:id_evento>/modifica", methods=["GET", "POST"])
 def modificaEventoPagina(id_evento):
@@ -117,12 +121,43 @@ def eliminaEventoPagina(id_evento):
 
     eliminaEvento(id_evento)
 
-    return redirect(url_for("home"))
+    return redirect(url_for("dashboard"))
 
 @app.route("/info")
 def info():
     return render_template("info.html")
 
+@app.route("/eventi/esporta")
+def esportaEventi():
+    gravita = request.args.get("gravita")
+    stato = request.args.get("stato")
+    ordine = request.args.get("ordine", "recenti")
+    testo = request.args.get("testo", "").strip()
+
+    eventi = visualizzaEventi(gravita, stato, ordine, testo)
+
+    percorso = os.path.join(app.instance_path, "eventi_sicurezza.csv")
+    os.makedirs(app.instance_path, exist_ok=True)
+
+    with open(percorso, "w", newline="", encoding="utf-8-sig") as file:
+        writer = csv.writer(file, delimiter=";")
+
+        writer.writerow(["ID", "Categoria", "Indirizzo IP", "Descrizione", "Gravità", "Stato", "Data evento"])
+
+        for evento in eventi:
+            writer.writerow([
+                evento["id_evento"],
+                evento["categoria"],
+                evento["indirizzo_ip"],
+                evento["descrizione"],
+                evento["gravita"],
+                evento["stato"],
+                evento["data_evento"]
+            ])
+
+    return send_file(percorso, as_attachment=True, download_name="eventi_sicurezza.csv")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
+

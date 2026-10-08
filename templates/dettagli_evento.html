@@ -12,34 +12,90 @@
 
 <body>
 
-    <main class="container py-5">
+    <main class="container d-flex justify-content-center py-5">
 
-        <h1>Dettagli evento #{{ evento.id_evento }}</h1>
+        <div class="card dettagli-card shadow-sm">
 
-        <div class="mt-4">
-            <p><strong>Categoria:</strong> {{ evento.categoria }}</p>
-            <p><strong>Indirizzo IP:</strong> {{ evento.indirizzo_ip }}</p>
-            <p><strong>Descrizione:</strong> {{ evento.descrizione }}</p>
-            <p><strong>Gravità:</strong> {{ evento.gravita }}</p>
-            <p><strong>Stato:</strong> {{ evento.stato }}</p>
-            <p><strong>Data evento:</strong> {{ evento.data_evento }}</p>
+            <div class="card-body p-4 p-md-5">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <small class="text-secondary">EVENTO DI SICUREZZA</small>
+                        <h2 class="mt-2 mb-0">Dettagli evento ID: {{ evento.id_evento }}</h2>
+                    </div>
+
+                    <span class="badge bg-danger">{{ evento.gravita }}</span>
+                </div>
+
+                <hr>
+
+                <div class="row g-4 my-2">
+
+                    <div class="col-md-6">
+                        <small class="text-secondary">Categoria</small>
+                        <p class="fw-semibold">{{ evento.categoria }}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <small class="text-secondary">Indirizzo IP</small>
+                        <p class="fw-semibold">{{ evento.indirizzo_ip }}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <small class="text-secondary">Gravità</small>
+                        <p class="fw-semibold">{{ evento.gravita }}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <small class="text-secondary">Stato</small>
+                        <p class="fw-semibold">{{ evento.stato }}</p>
+                    </div>
+
+                    <div class="col-12">
+                        <small class="text-secondary">Data e ora</small>
+                        <p class="fw-semibold">{{ evento.data_evento }}</p>
+                    </div>
+
+                </div>
+
+                <div class="mb-4">
+                    <small class="text-secondary">Descrizione</small>
+                    <div class="bg-light rounded p-3 mt-2">
+                        {{ evento.descrizione }}
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="d-flex flex-wrap gap-2 mt-4">
+
+                    <a href="{{ url_for('modificaEventoPagina', id_evento=evento.id_evento) }}"
+                    class="btn btn-warning">
+                        <i class="bi bi-pencil-square"></i> Modifica evento
+                    </a>
+
+                    <form action="{{ url_for('eliminaEventoPagina', id_evento=evento.id_evento) }}"
+                        method="POST"
+                        onsubmit="return confirm('Sei sicuro di voler eliminare questo evento?');">
+
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Elimina evento
+                        </button>
+
+                    </form>
+
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-applicaFiltri">
+                        <i class="bi bi-arrow-left"></i> Torna alla dashboard
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <a href="{{ url_for('modificaEventoPagina', id_evento=evento.id_evento) }}" class="btn btn-warning">
-            Modifica evento
-        </a>
-
-        <form action="{{ url_for('eliminaEventoPagina', id_evento=evento.id_evento) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo evento?');" class="d-inline">
-
-            <button type="submit" class="btn btn-danger">Elimina evento</button>
-
-        </form>
-
-        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">
-            Torna alla dashboard
-        </a>
-
     </main>
+        {% include 'footer.html' %}
 
 </body>
 </html>

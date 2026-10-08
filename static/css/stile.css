@@ -71,6 +71,61 @@ thead th {
     color: white;
 }
 
+.btn-applicaFiltri {
+    background-color: #004aad;
+    color: white;
+    border: none;
+}
+
+.btn-applicaFiltri:hover {
+    background-color: #003580;
+    color: white;
+}
+
+.home-icon {
+    font-size: 35px;
+    color: #004AAD;
+}
+
+.home-report-icon {
+    font-size: 45px;
+    color: #004AAD;
+}
+
+.footer-csm {
+    background-color: #212529;
+    color: #adb5bd;
+    font-size: 13px;
+}
+
+.footer-csm strong {
+    color: white;
+}
+
+/* PAGINA DETTAGLI EVENTO */
+
+.dettagli-card {
+    width: 100%;
+    max-width: 850px;
+    border: 1px solid #dee2e6;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.dettagli-card h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.dettagli-card p {
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.dettagli-card .badge {
+    font-size: 13px;
+    padding: 10px 14px;
+}
 
 @media (max-width: 576px) {
     .codice-errore {
