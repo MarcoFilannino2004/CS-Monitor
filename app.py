@@ -9,6 +9,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
+    return render_template("home.html")
+
+
+@app.route("/dashboard")
+def dashboard():
 
     gravita = request.args.get("gravita", "")
     stato = request.args.get("stato", "")
@@ -113,6 +118,11 @@ def eliminaEventoPagina(id_evento):
     eliminaEvento(id_evento)
 
     return redirect(url_for("home"))
+
+@app.route("/info")
+def info():
+    return render_template("info.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
