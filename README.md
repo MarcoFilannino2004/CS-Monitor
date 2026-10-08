@@ -1,85 +1,74 @@
-## CYBERSEC MONITOR
- 
-# Descrizione
+# CyberSec Monitor
 
-CyberSec Monitor è un'applicazione web sviluppata principalmente in Python con Flask, progettata per la gestione e l'analisi di eventi di sicurezza informatica.
+**Progetto finale del corso di sviluppo Python**  
+**Autore:** Marco Filannino  
 
-Il progetto nasce come elaborato finale di un corso di sviluppo Python e ha l'obiettivo di integrare le principali competenze acquisite durante il percorso formativo.
 
-L'applicazione permetterà di registrare, visualizzare, modificare ed eliminare eventi di sicurezza attraverso un'interfaccia web, memorizzando le informazioni in un database MySQL.
+## Descrizione
 
-Sono inoltre previste funzionalità di ricerca, analisi dei log, elaborazione statistica ed esportazione dei dati.
+CyberSec Monitor è un'applicazione web per la gestione di eventi di sicurezza informatica, ispirata alle attività di un Security Operations Center (SOC).
 
-# Obiettivi del progetto
-
-- Realizzare un'applicazione web completa e modulare.
-
-- Applicare i principi della programmazione orientata agli oggetti (OOP).
-
-- Implementare le operazioni CRUD.
-
-- Gestire la persistenza dei dati attraverso MySQL.
-
-- Sviluppare un'interfaccia con Flask, HTML, CSS e Bootstrap.
-
-- Utilizzare JavaScript per migliorare l'interattività.
-
-- Applicare controlli sugli input e gestione delle eccezioni.
-
-- Analizzare eventi e file di log.
-
-- Elaborare statistiche e generare report.
-
-- Documentare e versionare il progetto attraverso Git e GitHub.
+L'obiettivo è registrare, consultare, modificare ed eliminare eventi di sicurezza attraverso un'interfaccia Flask e un database MySQL. Il progetto integra programmazione orientata agli oggetti, SQL e sviluppo web.
 
 ## Tecnologie
 
-# Backend
+* **Python:** logica applicativa e classi OOP.
+* **MySQL:** memorizzazione degli eventi.
+* **mysql-connector-python:** collegamento tra Python e MySQL.
+* **python-dotenv:** gestione delle credenziali tramite file `.env`.
+* **Flask:** backend web (da sviluppare).
+* **HTML, CSS, Bootstrap e JavaScript:** interfaccia web (da sviluppare).
 
-- Python: logica applicativa e gestione dei dati.
+## Funzionalità
 
-- Flask: sviluppo web, route e gestione delle richieste HTTP.
+### Realizzate e verificate
 
-- OOP: classi, oggetti, incapsulamento ed eventuale ereditarietà.
+* \[x] Creazione del database `cybersec\_monitor`.
+* \[x] Creazione delle tabelle `categorie` ed `eventi`, collegate tramite chiave esterna.
+* \[x] Inserimento di categorie ed eventi di prova.
+* \[x] Creazione delle classi `Categoria` ed `EventoSicurezza`.
+* \[x] Getter, setter e validazione degli attributi, inclusi gli indirizzi IP.
+* \[x] Connessione Python-MySQL tramite `mysql-connector-python`.
+* \[x] Lettura dell'elenco degli eventi dal database.
+* \[x] Inserimento di un nuovo evento tramite un oggetto Python.
 
-- MySQL: database relazionale.
+### Implementate, da verificare con il test completo
 
-- SQL: interrogazioni e operazioni CRUD.
+* \[ ] Ricerca di un evento tramite ID.
+* \[ ] Modifica di un evento esistente.
+* \[ ] Eliminazione di un evento.
+* \[ ] Esecuzione del test CRUD completo.
 
-# Frontend
+### Da sviluppare
 
-- HTML5: struttura delle pagine web.
+* \[ ] Pagine Flask per visualizzare, aggiungere, modificare ed eliminare eventi.
+* \[ ] Dashboard con riepilogo degli eventi.
+* \[ ] Ricerca e filtri nell'interfaccia.
+* \[ ] Validazione dei form e gestione dei messaggi di errore.
+* \[ ] Testing finale e documentazione di utilizzo.
 
-- CSS3: personalizzazione grafica.
+**Possibili funzionalità aggiuntive:** analisi di file di log con regex, statistiche con pandas, grafici con matplotlib ed esportazione CSV.
 
-- Bootstrap 5: componenti e layout responsive.
+## Database
 
-- JavaScript: gestione degli eventi e manipolazione del DOM.
+Il database `cybersec\_monitor` contiene due tabelle:
 
-# Analisi dei dati
+* **`categorie`:** `id\_categoria`, `nome`.
+* **`eventi`:** `id\_evento`, `id\_categoria`, `indirizzo\_ip`, `descrizione`, `gravita`, `stato`, `data\_evento`.
 
-- Regex: ricerca ed estrazione di informazioni dai log.
+La relazione è **uno-a-molti**: una categoria può essere associata a più eventi, mentre ogni evento appartiene a una sola categoria.
 
-- CSV: importazione ed esportazione dei dati.
+## Organizzazione del codice
 
-- pandas: elaborazione e analisi statistica.
+* **`models/categoria.py`:** classe che rappresenta una categoria.
+* **`models/evento\_sicurezza.py`:** classe che rappresenta un evento e valida i suoi attributi.
+* **`database/connessione.py`:** funzione `creaConnessione()` per collegarsi a MySQL.
+* **`database/eventi\_repository.py`:** funzioni per eseguire le operazioni CRUD sugli eventi.
+* **File di test:** verificano classi, connessione al database e operazioni CRUD.
 
-- matplotlib: rappresentazione grafica dei dati.
+Il repository permette di riutilizzare le query SQL senza riscriverle nelle future route Flask. Le query utilizzano parametri per evitare di inserire direttamente i valori nelle istruzioni SQL.
 
-- requests: eventuale acquisizione di dati da API pubbliche.
+## Stato del progetto
 
-# Strumenti di sviluppo
+**Backend MySQL e modelli Python realizzati.** Inserimento e lettura degli eventi verificati; test completo di ricerca, modifica ed eliminazione in attesa di conferma. Interfaccia web ancora da sviluppare.
 
-- Git: controllo delle versioni.
-
-- GitHub: pubblicazione del repository.
-
-- VS Code: ambiente di sviluppo.
-
-- pip: gestione dei pacchetti Python.
-
-- venv: gestione dell'ambiente virtuale.
-
-- logging: registrazione di eventi ed errori applicativi.
-
-# Funzionalità

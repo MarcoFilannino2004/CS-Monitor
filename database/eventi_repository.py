@@ -1,0 +1,189 @@
+
+import mysql.connector
+from database.connessione import creaConnessione
+from models.evento_sicurezza import EventoSicurezza
+
+
+# CREATE
+def inserisciEvento(evento: EventoSicurezza):
+    connessione = None
+    cursore = None
+
+    try:
+        connessione = creaConnessione()
+        cursore = connessione.cursor()
+
+        query = """
+            INSERT INTO eventi (id_categoria, indirizzo_ip, descrizione, gravita, stato, data_evento)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """
+
+        valori = (evento.id_categoria, evento.indirizzo_ip, evento.descrizione, evento.gravita, evento.stato, evento.data_evento)
+
+        cursore.execute(query, valori)
+        connessione.commit()
+
+        evento.id_evento = cursore.lastrowid
+        return evento.id_evento
+
+    except mysql.connector.Error as errore:
+        if connessione is not None:
+            connessione.rollback()
+        print(f"Errore durante l'inserimento: {errore}")
+        raise
+
+    finally:
+        if cursore is not None:
+            cursore.close()
+        if connessione is not None and connessione.is_connected():
+            connessione.close()
+
+
+# READ - Tutti gli eventi
+def visualizzaEventi(gravita=None, stato=None, ordine="recenti"):
+    connessione = None
+    cursore = None
+
+    try:
+        connessione = creaConnessione()
+        cursore = connessione.cursor(dictionary=True)
+
+        query = """
+            SELECT e.id_evento, e.id_categoria, c.nome AS categoria,
+                   e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento
+            FROM eventi e
+            JOIN categorie c ON e.id_categoria = c.id_categoria
+            WHERE 1=1
+        """
+
+        valori = []
+
+        if gravita:
+            query += " AND e.gravita = %s"
+            valori.append(gravita)
+
+        if stato:
+            query += " AND e.stato = %s"
+            valori.append(stato)
+
+        if ordine == "vecchi":
+            query += " ORDER BY e.data_evento ASC, e.id_evento ASC"
+        else:
+            query += " ORDER BY e.data_evento DESC, e.id_evento DESC"
+
+        cursore.execute(query, tuple(valori))
+        return cursore.fetchall()
+
+    except mysql.connector.Error as errore:
+        print(f"Errore durante la lettura: {errore}")
+        raise
+
+    finally:
+        if cursore is not None:
+            cursore.close()
+        if connessione is not None and connessione.is_connected():
+            connessione.close()
+
+
+# READ - Singolo evento
+def cercaEvento(id_evento: int):
+    connessione = None
+    cursore = None
+
+    try:
+        connessione = creaConnessione()
+        cursore = connessione.cursor(dictionary=True)
+
+        query = """
+            SELECT e.id_evento, e.id_categoria, c.nome AS categoria,
+                   e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento
+            FROM eventi e
+            JOIN categorie c ON e.id_categoria = c.id_categoria
+            WHERE e.id_evento = %s
+        """
+
+        cursore.execute(query, (id_evento,))
+        return cursore.fetchone()
+
+    except mysql.connector.Error as errore:
+        print(f"Errore durante la ricerca: {errore}")
+        raise
+
+    finally:
+        if cursore is not None:
+            cursore.close()
+        if connessione is not None and connessione.is_connected():
+            connessione.close()
+
+
+# UPDATE
+def modificaEvento(evento: EventoSicurezza):
+    if evento.id_evento is None:
+        raise ValueError("Impossibile modificare un evento senza ID.")
+
+    connessione = None
+    cursore = None
+
+    try:
+        connessione = creaConnessione()
+        cursore = connessione.cursor()
+
+        query = """
+            UPDATE eventi
+            SET id_categoria = %s, indirizzo_ip = %s, descrizione = %s,
+                gravita = %s, stato = %s
+            WHERE id_evento = %s
+        """
+
+        valori = (evento.id_categoria, evento.indirizzo_ip, evento.descrizione, evento.gravita, evento.stato, evento.id_evento)
+
+        cursore.execute(query, valori)
+        righe_modificate = cursore.rowcount
+        connessione.commit()
+
+        return righe_modificate > 0
+
+    except mysql.connector.Error as errore:
+        if connessione is not None:
+            connessione.rollback()
+        print(f"Errore durante la modifica: {errore}")
+        raise
+
+    finally:
+        if cursore is not None:
+            cursore.close()
+        if connessione is not None and connessione.is_connected():
+            connessione.close()
+
+
+# DELETE
+def eliminaEvento(id_evento: int):
+    if type(id_evento) is not int or id_evento <= 0:
+        raise ValueError("L'ID dell'evento deve essere un intero positivo.")
+
+    connessione = None
+    cursore = None
+
+    try:
+        connessione = creaConnessione()
+        cursore = connessione.cursor()
+
+        query = "DELETE FROM eventi WHERE id_evento = %s"
+
+        cursore.execute(query, (id_evento,))
+        righe_eliminate = cursore.rowcount
+        connessione.commit()
+
+        return righe_eliminate > 0
+
+    except mysql.connector.Error as errore:
+        if connessione is not None:
+            connessione.rollback()
+        print(f"Errore durante l'eliminazione: {errore}")
+        raise
+
+    finally:
+        if cursore is not None:
+            cursore.close()
+        if connessione is not None and connessione.is_connected():
+            connessione.close()

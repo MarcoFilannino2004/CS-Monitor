@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuovo evento - CyberSec Monitor</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stile.css') }}">
+</head>
+
+<body>
+
+    <main class="container py-5">
+
+        <h1 class="mb-4">Registra nuovo evento</h1>
+
+        {% if errore %}
+            <div class="alert alert-danger">{{ errore }}</div>
+        {% endif %}
+
+        <form action="{{ url_for('nuovoEvento') }}" method="POST">
+
+            <div class="mb-3">
+                <label for="id_categoria" class="form-label">Categoria dell'evento</label>
+
+                <select class="form-select" id="id_categoria" name="id_categoria" required>
+                    <option value="" selected disabled>Seleziona una categoria</option>
+
+                    {% for categoria in categorie %}
+                        <option value="{{ categoria.id_categoria }}">{{ categoria.nome }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="indirizzo_ip" class="form-label">Indirizzo IP</label>
+                <input type="text" class="form-control" id="indirizzo_ip" name="indirizzo_ip" placeholder="192.168.1.10" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="descrizione" class="form-label">Descrizione</label>
+                <textarea class="form-control" id="descrizione" name="descrizione" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="gravita" class="form-label">Gravità</label>
+                <select class="form-select" id="gravita" name="gravita" required>
+                    <option value="" selected disabled>Seleziona la gravità</option>
+                    <option value="Bassa">Bassa</option>
+                    <option value="Media">Media</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Critica">Critica</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registra evento</button>
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Annulla</a>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+    background-color: #f4f6f9;
+    font-family: Arial, sans-serif;
+}
+
+header h1 {
+    color: #004aad;
+    font-weight: bold;
+}
+
+h2 {
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead th {
+    background-color: #004aad !important;
+    color: white !important;
+}
+
+/* PAGINA ERRORE 404 */
+
+.pagina-errore {
+    background-color: #f4f6f9;
+}
+
+.codice-errore {
+    font-size: 150px;
+    font-weight: 800;
+    color: #004aad;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.pagina-errore h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.pagina-errore p {
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+.pagina-errore .btn-primary {
+    background-color: #004aad;
+    border-color: #004aad;
+    padding: 12px 25px;
+    border-radius: 8px;
+}
+
+.pagina-errore .btn-primary:hover {
+    background-color: #003580;
+    border-color: #003580;
+}
+
+.btn-azioni {
+    background-color: #004aad;
+    color: white;
+    border: none;
+}
+
+.btn-azioni:hover {
+    background-color: #003080;
+    color: white;
+}
+
+
+@media (max-width: 576px) {
+    .codice-errore {
+        font-size: 100px;
+    }
+}
