@@ -27,32 +27,31 @@
                 <label for="id_categoria" class="form-label">Categoria dell'evento</label>
 
                 <select class="form-select" id="id_categoria" name="id_categoria" required>
-                    <option value="" selected disabled>Seleziona una categoria</option>
+                    <option value="" {% if not dati.get('id_categoria') %}selected{% endif %} disabled>Seleziona una categoria</option>
 
                     {% for categoria in categorie %}
-                        <option value="{{ categoria.id_categoria }}">{{ categoria.nome }}</option>
+                        <option value="{{ categoria.id_categoria }}" {% if dati.get('id_categoria') == categoria.id_categoria|string %}selected{% endif %}>{{ categoria.nome }}</option>
                     {% endfor %}
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="indirizzo_ip" class="form-label">Indirizzo IP</label>
-                <input type="text" class="form-control" id="indirizzo_ip" name="indirizzo_ip" placeholder="192.168.1.10" required>
+                <input type="text" class="form-control" id="indirizzo_ip" name="indirizzo_ip" placeholder="192.168.1.10" value="{{ dati.get('indirizzo_ip', '') }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="descrizione" class="form-label">Descrizione</label>
-                <textarea class="form-control" id="descrizione" name="descrizione" rows="4" required></textarea>
+                <textarea class="form-control" id="descrizione" name="descrizione" rows="4" required>{{ dati.get('descrizione', '') }}</textarea>
             </div>
 
             <div class="mb-3">
                 <label for="gravita" class="form-label">Gravità</label>
                 <select class="form-select" id="gravita" name="gravita" required>
-                    <option value="" selected disabled>Seleziona la gravità</option>
-                    <option value="Bassa">Bassa</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Critica">Critica</option>
+                    <option value="" {% if not dati.get('gravita') %}selected{% endif %} disabled>Seleziona la gravità</option>
+                    {% for gravita in ['Bassa', 'Media', 'Alta', 'Critica'] %}
+                    <option value="{{ gravita }}" {% if dati.get('gravita') == gravita %}selected{% endif %}>{{ gravita }}</option>
+                    {% endfor %}
                 </select>
             </div>
 

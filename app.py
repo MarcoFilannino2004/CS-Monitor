@@ -6,6 +6,7 @@ import mysql.connector
 import os
 import csv
 import secrets
+from io import BytesIO, StringIO
 from datetime import datetime
 from itsdangerous import URLSafeTimedSerializer, BadSignature
 from database.eventi_repository import inserisciEventi
@@ -14,6 +15,12 @@ from services.log_importer import analizzaLog, MAX_BYTES
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY") or secrets.token_hex(32)
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
+
+
+@app.errorhandler(mysql.connector.Error)
+def erroreDatabase(errore):
+    app.logger.error("Operazione sul database non riuscita.")
+    return render_template("errore_database.html"), 503
 
 
 @app.errorhandler(413)
@@ -124,11 +131,13 @@ def nuovoEvento():
 
             return redirect(url_for("dashboard"))
 
-        except (ValueError, TypeError, mysql.connector.Error) as e:
+        except (ValueError, TypeError) as e:
             errore = str(e)
+        except mysql.connector.Error:
+            errore = "Impossibile salvare l'evento. Riprova tra poco."
 
     categorie = visualizzaCategorie()
-    return render_template("nuovo_evento.html", errore=errore, categorie=categorie)
+    return render_template("nuovo_evento.html", errore=errore, categorie=categorie, dati=request.form)
 
 @app.route("/eventi/cerca", methods=["GET"])
 def ricercaEvento():
@@ -173,10 +182,13 @@ def modificaEventoPagina(id_evento):
 
             return redirect(url_for("dettagliEvento", id_evento=id_evento))
 
-        except (ValueError, TypeError, mysql.connector.Error) as e:
+        except (ValueError, TypeError) as e:
             errore = str(e)
+        except mysql.connector.Error:
+            errore = "Impossibile salvare le modifiche. Riprova tra poco."
 
-    return render_template("modifica_evento.html", evento=evento, categorie=categorie, errore=errore)
+    dati = request.form if request.method == "POST" else evento
+    return render_template("modifica_evento.html", evento=evento, categorie=categorie, errore=errore, dati=dati)
 
 @app.route("/eventi/<int:id_evento>/elimina", methods=["POST"])
 def eliminaEventoPagina(id_evento):
@@ -203,26 +215,17 @@ def esportaEventi():
 
     eventi = visualizzaEventi(gravita, stato, ordine, testo)
 
-    percorso = os.path.join(app.instance_path, "eventi_sicurezza.csv")
-    os.makedirs(app.instance_path, exist_ok=True)
-
-    with open(percorso, "w", newline="", encoding="utf-8-sig") as file:
-        writer = csv.writer(file, delimiter=";")
-
-        writer.writerow(["ID", "Categoria", "Indirizzo IP", "Descrizione", "Gravità", "Stato", "Data evento"])
-
-        for evento in eventi:
-            writer.writerow([
-                evento["id_evento"],
-                evento["categoria"],
-                evento["indirizzo_ip"],
-                evento["descrizione"],
-                evento["gravita"],
-                evento["stato"],
-                evento["data_evento"]
-            ])
-
-    return send_file(percorso, as_attachment=True, download_name="eventi_sicurezza.csv")
+    file = StringIO(newline="")
+    writer = csv.writer(file, delimiter=";")
+    writer.writerow(["ID", "Categoria", "Indirizzo IP", "Descrizione", "Gravità", "Stato", "Data evento"])
+    for evento in eventi:
+        writer.writerow([
+            evento["id_evento"], evento["categoria"], evento["indirizzo_ip"],
+            evento["descrizione"], evento["gravita"], evento["stato"], evento["data_evento"],
+        ])
+    contenuto = BytesIO(file.getvalue().encode("utf-8-sig"))
+    return send_file(contenuto, mimetype="text/csv", as_attachment=True,
+                     download_name="eventi_sicurezza.csv")
 
 
 if __name__ == "__main__":

@@ -26,7 +26,7 @@
                 <label for="id_categoria" class="form-label">Categoria</label>
                 <select class="form-select" id="id_categoria" name="id_categoria" required>
                     {% for categoria in categorie %}
-                        <option value="{{ categoria.id_categoria }}" {% if categoria.id_categoria == evento.id_categoria %}selected{% endif %}>
+                        <option value="{{ categoria.id_categoria }}" {% if categoria.id_categoria|string == dati.get('id_categoria', '')|string %}selected{% endif %}>
                             {{ categoria.nome }}
                         </option>
                     {% endfor %}
@@ -35,19 +35,19 @@
 
             <div class="mb-3">
                 <label for="indirizzo_ip" class="form-label">Indirizzo IP</label>
-                <input type="text" class="form-control" id="indirizzo_ip" name="indirizzo_ip" value="{{ evento.indirizzo_ip }}" required>
+                <input type="text" class="form-control" id="indirizzo_ip" name="indirizzo_ip" value="{{ dati.get('indirizzo_ip', '') }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="descrizione" class="form-label">Descrizione</label>
-                <textarea class="form-control" id="descrizione" name="descrizione" rows="4" required>{{ evento.descrizione }}</textarea>
+                <textarea class="form-control" id="descrizione" name="descrizione" rows="4" required>{{ dati.get('descrizione', '') }}</textarea>
             </div>
 
             <div class="mb-3">
                 <label for="gravita" class="form-label">Gravità</label>
                 <select class="form-select" id="gravita" name="gravita" required>
                     {% for gravita in ["Bassa", "Media", "Alta", "Critica"] %}
-                        <option value="{{ gravita }}" {% if gravita == evento.gravita %}selected{% endif %}>{{ gravita }}</option>
+                        <option value="{{ gravita }}" {% if gravita == dati.get('gravita') %}selected{% endif %}>{{ gravita }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -56,7 +56,7 @@
                 <label for="stato" class="form-label">Stato</label>
                 <select class="form-select" id="stato" name="stato" required>
                     {% for stato in ["Nuovo", "In analisi", "Risolto"] %}
-                        <option value="{{ stato }}" {% if stato == evento.stato %}selected{% endif %}>{{ stato }}</option>
+                        <option value="{{ stato }}" {% if stato == dati.get('stato') %}selected{% endif %}>{{ stato }}</option>
                     {% endfor %}
                 </select>
             </div>

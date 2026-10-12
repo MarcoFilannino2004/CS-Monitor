@@ -1,8 +1,15 @@
 ﻿ID;Categoria;Indirizzo IP;Descrizione;Gravità;Stato;Data evento
+23;Login fallito;192.16.27.1;boh;Media;Nuovo;2026-10-12 10:09:38
+22;Malware rilevato;192.168.1.30;Rilevato malware sul dispositivo;Critica;Nuovo;2026-10-12 09:21:00
+24;Accesso non autorizzato;192.168.1.25;Accesso registrato;Bassa;Nuovo;2026-10-12 09:20:00
+21;Accesso non autorizzato;2001:db8::1;Accesso registrato;Bassa;Nuovo;2026-10-12 09:20:00
+20;Traffico sospetto;192.168.1.20;Connessione bloccata dal firewall;Alta;Nuovo;2026-10-12 09:17:05
+19;Login fallito;192.168.1.10;Login fallito per utente admin;Media;Nuovo;2026-10-12 09:15:32
+14;Login fallito;192.2.12.12;wvc;Media;In analisi;2026-10-08 19:30:33
+13;Login fallito;192.2.12.12;fw;Bassa;Nuovo;2026-10-08 19:29:34
+12;Login fallito;192.2.12.12;benjamin netanyhao;Critica;Nuovo;2026-10-08 19:27:43
 11;Port scanning;192.26.2.12;qdf;Critica;Nuovo;2026-10-08 16:44:06
 10;Login fallito;192.168.1.10;qwertyuiop;Media;In analisi;2026-10-08 15:38:23
-6;Login fallito;192.168.1.100;Tentativo di autenticazione sospetto;Alta;Nuovo;2026-10-08 12:25:03
 5;Malware rilevato;192.168.1.50;File potenzialmente dannoso rilevato;Critica;Nuovo;2026-10-08 11:36:38
-3;Accesso non autorizzato;192.168.1.20;Accesso a una risorsa non autorizzata;Alta;Risolto;2026-10-08 11:36:38
 2;Port scanning;10.0.0.24;Scansione di porte TCP;Critica;In analisi;2026-10-08 11:36:38
 1;Malware rilevato;192.168.1.15;Tentativi di autenticazione falliti;Alta;Nuovo;2026-10-08 11:36:38

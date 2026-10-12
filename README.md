@@ -169,11 +169,13 @@ Gli stati descrivono l'avanzamento del lavoro; il programma non impone un ordine
 
 ### Cerca ed esporta gli eventi
 
-Nella dashboard puoi combinare ricerca, gravità, stato e ordinamento. Una ricerca composta soltanto da cifre viene interpretata come ID esatto; gli altri testi vengono cercati nell'IP e nella descrizione.
+Nella dashboard puoi combinare ricerca, gravità, stato e ordinamento. Una ricerca composta soltanto dalle cifre 0–9 viene interpretata come ID esatto; gli altri testi vengono cercati nell'IP e nella descrizione.
 
 Le statistiche in alto riguardano **tutti gli eventi del database**, anche quando la tabella è filtrata.
 
 **Esporta CSV** scarica gli eventi della selezione corrente. Il file usa il punto e virgola come separatore e la codifica UTF-8 con BOM, utile per visualizzare le lettere accentate nei programmi di foglio di calcolo.
+
+Ogni esportazione viene generata in memoria per la singola richiesta, senza sovrascrivere un file condiviso. In caso di errore nei moduli di inserimento e modifica, i valori digitati vengono conservati. Se il database non è disponibile, l'app mostra un messaggio comprensibile.
 
 ## Importazione dei log
 
@@ -242,11 +244,12 @@ CyberSec Monitor/
 │   ├── css/stile.css             # Stile dell'interfaccia
 │   └── img/                     # Logo e foto profilo
 ├── esempi/eventi.log             # File per provare l'importazione
-├── instance/                    # File CSV generato dall'esportazione
+├── instance/                    # Eventuali file locali dell'applicazione
 ├── test_modelli.py              # Esempi di controllo dei modelli
 ├── test_database.py             # Verifica della connessione e della lettura
 ├── test_repository.py           # Verifica CRUD sul database reale
-└── test_importazione_log.py      # Test con database simulato
+├── test_importazione_log.py      # Test dell'importazione con database simulato
+└── test_correzioni.py            # Test su moduli, ricerca, errori e CSV
 ```
 
 Le operazioni **CRUD** sono le quattro azioni fondamentali sui dati: **Create** (creare), **Read** (leggere), **Update** (modificare) e **Delete** (eliminare).
@@ -307,6 +310,12 @@ python -m unittest test_importazione_log -v
 La suite comprende **12 test** su analisi delle righe, livelli, date, IPv6, limiti dei file, categorie per evento, selezioni, anteprime non valide o scadute e gestione degli errori di salvataggio.
 
 Questi test usano un database simulato e **non scrivono nel MySQL reale**. Il loro superamento non sostituisce una verifica dell'applicazione collegata al database.
+
+Per eseguire anche gli 8 test sulle correzioni funzionali (20 test complessivi):
+
+```powershell
+python -m unittest test_importazione_log test_correzioni -v
+```
 
 ### Controlli sul database reale
 

@@ -85,9 +85,13 @@ def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None):
         valori = []
 
         if testo:
-            if testo.isdigit():
-                query += " AND e.id_evento = %s"
-                valori.append(int(testo))
+            if testo.isascii() and testo.isdecimal():
+                cifre = testo.lstrip("0") or "0"
+                if len(cifre) <= 20 and int(cifre) <= 18446744073709551615:
+                    query += " AND e.id_evento = %s"
+                    valori.append(int(cifre))
+                else:
+                    query += " AND 1=0"
             else:
                 query += " AND (e.indirizzo_ip LIKE %s OR e.descrizione LIKE %s)"
                 valori.extend([f"%{testo}%", f"%{testo}%"])
