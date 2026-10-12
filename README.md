@@ -49,7 +49,35 @@ L'obiettivo è registrare, consultare, modificare ed eliminare eventi di sicurez
 
 **Possibili funzionalità aggiuntive:** analisi di file di log con regex, statistiche con pandas, grafici con matplotlib ed esportazione CSV.
 
-## Database
+## Importazione dei log
+
+Dal menu **Importa log** puoi caricare un file `.log` o `.txt` in UTF-8
+(massimo 256 KB e 1000 righe), usando questo formato:
+
+```text
+2026-10-12 09:15:32 | 192.168.1.10 | WARNING | Login fallito per utente admin
+2026-10-12 09:17:05 | 192.168.1.20 | ERROR | Connessione bloccata dal firewall
+```
+
+Il file `esempi/eventi.log` contiene quattro eventi pronti da provare.
+I livelli INFO, WARNING, ERROR e CRITICAL corrispondono rispettivamente a
+Bassa, Media, Alta e Critica. Sono supportati indirizzi IPv4 e IPv6.
+
+Dopo l'analisi, la pagina mostra gli eventi validi e gli errori con il numero
+di riga. Seleziona gli eventi desiderati, scegli una categoria per ogni evento e premi
+**Importa eventi selezionati**. L'analisi non salva nulla nel database.
+L'importazione conserva la data del log, assegna lo stato **Nuovo** e salva
+tutti gli eventi selezionati in una singola transazione.
+
+L'anteprima è firmata e scade dopo 30 minuti. Per conservarne la validità
+tra riavvii o più processi dell'app, configura una `SECRET_KEY` stabile nel `.env`.
+Questa versione non elimina i duplicati: importare nuovamente lo stesso file
+crea altri eventi.
+
+Test senza scrivere nel database, usando l'ambiente del progetto:
+`.\.venv\Scripts\python.exe -m unittest test_importazione_log -v`.
+
+## Struttura del database
 
 Il database `cybersec\_monitor` contiene due tabelle:
 

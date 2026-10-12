@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 .env
 *.log
+!esempi/eventi.log
 .pytest_cache/

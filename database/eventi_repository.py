@@ -39,6 +39,32 @@ def inserisciEvento(evento: EventoSicurezza):
             connessione.close()
 
 
+def inserisciEventi(eventi):
+    """Salva l'intera importazione in una transazione."""
+    connessione = None
+    cursore = None
+    try:
+        connessione = creaConnessione()
+        cursore = connessione.cursor()
+        cursore.executemany(
+            """INSERT INTO eventi
+               (id_categoria, indirizzo_ip, descrizione, gravita, stato, data_evento)
+               VALUES (%s, %s, %s, %s, %s, %s)""",
+            [(e.id_categoria, e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento)
+             for e in eventi],
+        )
+        connessione.commit()
+    except mysql.connector.Error:
+        if connessione is not None:
+            connessione.rollback()
+        raise
+    finally:
+        if cursore is not None:
+            cursore.close()
+        if connessione is not None and connessione.is_connected():
+            connessione.close()
+
+
 # READ - Tutti gli eventi
 def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None):
     connessione = None

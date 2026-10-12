@@ -1,0 +1,4 @@
+2026-10-12 09:15:32 | 192.168.1.10 | WARNING | Login fallito per utente admin
+2026-10-12 09:17:05 | 192.168.1.20 | ERROR | Connessione bloccata dal firewall
+2026-10-12 09:20:00 | 192.168.1.25 | INFO | Accesso registrato
+2026-10-12 09:21:00 | 192.168.1.30 | CRITICAL | Rilevato malware sul dispositivo

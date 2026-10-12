@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importa log - CyberSec Monitor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stile.css') }}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    {% include 'navbar.html' %}
+    <main class="container py-5 flex-grow-1">
+        <h1>Importa log</h1>
+        <p>Carica un file, controlla l'anteprima e scegli quali eventi salvare.</p>
+        {% if errore %}<div class="alert alert-danger" role="alert">{{ errore }}</div>{% endif %}
+        {% if messaggio %}
+        <div class="alert alert-success" role="status">{{ messaggio }} <a href="{{ url_for('dashboard') }}">Vai alla dashboard</a></div>
+        {% endif %}
+        <div class="card mb-4"><div class="card-body">
+            <h2 class="h5">Formato del file</h2>
+            <pre class="text-wrap">2026-10-12 09:15:32 | 192.168.1.10 | WARNING | Login fallito per utente admin</pre>
+            <p>Livelli: INFO → Bassa, WARNING → Media, ERROR → Alta, CRITICAL → Critica.</p>
+            <p>File .log o .txt in UTF-8, massimo 256 KB e 1000 righe. Le righe vuote vengono ignorate.</p>
+            <form method="POST" enctype="multipart/form-data" action="{{ url_for('importaLog') }}">
+                <label for="file_log" class="form-label">File di log</label>
+                <input class="form-control mb-3" type="file" id="file_log" name="file_log" accept=".log,.txt" required>
+                <button class="btn btn-applicaFiltri" type="submit">Analizza file</button>
+            </form>
+        </div></div>
+        {% if errori %}
+        <div class="alert alert-warning">
+            <h2 class="h5">Righe non importabili ({{ errori|length }})</h2>
+            <ul class="mb-0">{% for problema in errori %}<li>Riga {{ problema.riga }}: {{ problema.messaggio }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+        {% if eventi and token %}
+        <h2 class="h4">Anteprima: {{ eventi|length }} eventi validi</h2>
+        <p>Scegli una categoria per ogni evento da importare.</p>
+        <form method="POST" action="{{ url_for('importaLog') }}">
+            <input type="hidden" name="azione" value="conferma">
+            <input type="hidden" name="anteprima" value="{{ token }}">
+            {% if not categorie %}<p class="text-danger">Nessuna categoria disponibile nel database.</p>{% endif %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead><tr><th>Importa</th><th>Riga</th><th>Data</th><th>IP</th><th>Gravità</th><th>Descrizione</th><th>Categoria</th></tr></thead>
+                    <tbody>{% for evento in eventi %}
+                        <tr>
+                            {% set selezionato = request.method != 'POST' or request.form.get('azione') != 'conferma' or evento.riga|string in request.form.getlist('selezionati') %}
+                            <td><input class="form-check-input selezione-evento" type="checkbox" name="selezionati" value="{{ evento.riga }}" aria-label="Importa riga {{ evento.riga }}" {% if selezionato %}checked{% endif %}></td>
+                            <td>{{ evento.riga }}</td><td>{{ evento.data_evento }}</td><td>{{ evento.indirizzo_ip }}</td><td>{{ evento.gravita }}</td><td>{{ evento.descrizione }}</td>
+                            <td>
+                                <select class="form-select" name="categoria_{{ evento.riga }}" aria-label="Categoria della riga {{ evento.riga }}" {% if selezionato %}required{% else %}disabled{% endif %}>
+                                    <option value="">Seleziona una categoria</option>
+                                    {% for categoria in categorie %}
+                                    <option value="{{ categoria.id_categoria }}" {% if request.form.get('categoria_' ~ evento.riga) == categoria.id_categoria|string %}selected{% endif %}>{{ categoria.nome }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                    {% endfor %}</tbody>
+                </table>
+            </div>
+            <button class="btn btn-success" type="submit" {% if not categorie %}disabled{% endif %}>Importa eventi selezionati</button>
+            <a class="btn btn-secondary" href="{{ url_for('importaLog') }}">Annulla anteprima</a>
+        </form>
+        {% endif %}
+    </main>
+    {% include 'footer.html' %}
+    <script>
+        document.querySelectorAll('.selezione-evento').forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const categoria = checkbox.closest('tr').querySelector('select');
+                categoria.disabled = !checkbox.checked;
+                categoria.required = checkbox.checked;
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
