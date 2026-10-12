@@ -19,7 +19,6 @@ Il progetto nasce come lavoro finale del corso di sviluppo Python ed è ispirato
 - [Struttura del progetto](#struttura-del-progetto)
 - [Database](#database)
 - [Test e verifiche](#test-e-verifiche)
-- [Come presentare il progetto](#come-presentare-il-progetto)
 - [Limiti e sviluppi futuri](#limiti-e-sviluppi-futuri)
 - [Contatti](#contatti)
 
