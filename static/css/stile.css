@@ -102,7 +102,6 @@ thead th {
     color: white;
 }
 
-/* PAGINA DETTAGLI EVENTO */
 
 .dettagli-card {
     width: 100%;
@@ -174,7 +173,6 @@ thead th {
     text-overflow: ellipsis;
 }
 
-/* PAGINA INFO E CONTATTI */
 
 .info-introduzione {
     max-width: 700px;
