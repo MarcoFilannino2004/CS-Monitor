@@ -78,8 +78,7 @@ def importaLog():
     importati = request.args.get("importati", type=int)
     if request.method == "GET" and importati and importati > 0:
         messaggio = f"Importazione completata: {importati} eventi salvati con stato Nuovo."
-    return render_template("importa_log.html", eventi=eventi, errori=errori,
-                           categorie=categorie, errore=errore, messaggio=messaggio, token=token)
+    return render_template("importa_log.html", eventi=eventi, errori=errori,categorie=categorie, errore=errore, messaggio=messaggio, token=token)
 
 
 @app.route("/")
@@ -224,8 +223,7 @@ def esportaEventi():
             evento["descrizione"], evento["gravita"], evento["stato"], evento["data_evento"],
         ])
     contenuto = BytesIO(file.getvalue().encode("utf-8-sig"))
-    return send_file(contenuto, mimetype="text/csv", as_attachment=True,
-                     download_name="eventi_sicurezza.csv")
+    return send_file(contenuto, mimetype="text/csv", as_attachment=True,download_name="eventi_sicurezza.csv")
 
 
 if __name__ == "__main__":
