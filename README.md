@@ -338,32 +338,7 @@ python test_repository.py
 | Anteprima scaduta o non valida | Ricarica il file; usa una `SECRET_KEY` stabile per mantenere le anteprime tra riavvii. |
 | Stile o icone mancanti | Verifica la connessione ai CDN di Bootstrap e Bootstrap Icons. |
 
-## IL PROGETTO
 
-### Presentazione breve
-
-> CyberSec Monitor è un'applicazione web che ho sviluppato per organizzare gli eventi di sicurezza informatica. Permette di inserirli manualmente o importarli da un file di log, cercarli e seguirne lo stato fino alla risoluzione. Ho utilizzato Python e Flask per la logica, MySQL per i dati e HTML, CSS, Bootstrap e JavaScript per l'interfaccia. Il codice separa le pagine, i controlli sui dati e le query al database, così ogni parte ha un compito preciso.
-
-### Dimostrazione in cinque passaggi
-
-1. **Mostra la dashboard:** spiega che raccoglie gli eventi e ne riassume la situazione.
-2. **Inserisci un evento:** usa come esempio un accesso fallito e mostra il messaggio di conferma.
-3. **Segui l'analisi:** apri i dettagli e cambia lo stato da Nuovo a In analisi, poi a Risolto.
-4. **Importa il file di esempio:** mostra l'anteprima e la scelta della categoria per ciascun evento.
-5. **Filtra ed esporta:** seleziona una gravità e scarica i risultati in CSV.
-
-### Concetti da spiegare con esempi
-
-| Concetto | Spiegazione semplice |
-|---|---|
-| Programmazione a oggetti | Un evento è un oggetto con dati e controlli propri. |
-| Validazione | Un IP come `999.1.1.1` viene rifiutato prima del salvataggio. |
-| Database relazionale | Gli eventi sono collegati alle categorie attraverso il loro ID. |
-| Flask e Jinja2 | Flask recupera i dati e Jinja2 li inserisce nella pagina vista dall'utente. |
-| Repository | Le query sono raccolte in file dedicati e riutilizzabili. |
-| Espressioni regolari | Il programma riconosce la struttura delle righe del log. |
-| Transazione | L'importazione viene confermata interamente oppure annullata in caso di errore. |
-| Test con simulazione | Si controlla il codice senza modificare il database reale. |
 
 ## Limiti e sviluppi futuri
 
