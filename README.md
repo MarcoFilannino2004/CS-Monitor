@@ -1,8 +1,8 @@
-# CyberSec Monitor
+# CS Monitor
 
 **Gestione degli eventi di sicurezza informatica con Python, Flask e MySQL.**
 
-CyberSec Monitor è un'applicazione web che permette di registrare eventi di sicurezza, consultarli in una dashboard e seguirne lo stato di analisi. Gli eventi possono essere inseriti manualmente oppure importati da un file di log.
+CS Monitor è un'applicazione web che permette di registrare eventi di sicurezza, consultarli in una dashboard e seguirne lo stato di analisi. Gli eventi possono essere inseriti manualmente oppure importati da un file di log.
 
 Il progetto nasce come lavoro finale del corso di sviluppo Python ed è ispirato alle attività di un **Security Operations Center (SOC)**: un gruppo che si occupa di monitorare e gestire gli eventi di sicurezza informatica.
 
@@ -227,7 +227,7 @@ La firma permette di verificare che l'anteprima non sia stata alterata; non cifr
 ## Struttura del progetto
 
 ```text
-CyberSec Monitor/
+CS Monitor/
 ├── app.py                       # Pagine e coordinamento dell'app
 ├── requirements.txt             # Dipendenze Python
 ├── database/
