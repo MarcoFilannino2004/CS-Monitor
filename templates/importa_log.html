@@ -22,8 +22,12 @@
             <p>Livelli: INFO → Bassa, WARNING → Media, ERROR → Alta, CRITICAL → Critica.</p>
             <p>File .log o .txt in UTF-8, massimo 256 KB e 1000 righe. Le righe vuote vengono ignorate.</p>
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('importaLog') }}">
-                <label for="file_log" class="form-label">File di log</label>
-                <input class="form-control mb-3" type="file" id="file_log" name="file_log" accept=".log,.txt" required>
+
+                <div class="selettore-file mb-3">
+                    <input class="selettore-file-input" type="file" id="file_log" name="file_log" accept=".log,.txt" aria-label="Scegli file di log" aria-describedby="nome-file-log" required>
+                    <span class="selettore-file-pulsante" aria-hidden="true">Scegli file</span>
+                    <span class="selettore-file-nome" id="nome-file-log" aria-live="polite">Nessun file selezionato</span>
+                </div>
                 <button class="btn btn-applicaFiltri" type="submit">Analizza file</button>
             </form>
         </div></div>
@@ -67,6 +71,14 @@
     </main>
     {% include 'footer.html' %}
     <script>
+        const fileLog = document.getElementById('file_log');
+        const nomeFileLog = document.getElementById('nome-file-log');
+        fileLog.addEventListener('change', function () {
+            nomeFileLog.textContent = fileLog.files.length
+                ? fileLog.files[0].name
+                : 'Nessun file selezionato';
+        });
+
         document.querySelectorAll('.selezione-evento').forEach(function (checkbox) {
             checkbox.addEventListener('change', function () {
                 const categoria = checkbox.closest('tr').querySelector('select');

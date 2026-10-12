@@ -133,6 +133,47 @@ thead th {
     }
 }
 
+/* SELETTORE FILE IN ITALIANO */
+.selettore-file {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.selettore-file:focus-within {
+    border-color: #004aad;
+    box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
+}
+
+.selettore-file-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.selettore-file-pulsante {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border-right: 1px solid #dee2e6;
+    background-color: #eaf1fb;
+    color: #004aad;
+}
+
+.selettore-file-nome {
+    min-width: 0;
+    padding: 8px 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /* PAGINA INFO E CONTATTI */
 
 .info-introduzione {

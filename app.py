@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, send_file
+from flask import Flask, render_template, abort, request, redirect, url_for, send_file, flash
 from database.eventi_repository import visualizzaEventi, cercaEvento, inserisciEvento,modificaEvento, eliminaEvento, statisticheEventi
 from models.evento_sicurezza import EventoSicurezza
 from database.categorie_repository import visualizzaCategorie
@@ -120,6 +120,7 @@ def nuovoEvento():
 
             evento = EventoSicurezza(None, id_categoria, indirizzo_ip, descrizione, gravita)
             inserisciEvento(evento)
+            flash("Evento aggiunto correttamente.", "success")
 
             return redirect(url_for("dashboard"))
 

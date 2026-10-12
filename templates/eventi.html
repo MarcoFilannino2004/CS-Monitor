@@ -14,6 +14,9 @@
     {% include 'navbar.html' %}
 
     <main class="container mt-5 flex-grow-1">
+        {% for messaggio in get_flashed_messages(category_filter=['success']) %}
+            <div class="alert alert-success" role="status">{{ messaggio }}</div>
+        {% endfor %}
         <h2 class="mb-4">Statistiche eventi</h2>
         <section class="container my-3">
             
