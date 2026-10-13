@@ -6,7 +6,7 @@ from models.evento_sicurezza import EventoSicurezza
 def stampaEventi():
     print("\n========== ELENCO EVENTI ==========")
 
-    for evento in visualizzaEventi():
+    for evento in visualizzaEventi(amministratore=True):
         print(f"{evento['id_evento']} | {evento['categoria']} | {evento['indirizzo_ip']} | {evento['gravita']} | {evento['stato']}")
 
 
@@ -28,7 +28,7 @@ def testCRUD():
         # READ - Singolo evento
         print("\n========== READ ==========")
 
-        evento_trovato = cercaEvento(id_test)
+        evento_trovato = cercaEvento(id_test, amministratore=True)
         assert evento_trovato is not None, "Evento non trovato dopo l'inserimento."
 
         print(evento_trovato)
@@ -40,10 +40,10 @@ def testCRUD():
         nuovo_evento.gravita = "Alta"
         nuovo_evento.stato = "In analisi"
 
-        modificato = modificaEvento(nuovo_evento)
-        assert modificato, "La modifica non è stata eseguita."
+        modificato = modificaEvento(nuovo_evento, amministratore=True)
+        assert modificato, "La modifica non Ã¨ stata eseguita."
 
-        evento_aggiornato = cercaEvento(id_test)
+        evento_aggiornato = cercaEvento(id_test, amministratore=True)
         assert evento_aggiornato["descrizione"] == "Evento modificato durante il test CRUD"
         assert evento_aggiornato["gravita"] == "Alta"
         assert evento_aggiornato["stato"] == "In analisi"
@@ -54,10 +54,10 @@ def testCRUD():
         # DELETE
         print("\n========== DELETE ==========")
 
-        eliminato = eliminaEvento(id_test)
-        assert eliminato, "L'eliminazione non è stata eseguita."
+        eliminato = eliminaEvento(id_test, amministratore=True)
+        assert eliminato, "L'eliminazione non Ã¨ stata eseguita."
 
-        assert cercaEvento(id_test) is None, "L'evento risulta ancora presente."
+        assert cercaEvento(id_test, amministratore=True) is None, "L'evento risulta ancora presente."
 
         id_test = None
         print("Evento eliminato correttamente!")
@@ -68,8 +68,8 @@ def testCRUD():
         print("\nTUTTI I TEST CRUD SUPERATI!")
 
     finally:
-        if id_test is not None and cercaEvento(id_test) is not None:
-            eliminaEvento(id_test)
+        if id_test is not None and cercaEvento(id_test, amministratore=True) is not None:
+            eliminaEvento(id_test, amministratore=True)
             print("\nPulizia: evento temporaneo eliminato.")
 
 

@@ -1,0 +1,3 @@
+{% extends 'base_account.html' %}
+{% block titolo %}Richiesta non consentita{% endblock %}
+{% block contenuto %}<h1>Richiesta non consentita</h1><p>{{ messaggio }}</p><a class="btn btn-applicaFiltri" href="{{ url_for('home') }}">Torna alla home</a>{% endblock %}

@@ -24,6 +24,7 @@
             <p>Livelli: INFO → Bassa, WARNING → Media, ERROR → Alta, CRITICAL → Critica.</p>
             <p>File .log o .txt in UTF-8, massimo 256 KB e 1000 righe. Le righe vuote vengono ignorate.</p>
             <form method="POST" enctype="multipart/form-data" action="{{ url_for('importaLog') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
                 <div class="selettore-file mb-3">
                     <input class="selettore-file-input" type="file" id="file_log" name="file_log" accept=".log,.txt" aria-label="Scegli file di log" aria-describedby="nome-file-log" required>
@@ -43,6 +44,7 @@
         <h2 class="h4">Anteprima: {{ eventi|length }} eventi validi</h2>
         <p>Scegli una categoria per ogni evento da importare.</p>
         <form method="POST" action="{{ url_for('importaLog') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <input type="hidden" name="azione" value="conferma">
             <input type="hidden" name="anteprima" value="{{ token }}">
             {% if not categorie %}<p class="text-danger">Nessuna categoria disponibile nel database.</p>{% endif %}

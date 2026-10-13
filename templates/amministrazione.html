@@ -1,0 +1,27 @@
+{% extends 'base_account.html' %}
+{% block titolo %}Gestione account{% endblock %}
+{% block contenuto %}
+<h1>Gestione account</h1><p class="text-secondary">Crea account, assegna i ruoli e gestisci l'accesso. La disattivazione conserva eventi e importazioni.</p>
+<div class="card info-card mb-4"><div class="card-body p-4"><h2 class="h4">Account registrati</h2>
+<div class="table-responsive"><table class="table align-middle"><thead><tr><th>Utente</th><th>Attività</th><th>Ultimo accesso</th><th>Gestione accesso</th></tr></thead><tbody>
+{% for utente in utenti %}<tr><td><strong>{{ utente.username }}</strong><br><span class="text-secondary">{{ utente.email }}</span><br><span class="badge text-bg-{{ 'success' if utente.attivo else 'secondary' }}">{{ 'Attivo' if utente.attivo else 'Disattivato' }}</span></td>
+<td>{{ utente.eventi }} eventi<br>{{ utente.importazioni }} importazioni</td><td>{{ utente.ultimo_accesso or 'Mai' }}</td>
+<td><form method="POST" class="d-flex flex-wrap gap-2">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="id_utente" value="{{ utente.id_utente }}"><input type="hidden" name="azione" value="gestisci">
+<select class="form-select w-auto" name="ruolo" aria-label="Ruolo di {{ utente.username }}">{% for ruolo in ['utente', 'admin'] %}<option value="{{ ruolo }}" {% if utente.ruolo == ruolo %}selected{% endif %}>{{ 'Amministratore' if ruolo == 'admin' else 'Utente' }}</option>{% endfor %}</select>
+<select class="form-select w-auto" name="attivo" aria-label="Stato di {{ utente.username }}"><option value="1" {% if utente.attivo %}selected{% endif %}>Attivo</option><option value="0" {% if not utente.attivo %}selected{% endif %}>Disattivato</option></select>
+<button class="btn btn-azioni" type="submit">Aggiorna / sblocca</button></form>
+{% if utente.id_utente != utente_corrente.id_utente %}<details class="mt-2"><summary>Reimposta password</summary><form method="POST" class="d-flex gap-2 mt-2">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="id_utente" value="{{ utente.id_utente }}"><input type="hidden" name="azione" value="password">
+<input class="form-control" name="nuova_password" type="password" autocomplete="new-password" minlength="10" maxlength="128" aria-label="Password temporanea per {{ utente.username }}" placeholder="Password temporanea" required><button class="btn btn-applicaFiltri" type="submit">Reimposta</button>
+</form><p class="small text-secondary">Comunica la password temporanea all'utente. Dovrà cambiarla al prossimo accesso.</p></details>{% endif %}</td></tr>{% endfor %}
+</tbody></table></div><p class="small text-secondary mb-0">Ogni aggiornamento chiude le sessioni dell'account e azzera il blocco dei tentativi di accesso. Il tuo account amministratore deve rimanere attivo.</p>
+</div></div>
+<div class="card info-card"><div class="card-body p-4"><h2 class="h4">Crea un account</h2><form method="POST" class="row g-3">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="azione" value="crea">
+<div class="col-md-6"><label class="form-label" for="username">Nome utente</label><input class="form-control" id="username" name="username" minlength="3" maxlength="40" required></div>
+<div class="col-md-6"><label class="form-label" for="email">Email</label><input class="form-control" id="email" name="email" type="email" maxlength="254" required></div>
+<div class="col-md-6"><label class="form-label" for="password">Password iniziale</label><input class="form-control" id="password" name="password" type="password" autocomplete="new-password" minlength="10" maxlength="128" required></div>
+<div class="col-md-6"><label class="form-label" for="ruolo">Ruolo</label><select class="form-select" id="ruolo" name="ruolo"><option value="utente">Utente</option><option value="admin">Amministratore</option></select></div>
+<div><button class="btn btn-applicaFiltri" type="submit">Crea account</button></div>
+</form></div></div>{% endblock %}

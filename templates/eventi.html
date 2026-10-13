@@ -18,6 +18,7 @@
             <div class="alert alert-success" role="status">{{ messaggio }}</div>
         {% endfor %}
         <h2 class="mb-4">Statistiche eventi</h2>
+        <p class="text-secondary">{{ 'Vista amministratore: tutti gli eventi degli utenti.' if utente_corrente.ruolo == 'admin' else 'Il tuo spazio personale: eventi e statistiche del tuo account.' }}</p>
         <section class="container my-3">
             
             <div class="row g-2">
@@ -154,7 +155,7 @@
                 <tbody>
                     {% for evento in eventi %}
                     <tr>
-                        <td>{{ evento.id_evento }}</td>
+                        <td>{{ evento.id_evento }}{% if utente_corrente.ruolo == 'admin' and evento.autore %}<br><small class="text-secondary">{{ evento.autore }}</small>{% endif %}</td>
                         <td>{{ evento.categoria }}</td>
                         <td>{{ evento.indirizzo_ip }}</td>
                         <td>{{ evento.gravita }}</td>

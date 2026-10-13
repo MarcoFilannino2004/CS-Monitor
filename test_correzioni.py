@@ -5,6 +5,7 @@ from datetime import datetime
 from unittest.mock import patch, MagicMock
 import mysql.connector
 from app import app
+from test_support import preparaClient
 from database.eventi_repository import visualizzaEventi
 
 
@@ -12,7 +13,7 @@ class CorrezioniTests(unittest.TestCase):
     def setUp(self):
         self.config = app.config.copy()
         app.config.update(TESTING=True, SECRET_KEY="test-correzioni")
-        self.client = app.test_client()
+        self.client = preparaClient(self, app)
         self.categorie = [{"id_categoria": 1, "nome": "Accessi"}, {"id_categoria": 2, "nome": "Firewall"}]
         self.evento = dict(id_evento=1, id_categoria=1, categoria="Accessi", indirizzo_ip="192.0.2.1",
                            descrizione="Originale", gravita="Media", stato="Nuovo", data_evento=datetime(2026, 10, 12))
@@ -76,14 +77,14 @@ class CorrezioniTests(unittest.TestCase):
         crea.return_value.cursor.return_value = cursore
         for testo, atteso in [('²', ('%²%', '%²%')), ('0012', (12,)), ('9' * 5000, ()), ('0' * 5000 + '12', (12,))]:
             with self.subTest(testo=testo[:20]):
-                visualizzaEventi(testo=testo)
+                visualizzaEventi(testo=testo, amministratore=True)
                 query, valori = cursore.execute.call_args.args
                 self.assertEqual(valori, atteso)
                 if testo == '9' * 5000:
                     self.assertIn('AND 1=0', query)
 
     def test_esportazioni_indipendenti_e_filtrate(self):
-        def elenco(gravita, stato, ordine, testo):
+        def elenco(gravita, stato, ordine, testo, **ambito):
             return [dict(self.evento, descrizione=testo)]
         with patch('app.visualizzaEventi', side_effect=elenco) as leggi, patch('builtins.open', side_effect=AssertionError('Scrittura su disco non prevista')):
             prima = self.client.get('/eventi/esporta?testo=prima&gravita=Alta', buffered=False)

@@ -26,6 +26,8 @@
                 gli eventi di sicurezza informatica in modo semplice e organizzato.
             </p>
 
+            {% if not utente_corrente %}<p class="text-secondary">Crea il tuo account per conservare eventi e file di log nel tuo spazio personale.</p><a class="btn btn-applicaFiltri me-2" href="{{ url_for('account.registrazione') }}">Crea un account</a><a class="btn btn-azioni" href="{{ url_for('account.login') }}">Accedi</a>{% endif %}
+
         </section>
 
         <section class="row g-4 mb-5">

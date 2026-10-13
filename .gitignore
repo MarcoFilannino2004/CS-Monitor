@@ -5,3 +5,4 @@ __pycache__/
 *.log
 !esempi/eventi.log
 .pytest_cache/
+instance/credenziali-admin.txt

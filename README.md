@@ -2,7 +2,7 @@
 
 **Gestione degli eventi di sicurezza informatica con Python, Flask e MySQL.**
 
-CS Monitor è un'applicazione web che permette di registrare eventi di sicurezza, consultarli in una dashboard e seguirne lo stato di analisi. Gli eventi possono essere inseriti manualmente oppure importati da un file di log.
+CS Monitor è un'applicazione web che permette di registrare eventi di sicurezza, consultarli in una dashboard e seguirne lo stato di analisi. Gli eventi possono essere inseriti manualmente oppure importati da un file di log. Ogni utente dispone di un account e di uno spazio personale; gli amministratori gestiscono gli accessi e possono consultare tutti gli eventi e le importazioni.
 
 Il progetto nasce come lavoro finale del corso di sviluppo Python ed è ispirato alle attività di un **Security Operations Center (SOC)**: un gruppo che si occupa di monitorare e gestire gli eventi di sicurezza informatica.
 
@@ -11,6 +11,7 @@ Il progetto nasce come lavoro finale del corso di sviluppo Python ed è ispirato
 ## Indice
 
 - [Funzionalità](#funzionalità)
+- [Account e amministrazione](#account-e-amministrazione)
 - [Come funziona](#come-funziona)
 - [Tecnologie](#tecnologie)
 - [Installazione e avvio](#installazione-e-avvio)
@@ -26,6 +27,10 @@ Il progetto nasce come lavoro finale del corso di sviluppo Python ed è ispirato
 
 | Funzione | Cosa permette di fare |
 |---|---|
+| Registrazione e accesso | Creare un account pubblico e accedere con nome utente o email. |
+| Storico personale dei log | Consultare le importazioni e scaricare i file originali. |
+| Profilo | Modificare nome utente, email e password. |
+| Amministrazione | Creare account, cambiare ruoli, disattivare, riattivare, sbloccare e reimpostare password. |
 | Inserimento manuale | Registrare un evento indicando categoria, IP, descrizione e gravità. |
 | Dashboard | Consultare gli eventi e il riepilogo di totali, critici, nuovi e risolti. |
 | Ricerca | Cercare per ID oppure per testo nell'IP e nella descrizione. |
@@ -36,6 +41,19 @@ Il progetto nasce come lavoro finale del corso di sviluppo Python ed è ispirato
 | Esportazione CSV | Scaricare gli eventi rispettando i filtri e l'ordinamento applicati. |
 
 L'interfaccia si adatta alle dimensioni dello schermo e include una pagina di informazioni sul progetto e sullo sviluppatore.
+
+## Account e amministrazione
+
+- **Registrati** crea un account con ruolo utente. Le password devono avere da 10 a 128 caratteri e vengono conservate come hash, mai in chiaro nel database.
+- **Accedi** accetta nome utente o email. Dopo cinque password errate l'account resta bloccato per 15 minuti; un amministratore può sbloccarlo.
+- **Dashboard**, dettagli, modifica, eliminazione, statistiche ed esportazioni mostrano i propri eventi. Un amministratore può consultare e gestire tutti gli eventi.
+- **Storico log** conserva file originale, autore, data, dimensione, righe valide, righe errate ed eventi importati. Il download è riservato al proprietario e agli amministratori.
+- **Il mio account** permette di cambiare i dati personali e la password. Il cambio password chiude le sessioni precedenti su tutti i dispositivi.
+- **Gestione account**, disponibile agli amministratori, permette di creare account, assegnare ruoli e gestire l'accesso. Una password impostata dall'amministratore è temporanea: l'utente deve cambiarla prima di usare gli eventi. La disattivazione conserva lo storico; l'ultimo amministratore attivo non può essere rimosso.
+
+I moduli includono una protezione CSRF. Le anteprime dei log sono firmate e legate all'account che le ha caricate: un altro utente non può confermarle. La stessa anteprima può essere salvata una sola volta. File e relativi eventi vengono registrati insieme in una transazione.
+
+Le sessioni scadono dopo due ore di inattività. I cookie sono HttpOnly e SameSite=Lax; quando il sito usa HTTPS imposta `SESSION_COOKIE_SECURE=true` nel `.env`. Le email servono come identificativo e contatto: non vengono ancora inviate email di verifica o recupero password. Per recuperare l'accesso si contatta un amministratore.
 
 ## Come funziona
 
@@ -136,7 +154,19 @@ python -c "import secrets; print(secrets.token_hex(32))"
 
 Il file `.env` è escluso da Git tramite `.gitignore`, perché contiene credenziali personali.
 
-### 5. Avvia l'applicazione
+### 5. Prepara gli account e il primo amministratore
+
+Dopo aver creato le tabelle iniziali `categorie` ed `eventi` e configurato `.env`, esegui:
+
+```powershell
+python scripts/setup_account.py --username admin --email tua_email@example.com
+```
+
+Lo script aggiunge le tabelle degli account e delle importazioni, conserva gli eventi esistenti e li assegna al primo amministratore. La password iniziale casuale si trova in `instance/credenziali-admin.txt`, escluso da Git. Cambiala dalla pagina del tuo account. Lo script aggiunge una `SECRET_KEY` stabile se manca. Se esiste già un amministratore attivo, la migrazione aggiorna lo schema senza cambiare credenziali.
+
+La migrazione richiede permessi MySQL per creare tabelle, indici e collegamenti. Non viene eseguita automaticamente a ogni richiesta.
+
+### 6. Avvia l'applicazione
 
 ```powershell
 python app.py
@@ -156,7 +186,7 @@ L'avvio tramite `app.py` utilizza la modalità debug di Flask, adatta allo svilu
 
 ### Registra e gestisci un evento
 
-1. Apri **Nuovo evento** dal menu.
+1. Registrati e accedi, poi apri **Nuovo evento** dal menu.
 2. Seleziona una categoria e inserisci IP, descrizione e gravità.
 3. Invia il modulo: l'evento viene creato con stato **Nuovo** e con la data e l'ora correnti dell'applicazione.
 4. Nella dashboard compare **Evento aggiunto correttamente.**
@@ -170,7 +200,7 @@ Gli stati descrivono l'avanzamento del lavoro; il programma non impone un ordine
 
 Nella dashboard puoi combinare ricerca, gravità, stato e ordinamento. Una ricerca composta soltanto dalle cifre 0–9 viene interpretata come ID esatto; gli altri testi vengono cercati nell'IP e nella descrizione.
 
-Le statistiche in alto riguardano **tutti gli eventi del database**, anche quando la tabella è filtrata.
+Le statistiche in alto riguardano **tutti gli eventi del tuo account**, anche quando la tabella è filtrata. Gli amministratori vedono tutti gli eventi degli utenti.
 
 **Esporta CSV** scarica gli eventi della selezione corrente. Il file usa il punto e virgola come separatore e la codifica UTF-8 con BOM, utile per visualizzare le lettere accentate nei programmi di foglio di calcolo.
 
@@ -208,7 +238,8 @@ La data deve seguire il formato `AAAA-MM-GG HH:MM:SS`. Sono accettati IP sia IPv
 2. Seleziona un file `.log` o `.txt` in UTF-8 e premi **Analizza file**.
 3. Controlla l'anteprima e le segnalazioni delle righe non valide.
 4. Lascia selezionati gli eventi desiderati e scegli **una categoria per ogni evento**.
-5. Premi **Importa eventi selezionati** e consulta la dashboard.
+5. Premi **Importa eventi selezionati**: si apre il dettaglio dell’importazione, con il file originale scaricabile e gli eventi salvati.
+6. Puoi ritrovare il file in **Storico log** e gli eventi nella dashboard.
 
 Puoi provare il flusso con [`esempi/eventi.log`](esempi/eventi.log).
 
@@ -248,6 +279,14 @@ CS Monitor/
 ├── test_database.py             # Verifica della connessione e della lettura
 ├── test_repository.py           # Verifica CRUD sul database reale
 ├── test_importazione_log.py      # Test dell'importazione con database simulato
+├── routes/account.py            # Accesso, registrazione, profilo e amministrazione
+├── services/account.py          # Sessioni, CSRF e controllo del ruolo
+├── database/utenti_repository.py # Account e password
+├── database/importazioni_repository.py # Storico e file originali
+├── database/migrazioni.py       # Aggiornamento dello schema
+├── scripts/                     # Preparazione degli account
+├── test_account.py              # Test senza database reale
+├── test_account_database.py     # Test reali in un database temporaneo
 └── test_correzioni.py            # Test su moduli, ricerca, errori e CSV
 ```
 
@@ -255,12 +294,14 @@ Le operazioni **CRUD** sono le quattro azioni fondamentali sui dati: **Create** 
 
 ## Database
 
-Il database contiene due tabelle collegate da una relazione **uno a molti**: una categoria può essere associata a più eventi; ogni evento appartiene a una sola categoria.
+Il database contiene quattro tabelle. Una categoria può avere più eventi; un utente può avere più eventi e importazioni; un file importato può avere più eventi. Le categorie sono condivise tra gli account.
 
 | Tabella | Campi |
 |---|---|
 | `categorie` | `id_categoria`, `nome` |
-| `eventi` | `id_evento`, `id_categoria`, `indirizzo_ip`, `descrizione`, `gravita`, `stato`, `data_evento` |
+| `eventi` | Dati dell’evento, `id_utente` e `id_importazione` (vuoto per gli eventi manuali). |
+| `utenti` | Nome utente, email, hash password, ruolo, stato e informazioni per le sessioni e il blocco degli accessi. |
+| `importazioni` | Proprietario, file originale, data e conteggi dell’importazione. |
 
 `id_evento` identifica ogni evento. `id_categoria` nella tabella `eventi` è una **chiave esterna**: collega l'evento a una categoria esistente.
 
@@ -294,6 +335,8 @@ INSERT INTO categorie (nome) VALUES
     ('Malware');
 ```
 
+Dopo questo schema iniziale esegui `scripts/setup_account.py` per creare `utenti`, `importazioni` e aggiungere i collegamenti agli eventi. I file originali sono salvati nel database, non in una cartella pubblica.
+
 Le query utilizzano parametri separati dal testo SQL. Le classi verificano gli ID positivi, gli IP, le descrizioni non vuote e i valori ammessi per gravità e stato.
 
 ## Test e verifiche
@@ -306,15 +349,37 @@ Con l'ambiente attivo:
 python -m unittest test_importazione_log -v
 ```
 
-La suite comprende **12 test** su analisi delle righe, livelli, date, IPv6, limiti dei file, categorie per evento, selezioni, anteprime non valide o scadute e gestione degli errori di salvataggio.
+La suite comprende **13 test** su analisi delle righe, livelli, date, IPv6, limiti dei file, categorie per evento, selezioni, anteprime non valide o scadute e gestione degli errori di salvataggio.
 
 Questi test usano un database simulato e **non scrivono nel MySQL reale**. Il loro superamento non sostituisce una verifica dell'applicazione collegata al database.
 
-Per eseguire anche gli 8 test sulle correzioni funzionali (20 test complessivi):
+Per eseguire anche gli 8 test sulle correzioni funzionali (21 test complessivi):
 
 ```powershell
 python -m unittest test_importazione_log test_correzioni -v
 ```
+
+### Test degli account
+
+```powershell
+python -m unittest test_account test_correzioni test_importazione_log -v
+```
+
+Sono 33 test senza scritture sul database reale. Per aggiungere 11 prove complete su MySQL:
+
+```powershell
+$env:CS_MONITOR_TEST_DB='1'
+python -m unittest test_account test_account_database test_correzioni test_importazione_log -v
+Remove-Item Env:CS_MONITOR_TEST_DB
+```
+
+Le prove MySQL creano un database temporaneo con nome casuale, lo usano per tutti i dati di prova e lo rimuovono al termine. Richiedono permessi per creare e rimuovere database. Verificano anche l'isolamento tra utenti, lo storico e i download, il doppio invio, il cambio e reset password, la disattivazione e l'annullamento di importazioni fallite.
+
+### Riferimenti per le protezioni degli account
+
+- [Flask: sicurezza delle applicazioni web](https://flask.palletsprojects.com/en/stable/web-security/)
+- [Flask: autenticazione nel tutorial ufficiale](https://flask.palletsprojects.com/en/stable/tutorial/views/)
+- [Werkzeug: hash e verifica delle password](https://werkzeug.palletsprojects.com/en/stable/utils/#werkzeug.security.generate_password_hash)
 
 ### Controlli sul database reale
 
@@ -343,7 +408,7 @@ python test_repository.py
 
 La versione attuale è pensata per uso didattico e dimostrazioni locali. Gli eventi vengono inseriti dall'utente o ricavati dai file caricati: non è presente un monitoraggio automatico della rete.
 
-Non sono ancora implementati autenticazione e ruoli, gestione delle categorie dall'interfaccia, paginazione degli eventi e riconoscimento dei duplicati. Importare nuovamente lo stesso file crea nuovi eventi. Il parser accetta soltanto il formato documentato.
+Non sono ancora implementati verifica email, recupero password automatico tramite email, gestione delle categorie dall’interfaccia, paginazione degli eventi e riconoscimento dei duplicati tra caricamenti distinti. Confermare due volte la stessa anteprima viene bloccato; caricare nuovamente lo stesso file crea una nuova importazione e nuovi eventi. Il parser accetta soltanto il formato documentato.
 
 Possibili evoluzioni sono grafici nella dashboard, filtri per data e categoria, cronologia delle modifiche e supporto per altri formati di log.
 

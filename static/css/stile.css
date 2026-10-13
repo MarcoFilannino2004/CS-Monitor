@@ -48,14 +48,14 @@ thead th {
     margin-top: 15px;
 }
 
-.pagina-errore .btn-primary {
+.pagina-errore .btn-applicaFiltri {
     background-color: #004aad;
     border-color: #004aad;
     padding: 12px 25px;
     border-radius: 8px;
 }
 
-.pagina-errore .btn-primary:hover {
+.pagina-errore .btn-applicaFiltri:hover {
     background-color: #003580;
     border-color: #003580;
 }
@@ -269,3 +269,32 @@ thead th {
     border-color: #004aad;
     color: #004aad;
 }
+
+/* Account e storico: stessi colori e schede del resto del progetto. */
+.account-card { max-width: 560px; }
+
+
+/* Colori comuni anche per collegamenti e stati dei moduli. */
+a { color: #004aad; }
+a:hover { color: #003580; }
+.btn-applicaFiltri:focus-visible,
+.btn-azioni:focus-visible {
+    background-color: #003580;
+    color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.25);
+}
+.btn-applicaFiltri:active,
+.btn-azioni:active,
+.btn-applicaFiltri:disabled,
+.btn-azioni:disabled {
+    background-color: #003580;
+    color: #fff;
+}
+.form-control:focus,
+.form-select:focus {
+    border-color: #004aad;
+    box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
+}
+.navbar .nav-link { color: rgba(255, 255, 255, 0.65); }
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible { color: #fff; }

@@ -5,7 +5,7 @@ from models.evento_sicurezza import EventoSicurezza
 
 
 # CREATE
-def inserisciEvento(evento: EventoSicurezza):
+def inserisciEvento(evento: EventoSicurezza, id_utente=None):
     connessione = None
     cursore = None
 
@@ -14,11 +14,11 @@ def inserisciEvento(evento: EventoSicurezza):
         cursore = connessione.cursor()
 
         query = """
-            INSERT INTO eventi (id_categoria, indirizzo_ip, descrizione, gravita, stato, data_evento)
-            VALUES (%s, %s, %s, %s, %s, %s)
+            INSERT INTO eventi (id_categoria, indirizzo_ip, descrizione, gravita, stato, data_evento, id_utente)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
 
-        valori = (evento.id_categoria, evento.indirizzo_ip, evento.descrizione, evento.gravita, evento.stato, evento.data_evento)
+        valori = (evento.id_categoria, evento.indirizzo_ip, evento.descrizione, evento.gravita, evento.stato, evento.data_evento, id_utente)
 
         cursore.execute(query, valori)
         connessione.commit()
@@ -66,7 +66,7 @@ def inserisciEventi(eventi):
 
 
 # READ - Tutti gli eventi
-def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None):
+def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None, id_utente=None, amministratore=False, id_importazione=None):
     connessione = None
     cursore = None
 
@@ -76,13 +76,20 @@ def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None):
 
         query = """
             SELECT e.id_evento, e.id_categoria, c.nome AS categoria,
-                   e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento
+                   e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento, e.id_utente, e.id_importazione, u.username AS autore
             FROM eventi e
             JOIN categorie c ON e.id_categoria = c.id_categoria
+            LEFT JOIN utenti u ON e.id_utente = u.id_utente
             WHERE 1=1
         """
 
         valori = []
+        if not amministratore:
+            query += " AND e.id_utente = %s"
+            valori.append(id_utente)
+        if id_importazione is not None:
+            query += " AND e.id_importazione = %s"
+            valori.append(id_importazione)
 
         if testo:
             if testo.isascii() and testo.isdecimal():
@@ -124,7 +131,7 @@ def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None):
 
 
 # READ - Singolo evento
-def cercaEvento(id_evento: int):
+def cercaEvento(id_evento: int, id_utente=None, amministratore=False):
     connessione = None
     cursore = None
 
@@ -134,13 +141,18 @@ def cercaEvento(id_evento: int):
 
         query = """
             SELECT e.id_evento, e.id_categoria, c.nome AS categoria,
-                   e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento
+                   e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento, e.id_utente, e.id_importazione, u.username AS autore
             FROM eventi e
             JOIN categorie c ON e.id_categoria = c.id_categoria
+            LEFT JOIN utenti u ON e.id_utente = u.id_utente
             WHERE e.id_evento = %s
         """
 
-        cursore.execute(query, (id_evento,))
+        valori = (id_evento,)
+        if not amministratore:
+            query += " AND e.id_utente = %s"
+            valori += (id_utente,)
+        cursore.execute(query, valori)
         return cursore.fetchone()
 
     except mysql.connector.Error as errore:
@@ -155,7 +167,7 @@ def cercaEvento(id_evento: int):
 
 
 # UPDATE
-def modificaEvento(evento: EventoSicurezza):
+def modificaEvento(evento: EventoSicurezza, id_utente=None, amministratore=False):
     if evento.id_evento is None:
         raise ValueError("Impossibile modificare un evento senza ID.")
 
@@ -175,6 +187,9 @@ def modificaEvento(evento: EventoSicurezza):
 
         valori = (evento.id_categoria, evento.indirizzo_ip, evento.descrizione, evento.gravita, evento.stato, evento.id_evento)
 
+        if not amministratore:
+            query += " AND id_utente = %s"
+            valori += (id_utente,)
         cursore.execute(query, valori)
         righe_modificate = cursore.rowcount
         connessione.commit()
@@ -195,7 +210,7 @@ def modificaEvento(evento: EventoSicurezza):
 
 
 # DELETE
-def eliminaEvento(id_evento: int):
+def eliminaEvento(id_evento: int, id_utente=None, amministratore=False):
     if type(id_evento) is not int or id_evento <= 0:
         raise ValueError("L'ID dell'evento deve essere un intero positivo.")
 
@@ -208,7 +223,11 @@ def eliminaEvento(id_evento: int):
 
         query = "DELETE FROM eventi WHERE id_evento = %s"
 
-        cursore.execute(query, (id_evento,))
+        valori = (id_evento,)
+        if not amministratore:
+            query += " AND id_utente = %s"
+            valori += (id_utente,)
+        cursore.execute(query, valori)
         righe_eliminate = cursore.rowcount
         connessione.commit()
 
@@ -226,7 +245,7 @@ def eliminaEvento(id_evento: int):
         if connessione is not None and connessione.is_connected():
             connessione.close()
 
-def statisticheEventi():
+def statisticheEventi(id_utente=None, amministratore=False):
     connessione = creaConnessione()
     cursore = connessione.cursor(dictionary=True)
 
@@ -240,7 +259,11 @@ def statisticheEventi():
             FROM eventi
         """
 
-        cursore.execute(query)
+        valori = ()
+        if not amministratore:
+            query += " WHERE id_utente = %s"
+            valori = (id_utente,)
+        cursore.execute(query, valori)
         statistiche = cursore.fetchone()
 
         return statistiche

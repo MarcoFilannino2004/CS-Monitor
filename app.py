@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, send_file, flash
+from flask import Flask, render_template, abort, request, redirect, url_for, send_file, flash, g
 from database.eventi_repository import visualizzaEventi, cercaEvento, inserisciEvento,modificaEvento, eliminaEvento, statisticheEventi
 from models.evento_sicurezza import EventoSicurezza
 from database.categorie_repository import visualizzaCategorie
@@ -6,15 +6,56 @@ import mysql.connector
 import os
 import csv
 import secrets
+import base64
+from werkzeug.utils import secure_filename
+from services.account import configuraSicurezza
+from routes.account import account
+from database.importazioni_repository import salvaImportazione, visualizzaImportazioni, cercaImportazione
 from io import BytesIO, StringIO
 from datetime import datetime
 from itsdangerous import URLSafeTimedSerializer, BadSignature
-from database.eventi_repository import inserisciEventi
 from services.log_importer import analizzaLog, MAX_BYTES
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY") or secrets.token_hex(32)
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
+app.config["MAX_FORM_MEMORY_SIZE"] = 2 * 1024 * 1024
+app.config["SESSION_COOKIE_SECURE"] = os.getenv("SESSION_COOKIE_SECURE", "false").lower() == "true"
+app.register_blueprint(account)
+configuraSicurezza(app)
+
+
+def ambitoEventi():
+    return dict(id_utente=g.utente['id_utente'], amministratore=g.utente['ruolo'] == 'admin')
+
+
+@app.errorhandler(400)
+@app.errorhandler(403)
+def richiestaNonConsentita(errore):
+    return render_template('errore_account.html', messaggio=errore.description, codice=errore.code), errore.code
+
+
+@app.get('/importazioni')
+def storicoImportazioni():
+    return render_template('importazioni.html', importazioni=visualizzaImportazioni(**ambitoEventi()))
+
+
+@app.get('/importazioni/<int:id_importazione>')
+def dettagliImportazione(id_importazione):
+    importazione = cercaImportazione(id_importazione, **ambitoEventi())
+    if importazione is None:
+        abort(404)
+    eventi = visualizzaEventi(id_importazione=id_importazione, **ambitoEventi())
+    return render_template('dettagli_importazione.html', importazione=importazione, eventi=eventi)
+
+
+@app.get('/importazioni/<int:id_importazione>/file')
+def scaricaLog(id_importazione):
+    importazione = cercaImportazione(id_importazione, **ambitoEventi())
+    if importazione is None:
+        abort(404)
+    return send_file(BytesIO(importazione['contenuto']), mimetype='text/plain', as_attachment=True,
+                     download_name=importazione['nome_file'])
 
 
 @app.errorhandler(mysql.connector.Error)
@@ -38,7 +79,13 @@ def importaLog():
             if request.form.get("azione") == "conferma":
                 token = request.form.get("anteprima", "")
                 try:
-                    eventi = firma.loads(token, max_age=1800)
+                    anteprima = firma.loads(token, max_age=1800)
+                    campi = {'id_utente', 'eventi', 'nome_file', 'contenuto', 'righe_errate', 'identificativo'}
+                    if not isinstance(anteprima, dict) or not campi.issubset(anteprima):
+                        raise ValueError('Anteprima non valida. Carica nuovamente il file.')
+                    if anteprima['id_utente'] != g.utente['id_utente']:
+                        raise ValueError('Questa anteprima appartiene a un altro account.')
+                    eventi = anteprima['eventi']
                 except BadSignature:
                     token = None
                     raise ValueError("Anteprima scaduta o non valida. Carica nuovamente il file.") from None
@@ -59,17 +106,23 @@ def importaLog():
                         None, id_categoria, e["indirizzo_ip"], e["descrizione"], e["gravita"],
                         data_evento=datetime.strptime(e["data_evento"], "%Y-%m-%d %H:%M:%S"),
                     ))
-                inserisciEventi(da_salvare)
-                return redirect(url_for("importaLog", importati=len(da_salvare)), code=303)
+                id_importazione = salvaImportazione(da_salvare, g.utente['id_utente'], anteprima['nome_file'],
+                    base64.b64decode(anteprima['contenuto']), len(eventi), anteprima['righe_errate'], anteprima['identificativo'])
+                flash(f"Importazione completata: {len(da_salvare)} eventi salvati con stato Nuovo.", 'success')
+                return redirect(url_for('dettagliImportazione', id_importazione=id_importazione), code=303)
             else:
                 file = request.files.get("file_log")
                 if file is None or not file.filename:
                     raise ValueError("Seleziona un file da caricare.")
                 if os.path.splitext(file.filename)[1].lower() not in (".log", ".txt"):
                     raise ValueError("Sono ammessi soltanto file .log e .txt.")
-                eventi, errori = analizzaLog(file.read(MAX_BYTES + 1))
+                contenuto = file.read(MAX_BYTES + 1)
+                eventi, errori = analizzaLog(contenuto)
                 if eventi:
-                    token = firma.dumps(eventi)
+                    token = firma.dumps(dict(eventi=eventi, id_utente=g.utente['id_utente'],
+                        nome_file=secure_filename(file.filename)[:255] or 'eventi.log',
+                        contenuto=base64.b64encode(contenuto).decode('ascii'), righe_errate=len(errori),
+                        identificativo=secrets.token_hex(32)))
                     categorie = visualizzaCategorie()
         except ValueError as e:
             errore = str(e)
@@ -93,15 +146,15 @@ def dashboard():
     ordine = request.args.get("ordine", "recenti")
     testo = request.args.get("testo", "").strip()
 
-    eventi = visualizzaEventi(gravita, stato, ordine, testo)
-    statistiche = statisticheEventi()
+    eventi = visualizzaEventi(gravita, stato, ordine, testo, **ambitoEventi())
+    statistiche = statisticheEventi(**ambitoEventi())
 
     return render_template("eventi.html", eventi=eventi, gravita=gravita, stato=stato, ordine=ordine, testo_ricerca=testo, statistiche=statistiche)
 
 @app.route("/eventi/<int:id_evento>")
 def dettagliEvento(id_evento):
 
-    evento = cercaEvento(id_evento)
+    evento = cercaEvento(id_evento, **ambitoEventi())
 
     if evento is None:
         abort(404)
@@ -125,7 +178,7 @@ def nuovoEvento():
             gravita = request.form.get("gravita")
 
             evento = EventoSicurezza(None, id_categoria, indirizzo_ip, descrizione, gravita)
-            inserisciEvento(evento)
+            inserisciEvento(evento, id_utente=g.utente["id_utente"])
             flash("Evento aggiunto correttamente.", "success")
 
             return redirect(url_for("dashboard"))
@@ -146,7 +199,7 @@ def ricercaEvento():
     if id_evento is None or id_evento <= 0:
         return redirect(url_for("dashboard"))
 
-    evento = cercaEvento(id_evento)
+    evento = cercaEvento(id_evento, **ambitoEventi())
 
     if evento is None:
         abort(404)
@@ -157,7 +210,7 @@ def ricercaEvento():
 @app.route("/eventi/<int:id_evento>/modifica", methods=["GET", "POST"])
 def modificaEventoPagina(id_evento):
 
-    evento = cercaEvento(id_evento)
+    evento = cercaEvento(id_evento, **ambitoEventi())
 
     if evento is None:
         abort(404)
@@ -177,7 +230,7 @@ def modificaEventoPagina(id_evento):
                 evento["data_evento"]
             )
 
-            modificaEvento(evento_modificato)
+            modificaEvento(evento_modificato, **ambitoEventi())
 
             return redirect(url_for("dettagliEvento", id_evento=id_evento))
 
@@ -192,12 +245,12 @@ def modificaEventoPagina(id_evento):
 @app.route("/eventi/<int:id_evento>/elimina", methods=["POST"])
 def eliminaEventoPagina(id_evento):
 
-    evento = cercaEvento(id_evento)
+    evento = cercaEvento(id_evento, **ambitoEventi())
 
     if evento is None:
         abort(404)
 
-    eliminaEvento(id_evento)
+    eliminaEvento(id_evento, **ambitoEventi())
 
     return redirect(url_for("dashboard"))
 
@@ -212,11 +265,11 @@ def esportaEventi():
     ordine = request.args.get("ordine", "recenti")
     testo = request.args.get("testo", "").strip()
 
-    eventi = visualizzaEventi(gravita, stato, ordine, testo)
+    eventi = visualizzaEventi(gravita, stato, ordine, testo, **ambitoEventi())
 
     file = StringIO(newline="")
     writer = csv.writer(file, delimiter=";")
-    writer.writerow(["ID", "Categoria", "Indirizzo IP", "Descrizione", "Gravità", "Stato", "Data evento"])
+    writer.writerow(["ID", "Categoria", "Indirizzo IP", "Descrizione", "GravitÃ ", "Stato", "Data evento"])
     for evento in eventi:
         writer.writerow([
             evento["id_evento"], evento["categoria"], evento["indirizzo_ip"],

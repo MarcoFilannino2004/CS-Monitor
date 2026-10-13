@@ -1,4 +1,6 @@
 import io
+import base64
+from test_support import preparaClient
 import unittest
 from datetime import datetime
 from unittest.mock import patch, MagicMock
@@ -40,11 +42,11 @@ class ParserTests(unittest.TestCase):
 class RouteTests(unittest.TestCase):
     def setUp(self):
         app.config.update(TESTING=True, SECRET_KEY="chiave-test")
-        self.client = app.test_client()
+        self.client = preparaClient(self, app)
         self.eventi, _ = analizzaLog((RIGA + "\n" + RIGA.replace("WARNING", "ERROR")).encode())
-        self.token = URLSafeTimedSerializer(app.config["SECRET_KEY"], salt="importazione-log").dumps(self.eventi)
+        self.token = URLSafeTimedSerializer(app.config["SECRET_KEY"], salt="importazione-log").dumps(dict(eventi=self.eventi, id_utente=1, nome_file='eventi.log', contenuto=base64.b64encode((RIGA + "\n" + RIGA.replace('WARNING', 'ERROR')).encode()).decode(), righe_errate=0, identificativo='test-anteprima'))
 
-    @patch("app.inserisciEventi")
+    @patch("app.salvaImportazione", return_value=1)
     @patch("app.visualizzaCategorie", return_value=[{"id_categoria": 2, "nome": "Accessi"}])
     def test_anteprima_non_salva(self, categorie, salva):
         risposta = self.client.post("/eventi/importa", data={"file_log": (io.BytesIO(RIGA.encode()), "eventi.log")})
@@ -52,7 +54,7 @@ class RouteTests(unittest.TestCase):
         self.assertIn(b"anteprima", risposta.data)
         salva.assert_not_called()
 
-    @patch("app.inserisciEventi")
+    @patch("app.salvaImportazione", return_value=1)
     @patch("app.visualizzaCategorie", return_value=[{"id_categoria": 2, "nome": "Accessi"}])
     def test_importa_solo_selezionati(self, categorie, salva):
         risposta = self.client.post("/eventi/importa", data={"azione": "conferma", "anteprima": self.token,
@@ -64,9 +66,9 @@ class RouteTests(unittest.TestCase):
         self.assertEqual(eventi[0].gravita, "Alta")
         self.assertEqual(eventi[0].stato, "Nuovo")
         self.assertEqual(eventi[0].data_evento, datetime(2026, 10, 12, 9, 15, 32))
-        self.assertIn(b"Importazione completata", self.client.get(risposta.location).data)
+        self.assertIn("/importazioni/1", risposta.location)
 
-    @patch("app.inserisciEventi")
+    @patch("app.salvaImportazione", return_value=1)
     @patch("app.visualizzaCategorie", return_value=[{"id_categoria": 2, "nome": "Accessi"}])
     def test_conferme_non_valide(self, categorie, salva):
         casi = [("alterato", "1", "2"), (self.token, "999", "2"),
@@ -79,7 +81,7 @@ class RouteTests(unittest.TestCase):
                 self.assertIn(b"alert-danger", risposta.data)
         salva.assert_not_called()
 
-    @patch("app.inserisciEventi")
+    @patch("app.salvaImportazione", return_value=1)
     @patch("app.visualizzaCategorie", return_value=[{"id_categoria": 2, "nome": "Accessi"}, {"id_categoria": 3, "nome": "Firewall"}])
     def test_categorie_diverse_per_evento(self, categorie, salva):
         risposta = self.client.post("/eventi/importa", data={
@@ -89,7 +91,7 @@ class RouteTests(unittest.TestCase):
         self.assertEqual(risposta.status_code, 303)
         self.assertEqual([e.id_categoria for e in salva.call_args.args[0]], [2, 3])
 
-    @patch("app.inserisciEventi")
+    @patch("app.salvaImportazione", return_value=1)
     @patch("app.visualizzaCategorie", return_value=[{"id_categoria": 2, "nome": "Accessi"}])
     def test_categoria_mancante_blocca_intera_importazione(self, categorie, salva):
         risposta = self.client.post("/eventi/importa", data={
@@ -106,6 +108,12 @@ class RouteTests(unittest.TestCase):
         risposta = self.client.post("/eventi/importa", data={"azione": "conferma", "anteprima": self.token})
         self.assertIn(b"scaduta", risposta.data)
 
+    def test_vecchia_anteprima_chiede_nuovo_caricamento(self):
+        token = URLSafeTimedSerializer(app.config['SECRET_KEY'], salt='importazione-log').dumps(self.eventi)
+        r = self.client.post('/eventi/importa', data=dict(azione='conferma', anteprima=token))
+        self.assertEqual(r.status_code, 200)
+        self.assertIn(b'Carica nuovamente', r.data)
+
     def test_upload_non_valido(self):
         self.assertEqual(self.client.get("/eventi/importa").status_code, 200)
         for data in ({}, {"file_log": (io.BytesIO(b"test"), "file.csv")},
@@ -114,7 +122,7 @@ class RouteTests(unittest.TestCase):
             self.assertIn(b"alert-danger", risposta.data)
 
     @patch("app.visualizzaCategorie", return_value=[{"id_categoria": 2, "nome": "Accessi"}])
-    @patch("app.inserisciEventi", side_effect=mysql.connector.Error("errore interno"))
+    @patch("app.salvaImportazione", side_effect=mysql.connector.Error("errore interno"))
     def test_errore_database(self, salva, categorie):
         risposta = self.client.post("/eventi/importa", data={"azione": "conferma", "anteprima": self.token,
                                    "selezionati": "1", "categoria_1": "2"})

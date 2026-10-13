@@ -1,0 +1,10 @@
+{% extends 'base_account.html' %}
+{% block titolo %}Dettaglio importazione{% endblock %}
+{% block contenuto %}
+<a class="btn btn-secondary" href="{{ url_for('storicoImportazioni') }}">← Torna allo storico</a><h1 class="mt-3 text-break">{{ importazione.nome_file }}</h1>
+<p class="text-secondary">Importato da {{ importazione.username }} il {{ importazione.data_importazione }} · {{ importazione.dimensione }} byte</p>
+<div class="card info-card mb-4"><div class="card-body p-4"><div class="row g-3 mb-4"><div class="col-sm-4"><strong>{{ importazione.eventi_importati }}</strong> eventi importati</div><div class="col-sm-4"><strong>{{ importazione.righe_valide }}</strong> righe valide nel file</div><div class="col-sm-4"><strong>{{ importazione.righe_errate }}</strong> righe errate</div></div>
+<a class="btn btn-applicaFiltri" href="{{ url_for('scaricaLog', id_importazione=importazione.id_importazione) }}">Scarica il file originale</a><p class="small text-secondary mt-3 mb-0">Il file originale resta disponibile anche se modifichi o elimini gli eventi. I conteggi descrivono l'importazione iniziale.</p></div></div>
+<h2 class="h4">Eventi attualmente presenti ({{ eventi|length }})</h2><div class="table-responsive"><table class="table table-striped"><thead><tr><th>ID</th><th>Categoria</th><th>IP</th><th>Descrizione</th><th>Stato</th><th></th></tr></thead><tbody>
+{% for e in eventi %}<tr><td>{{ e.id_evento }}</td><td>{{ e.categoria }}</td><td>{{ e.indirizzo_ip }}</td><td>{{ e.descrizione }}</td><td>{{ e.stato }}</td><td><a class="btn btn-azioni btn-sm" href="{{ url_for('dettagliEvento', id_evento=e.id_evento) }}">Dettagli</a></td></tr>{% else %}<tr><td colspan="6">Gli eventi di questa importazione sono stati eliminati.</td></tr>{% endfor %}
+</tbody></table></div>{% endblock %}

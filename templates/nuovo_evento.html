@@ -22,6 +22,7 @@
         {% endif %}
 
         <form action="{{ url_for('nuovoEvento') }}" method="POST">
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
             <div class="mb-3">
                 <label for="id_categoria" class="form-label">Categoria dell'evento</label>
