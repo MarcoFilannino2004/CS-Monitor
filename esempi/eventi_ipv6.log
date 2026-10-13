@@ -1,0 +1,100 @@
+2026-10-13 08:00:00 | 2001:db8::1 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0001
+2026-10-13 08:00:17 | 2001:db8::2 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0002
+2026-10-13 08:00:34 | 2001:db8::3 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0003
+2026-10-13 08:00:51 | 2001:db8::4 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0004
+2026-10-13 08:01:08 | 2001:db8::5 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0005
+2026-10-13 08:01:25 | 2001:db8::6 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0006
+2026-10-13 08:01:42 | 2001:db8::7 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0007
+2026-10-13 08:01:59 | 2001:db8::8 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0008
+2026-10-13 08:02:16 | 2001:db8::9 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0009
+2026-10-13 08:02:33 | 2001:db8::a | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0010
+2026-10-13 08:02:50 | 2001:db8::b | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0011
+2026-10-13 08:03:07 | 2001:db8::c | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0012
+2026-10-13 08:03:24 | 2001:db8::d | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0013
+2026-10-13 08:03:41 | 2001:db8::e | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0014
+2026-10-13 08:03:58 | 2001:db8::f | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0015
+2026-10-13 08:04:15 | 2001:db8::10 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0016
+2026-10-13 08:04:32 | 2001:db8::11 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0017
+2026-10-13 08:04:49 | 2001:db8::12 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0018
+2026-10-13 08:05:06 | 2001:db8::13 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0019
+2026-10-13 08:05:23 | 2001:db8::14 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0020
+2026-10-13 08:05:40 | 2001:db8::15 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0021
+2026-10-13 08:05:57 | 2001:db8::16 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0022
+2026-10-13 08:06:14 | 2001:db8::17 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0023
+2026-10-13 08:06:31 | 2001:db8::18 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0024
+2026-10-13 08:06:48 | 2001:db8::19 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0025
+2026-10-13 08:07:05 | 2001:db8::1a | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0026
+2026-10-13 08:07:22 | 2001:db8::1b | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0027
+2026-10-13 08:07:39 | 2001:db8::1c | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0028
+2026-10-13 08:07:56 | 2001:db8::1d | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0029
+2026-10-13 08:08:13 | 2001:db8::1e | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0030
+2026-10-13 08:08:30 | 2001:db8::1f | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0031
+2026-10-13 08:08:47 | 2001:db8::20 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0032
+2026-10-13 08:09:04 | 2001:db8::21 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0033
+2026-10-13 08:09:21 | 2001:db8::22 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0034
+2026-10-13 08:09:38 | 2001:db8::23 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0035
+2026-10-13 08:09:55 | 2001:db8::24 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0036
+2026-10-13 08:10:12 | 2001:db8::25 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0037
+2026-10-13 08:10:29 | 2001:db8::26 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0038
+2026-10-13 08:10:46 | 2001:db8::27 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0039
+2026-10-13 08:11:03 | 2001:db8::28 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 0040
+2026-10-13 08:11:20 | 2001:db8::29 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-001; evento simulato 0041
+2026-10-13 08:11:37 | 2001:db8::2a | WARNING | Connessione verso una porta insolita; dispositivo LAB-002; evento simulato 0042
+2026-10-13 08:11:54 | 2001:db8::2b | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-003; evento simulato 0043
+2026-10-13 08:12:11 | 2001:db8::2c | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-004; evento simulato 0044
+2026-10-13 08:12:28 | 2001:db8::2d | INFO | Regola firewall applicata correttamente; dispositivo LAB-005; evento simulato 0045
+2026-10-13 08:12:45 | 2001:db8::2e | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-006; evento simulato 0046
+2026-10-13 08:13:02 | 2001:db8::2f | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-007; evento simulato 0047
+2026-10-13 08:13:19 | 2001:db8::30 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-008; evento simulato 0048
+2026-10-13 08:13:36 | 2001:db8::31 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-009; evento simulato 0049
+2026-10-13 08:13:53 | 2001:db8::32 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-010; evento simulato 0050
+2026-10-13 08:14:10 | 2001:db8::33 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-011; evento simulato 0051
+2026-10-13 08:14:27 | 2001:db8::34 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-012; evento simulato 0052
+2026-10-13 08:14:44 | 2001:db8::35 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-013; evento simulato 0053
+2026-10-13 08:15:01 | 2001:db8::36 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-014; evento simulato 0054
+2026-10-13 08:15:18 | 2001:db8::37 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-015; evento simulato 0055
+2026-10-13 08:15:35 | 2001:db8::38 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-016; evento simulato 0056
+2026-10-13 08:15:52 | 2001:db8::39 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0057
+2026-10-13 08:16:09 | 2001:db8::3a | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0058
+2026-10-13 08:16:26 | 2001:db8::3b | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0059
+2026-10-13 08:16:43 | 2001:db8::3c | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0060
+2026-10-13 08:17:00 | 2001:db8::3d | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0061
+2026-10-13 08:17:17 | 2001:db8::3e | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0062
+2026-10-13 08:17:34 | 2001:db8::3f | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0063
+2026-10-13 08:17:51 | 2001:db8::40 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0064
+2026-10-13 08:18:08 | 2001:db8::41 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-025; evento simulato 0065
+2026-10-13 08:18:25 | 2001:db8::42 | WARNING | Password errata per un account utente; dispositivo LAB-026; evento simulato 0066
+2026-10-13 08:18:42 | 2001:db8::43 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-027; evento simulato 0067
+2026-10-13 08:18:59 | 2001:db8::44 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-028; evento simulato 0068
+2026-10-13 08:19:16 | 2001:db8::45 | INFO | Sessione utente terminata correttamente; dispositivo LAB-029; evento simulato 0069
+2026-10-13 08:19:33 | 2001:db8::46 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-030; evento simulato 0070
+2026-10-13 08:19:50 | 2001:db8::47 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-031; evento simulato 0071
+2026-10-13 08:20:07 | 2001:db8::48 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-032; evento simulato 0072
+2026-10-13 08:20:24 | 2001:db8::49 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-033; evento simulato 0073
+2026-10-13 08:20:41 | 2001:db8::4a | WARNING | Connessione verso una porta insolita; dispositivo LAB-034; evento simulato 0074
+2026-10-13 08:20:58 | 2001:db8::4b | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-035; evento simulato 0075
+2026-10-13 08:21:15 | 2001:db8::4c | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-036; evento simulato 0076
+2026-10-13 08:21:32 | 2001:db8::4d | INFO | Regola firewall applicata correttamente; dispositivo LAB-037; evento simulato 0077
+2026-10-13 08:21:49 | 2001:db8::4e | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-038; evento simulato 0078
+2026-10-13 08:22:06 | 2001:db8::4f | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-039; evento simulato 0079
+2026-10-13 08:22:23 | 2001:db8::50 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-040; evento simulato 0080
+2026-10-13 08:22:40 | 2001:db8::51 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-001; evento simulato 0081
+2026-10-13 08:22:57 | 2001:db8::52 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-002; evento simulato 0082
+2026-10-13 08:23:14 | 2001:db8::53 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-003; evento simulato 0083
+2026-10-13 08:23:31 | 2001:db8::54 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-004; evento simulato 0084
+2026-10-13 08:23:48 | 2001:db8::55 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-005; evento simulato 0085
+2026-10-13 08:24:05 | 2001:db8::56 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-006; evento simulato 0086
+2026-10-13 08:24:22 | 2001:db8::57 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-007; evento simulato 0087
+2026-10-13 08:24:39 | 2001:db8::58 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-008; evento simulato 0088
+2026-10-13 08:24:56 | 2001:db8::59 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0089
+2026-10-13 08:25:13 | 2001:db8::5a | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0090
+2026-10-13 08:25:30 | 2001:db8::5b | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0091
+2026-10-13 08:25:47 | 2001:db8::5c | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0092
+2026-10-13 08:26:04 | 2001:db8::5d | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0093
+2026-10-13 08:26:21 | 2001:db8::5e | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0094
+2026-10-13 08:26:38 | 2001:db8::5f | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0095
+2026-10-13 08:26:55 | 2001:db8::60 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0096
+2026-10-13 08:27:12 | 2001:db8::61 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-017; evento simulato 0097
+2026-10-13 08:27:29 | 2001:db8::62 | WARNING | Password errata per un account utente; dispositivo LAB-018; evento simulato 0098
+2026-10-13 08:27:46 | 2001:db8::63 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-019; evento simulato 0099
+2026-10-13 08:28:03 | 2001:db8::64 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-020; evento simulato 0100

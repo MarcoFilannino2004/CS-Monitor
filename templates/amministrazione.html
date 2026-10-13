@@ -10,7 +10,7 @@
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="id_utente" value="{{ utente.id_utente }}"><input type="hidden" name="azione" value="gestisci">
 <select class="form-select w-auto" name="ruolo" aria-label="Ruolo di {{ utente.username }}">{% for ruolo in ['utente', 'admin'] %}<option value="{{ ruolo }}" {% if utente.ruolo == ruolo %}selected{% endif %}>{{ 'Amministratore' if ruolo == 'admin' else 'Utente' }}</option>{% endfor %}</select>
 <select class="form-select w-auto" name="attivo" aria-label="Stato di {{ utente.username }}"><option value="1" {% if utente.attivo %}selected{% endif %}>Attivo</option><option value="0" {% if not utente.attivo %}selected{% endif %}>Disattivato</option></select>
-<button class="btn btn-azioni" type="submit">Aggiorna / sblocca</button></form>
+<button class="btn btn-azioni" type="submit">Aggiorna</button></form>
 {% if utente.id_utente != utente_corrente.id_utente %}<details class="mt-2"><summary>Reimposta password</summary><form method="POST" class="d-flex gap-2 mt-2">
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="id_utente" value="{{ utente.id_utente }}"><input type="hidden" name="azione" value="password">
 <input class="form-control" name="nuova_password" type="password" autocomplete="new-password" minlength="10" maxlength="128" aria-label="Password temporanea per {{ utente.username }}" placeholder="Password temporanea" required><button class="btn btn-applicaFiltri" type="submit">Reimposta</button>

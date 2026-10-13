@@ -1,0 +1,200 @@
+2026-10-13 11:00:00 | 192.0.2.1 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0001
+2026-10-13 11:00:17 | 192.0.2.2 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0002
+2026-10-13 11:00:34 | 192.0.2.3 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0003
+2026-10-13 11:00:51 | 192.0.2.4 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0004
+2026-10-13 11:01:08 | 192.0.2.5 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0005
+2026-10-13 11:01:25 | 192.0.2.6 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0006
+2026-10-13 11:01:42 | 192.0.2.7 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0007
+2026-10-13 11:01:59 | 192.0.2.8 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0008
+2026-10-13 11:02:16 | 192.0.2.9 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0009
+2026-10-13 11:02:33 | 192.0.2.10 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0010
+2026-10-13 11:02:50 | 192.0.2.11 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0011
+2026-10-13 11:03:07 | 192.0.2.12 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0012
+2026-10-13 11:03:24 | 192.0.2.13 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0013
+2026-10-13 11:03:41 | 192.0.2.14 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0014
+2026-10-13 11:03:58 | 192.0.2.15 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0015
+2026-10-13 11:04:15 | 192.0.2.16 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0016
+2026-10-13 11:04:32 | 192.0.2.17 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0017
+2026-10-13 11:04:49 | 192.0.2.18 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0018
+2026-10-13 11:05:06 | 192.0.2.19 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0019
+2026-10-13 11:05:23 | 192.0.2.20 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0020
+2026-10-13 11:05:40 | 192.0.2.21 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0021
+2026-10-13 11:05:57 | 192.0.2.22 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0022
+2026-10-13 11:06:14 | 192.0.2.23 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0023
+2026-10-13 11:06:31 | 192.0.2.24 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0024
+2026-10-13 11:06:48 | 192.0.2.25 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0025
+2026-10-13 11:07:05 | 192.0.2.26 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0026
+2026-10-13 11:07:22 | 192.0.2.27 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0027
+2026-10-13 11:07:39 | 192.0.2.28 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0028
+2026-10-13 11:07:56 | 192.0.2.29 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0029
+2026-10-13 11:08:13 | 192.0.2.30 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0030
+2026-10-13 11:08:30 | 192.0.2.31 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0031
+2026-10-13 11:08:47 | 192.0.2.32 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0032
+2026-10-13 11:09:04 | 192.0.2.33 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0033
+2026-10-13 11:09:21 | 192.0.2.34 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0034
+2026-10-13 11:09:38 | 192.0.2.35 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0035
+2026-10-13 11:09:55 | 192.0.2.36 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0036
+2026-10-13 11:10:12 | 192.0.2.37 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0037
+2026-10-13 11:10:29 | 192.0.2.38 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0038
+2026-10-13 11:10:46 | 192.0.2.39 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0039
+2026-10-13 11:11:03 | 192.0.2.40 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0040
+2026-10-13 11:11:20 | 192.0.2.41 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0041
+2026-10-13 11:11:37 | 192.0.2.42 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0042
+2026-10-13 11:11:54 | 192.0.2.43 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0043
+2026-10-13 11:12:11 | 192.0.2.44 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0044
+2026-10-13 11:12:28 | 192.0.2.45 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0045
+2026-10-13 11:12:45 | 192.0.2.46 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0046
+2026-10-13 11:13:02 | 192.0.2.47 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0047
+2026-10-13 11:13:19 | 192.0.2.48 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0048
+2026-10-13 11:13:36 | 192.0.2.49 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0049
+2026-10-13 11:13:53 | 192.0.2.50 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0050
+2026-10-13 11:14:10 | 192.0.2.51 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0051
+2026-10-13 11:14:27 | 192.0.2.52 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0052
+2026-10-13 11:14:44 | 192.0.2.53 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0053
+2026-10-13 11:15:01 | 192.0.2.54 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0054
+2026-10-13 11:15:18 | 192.0.2.55 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0055
+2026-10-13 11:15:35 | 192.0.2.56 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0056
+2026-10-13 11:15:52 | 192.0.2.57 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0057
+2026-10-13 11:16:09 | 192.0.2.58 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0058
+2026-10-13 11:16:26 | 192.0.2.59 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0059
+2026-10-13 11:16:43 | 192.0.2.60 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0060
+2026-10-13 11:17:00 | 192.0.2.61 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0061
+2026-10-13 11:17:17 | 192.0.2.62 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0062
+2026-10-13 11:17:34 | 192.0.2.63 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0063
+2026-10-13 11:17:51 | 192.0.2.64 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0064
+2026-10-13 11:18:08 | 192.0.2.65 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0065
+2026-10-13 11:18:25 | 192.0.2.66 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0066
+2026-10-13 11:18:42 | 192.0.2.67 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0067
+2026-10-13 11:18:59 | 192.0.2.68 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0068
+2026-10-13 11:19:16 | 192.0.2.69 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0069
+2026-10-13 11:19:33 | 192.0.2.70 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0070
+2026-10-13 11:19:50 | 192.0.2.71 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0071
+2026-10-13 11:20:07 | 192.0.2.72 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0072
+2026-10-13 11:20:24 | 192.0.2.73 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0073
+2026-10-13 11:20:41 | 192.0.2.74 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0074
+2026-10-13 11:20:58 | 192.0.2.75 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0075
+2026-10-13 11:21:15 | 192.0.2.76 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0076
+2026-10-13 11:21:32 | 192.0.2.77 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0077
+2026-10-13 11:21:49 | 192.0.2.78 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0078
+2026-10-13 11:22:06 | 192.0.2.79 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0079
+2026-10-13 11:22:23 | 192.0.2.80 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0080
+2026-10-13 11:22:40 | 192.0.2.81 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0081
+2026-10-13 11:22:57 | 192.0.2.82 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0082
+2026-10-13 11:23:14 | 192.0.2.83 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0083
+2026-10-13 11:23:31 | 192.0.2.84 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0084
+2026-10-13 11:23:48 | 192.0.2.85 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0085
+2026-10-13 11:24:05 | 192.0.2.86 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0086
+2026-10-13 11:24:22 | 192.0.2.87 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0087
+2026-10-13 11:24:39 | 192.0.2.88 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0088
+2026-10-13 11:24:56 | 192.0.2.89 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0089
+2026-10-13 11:25:13 | 192.0.2.90 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0090
+2026-10-13 11:25:30 | 192.0.2.91 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0091
+2026-10-13 11:25:47 | 192.0.2.92 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0092
+2026-10-13 11:26:04 | 192.0.2.93 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0093
+2026-10-13 11:26:21 | 192.0.2.94 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0094
+2026-10-13 11:26:38 | 192.0.2.95 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0095
+2026-10-13 11:26:55 | 192.0.2.96 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0096
+2026-10-13 11:27:12 | 192.0.2.97 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0097
+2026-10-13 11:27:29 | 192.0.2.98 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0098
+2026-10-13 11:27:46 | 192.0.2.99 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0099
+2026-10-13 11:28:03 | 192.0.2.100 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0100
+2026-10-13 11:28:20 | 192.0.2.101 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0101
+2026-10-13 11:28:37 | 192.0.2.102 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0102
+2026-10-13 11:28:54 | 192.0.2.103 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0103
+2026-10-13 11:29:11 | 192.0.2.104 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0104
+2026-10-13 11:29:28 | 192.0.2.105 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0105
+2026-10-13 11:29:45 | 192.0.2.106 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0106
+2026-10-13 11:30:02 | 192.0.2.107 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0107
+2026-10-13 11:30:19 | 192.0.2.108 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0108
+2026-10-13 11:30:36 | 192.0.2.109 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0109
+2026-10-13 11:30:53 | 192.0.2.110 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0110
+2026-10-13 11:31:10 | 192.0.2.111 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0111
+2026-10-13 11:31:27 | 192.0.2.112 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0112
+2026-10-13 11:31:44 | 192.0.2.113 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0113
+2026-10-13 11:32:01 | 192.0.2.114 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0114
+2026-10-13 11:32:18 | 192.0.2.115 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0115
+2026-10-13 11:32:35 | 192.0.2.116 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0116
+2026-10-13 11:32:52 | 192.0.2.117 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0117
+2026-10-13 11:33:09 | 192.0.2.118 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0118
+2026-10-13 11:33:26 | 192.0.2.119 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0119
+2026-10-13 11:33:43 | 192.0.2.120 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0120
+2026-10-13 11:34:00 | 192.0.2.121 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0121
+2026-10-13 11:34:17 | 192.0.2.122 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0122
+2026-10-13 11:34:34 | 192.0.2.123 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0123
+2026-10-13 11:34:51 | 192.0.2.124 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0124
+2026-10-13 11:35:08 | 192.0.2.125 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0125
+2026-10-13 11:35:25 | 192.0.2.126 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0126
+2026-10-13 11:35:42 | 192.0.2.127 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0127
+2026-10-13 11:35:59 | 192.0.2.128 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0128
+2026-10-13 11:36:16 | 192.0.2.129 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0129
+2026-10-13 11:36:33 | 192.0.2.130 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0130
+2026-10-13 11:36:50 | 192.0.2.131 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0131
+2026-10-13 11:37:07 | 192.0.2.132 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0132
+2026-10-13 11:37:24 | 192.0.2.133 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0133
+2026-10-13 11:37:41 | 192.0.2.134 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0134
+2026-10-13 11:37:58 | 192.0.2.135 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0135
+2026-10-13 11:38:15 | 192.0.2.136 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0136
+2026-10-13 11:38:32 | 192.0.2.137 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0137
+2026-10-13 11:38:49 | 192.0.2.138 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0138
+2026-10-13 11:39:06 | 192.0.2.139 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0139
+2026-10-13 11:39:23 | 192.0.2.140 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0140
+2026-10-13 11:39:40 | 192.0.2.141 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0141
+2026-10-13 11:39:57 | 192.0.2.142 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0142
+2026-10-13 11:40:14 | 192.0.2.143 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0143
+2026-10-13 11:40:31 | 192.0.2.144 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0144
+2026-10-13 11:40:48 | 192.0.2.145 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0145
+2026-10-13 11:41:05 | 192.0.2.146 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0146
+2026-10-13 11:41:22 | 192.0.2.147 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0147
+2026-10-13 11:41:39 | 192.0.2.148 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0148
+2026-10-13 11:41:56 | 192.0.2.149 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0149
+2026-10-13 11:42:13 | 192.0.2.150 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0150
+2026-10-13 11:42:30 | 192.0.2.151 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0151
+2026-10-13 11:42:47 | 192.0.2.152 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0152
+2026-10-13 11:43:04 | 192.0.2.153 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0153
+2026-10-13 11:43:21 | 192.0.2.154 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0154
+2026-10-13 11:43:38 | 192.0.2.155 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0155
+2026-10-13 11:43:55 | 192.0.2.156 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0156
+2026-10-13 11:44:12 | 192.0.2.157 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0157
+2026-10-13 11:44:29 | 192.0.2.158 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0158
+2026-10-13 11:44:46 | 192.0.2.159 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0159
+2026-10-13 11:45:03 | 192.0.2.160 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0160
+2026-10-13 11:45:20 | 192.0.2.161 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0161
+2026-10-13 11:45:37 | 192.0.2.162 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0162
+2026-10-13 11:45:54 | 192.0.2.163 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0163
+2026-10-13 11:46:11 | 192.0.2.164 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0164
+2026-10-13 11:46:28 | 192.0.2.165 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0165
+2026-10-13 11:46:45 | 192.0.2.166 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0166
+2026-10-13 11:47:02 | 192.0.2.167 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0167
+2026-10-13 11:47:19 | 192.0.2.168 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0168
+2026-10-13 11:47:36 | 192.0.2.169 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0169
+2026-10-13 11:47:53 | 192.0.2.170 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0170
+2026-10-13 11:48:10 | 192.0.2.171 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0171
+2026-10-13 11:48:27 | 192.0.2.172 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0172
+2026-10-13 11:48:44 | 192.0.2.173 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0173
+2026-10-13 11:49:01 | 192.0.2.174 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0174
+2026-10-13 11:49:18 | 192.0.2.175 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0175
+2026-10-13 11:49:35 | 192.0.2.176 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0176
+2026-10-13 11:49:52 | 192.0.2.177 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0177
+2026-10-13 11:50:09 | 192.0.2.178 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0178
+2026-10-13 11:50:26 | 192.0.2.179 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0179
+2026-10-13 11:50:43 | 192.0.2.180 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0180
+2026-10-13 11:51:00 | 192.0.2.181 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0181
+2026-10-13 11:51:17 | 192.0.2.182 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0182
+2026-10-13 11:51:34 | 192.0.2.183 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0183
+2026-10-13 11:51:51 | 192.0.2.184 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0184
+2026-10-13 11:52:08 | 192.0.2.185 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0185
+2026-10-13 11:52:25 | 192.0.2.186 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0186
+2026-10-13 11:52:42 | 192.0.2.187 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0187
+2026-10-13 11:52:59 | 192.0.2.188 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0188
+2026-10-13 11:53:16 | 192.0.2.189 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0189
+2026-10-13 11:53:33 | 192.0.2.190 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0190
+2026-10-13 11:53:50 | 192.0.2.191 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0191
+2026-10-13 11:54:07 | 192.0.2.192 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0192
+2026-10-13 11:54:24 | 192.0.2.193 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0193
+2026-10-13 11:54:41 | 192.0.2.194 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0194
+2026-10-13 11:54:58 | 192.0.2.195 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0195
+2026-10-13 11:55:15 | 192.0.2.196 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0196
+2026-10-13 11:55:32 | 192.0.2.197 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0197
+2026-10-13 11:55:49 | 192.0.2.198 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0198
+2026-10-13 11:56:06 | 192.0.2.199 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0199
+2026-10-13 11:56:23 | 192.0.2.200 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0200

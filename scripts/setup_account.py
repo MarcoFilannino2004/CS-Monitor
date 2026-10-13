@@ -11,6 +11,7 @@ load_dotenv(ROOT / '.env')
 from database.migrazioni import preparaAccount
 from database.strumenti import apriCursore
 from database.utenti_repository import creaUtente
+from database.categorie_repository import aggiungiCategoriePredefinite
 
 
 def main():
@@ -21,6 +22,8 @@ def main():
     parser.add_argument('--email', required=True)
     args = parser.parse_args()
     preparaAccount()
+    aggiunte = aggiungiCategoriePredefinite()
+    print(f'Categorie di sicurezza aggiornate: {aggiunte} nuove categorie.')
     # Una chiave stabile evita di scollegare tutti a ogni riavvio.
     if not os.getenv('SECRET_KEY'):
         with (ROOT / '.env').open('a', encoding='utf-8') as file:

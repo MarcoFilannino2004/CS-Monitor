@@ -1,0 +1,1000 @@
+2026-10-13 08:00:00 | 192.0.2.1 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0001
+2026-10-13 08:00:17 | 192.0.2.2 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0002
+2026-10-13 08:00:34 | 192.0.2.3 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0003
+2026-10-13 08:00:51 | 192.0.2.4 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0004
+2026-10-13 08:01:08 | 192.0.2.5 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0005
+2026-10-13 08:01:25 | 192.0.2.6 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0006
+2026-10-13 08:01:42 | 192.0.2.7 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0007
+2026-10-13 08:01:59 | 192.0.2.8 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0008
+2026-10-13 08:02:16 | 192.0.2.9 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0009
+2026-10-13 08:02:33 | 192.0.2.10 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0010
+2026-10-13 08:02:50 | 192.0.2.11 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0011
+2026-10-13 08:03:07 | 192.0.2.12 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0012
+2026-10-13 08:03:24 | 192.0.2.13 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0013
+2026-10-13 08:03:41 | 192.0.2.14 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0014
+2026-10-13 08:03:58 | 192.0.2.15 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0015
+2026-10-13 08:04:15 | 192.0.2.16 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0016
+2026-10-13 08:04:32 | 192.0.2.17 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0017
+2026-10-13 08:04:49 | 192.0.2.18 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0018
+2026-10-13 08:05:06 | 192.0.2.19 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0019
+2026-10-13 08:05:23 | 192.0.2.20 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0020
+2026-10-13 08:05:40 | 192.0.2.21 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0021
+2026-10-13 08:05:57 | 192.0.2.22 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0022
+2026-10-13 08:06:14 | 192.0.2.23 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0023
+2026-10-13 08:06:31 | 192.0.2.24 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0024
+2026-10-13 08:06:48 | 192.0.2.25 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0025
+2026-10-13 08:07:05 | 192.0.2.26 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0026
+2026-10-13 08:07:22 | 192.0.2.27 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0027
+2026-10-13 08:07:39 | 192.0.2.28 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0028
+2026-10-13 08:07:56 | 192.0.2.29 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0029
+2026-10-13 08:08:13 | 192.0.2.30 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0030
+2026-10-13 08:08:30 | 192.0.2.31 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0031
+2026-10-13 08:08:47 | 192.0.2.32 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0032
+2026-10-13 08:09:04 | 192.0.2.33 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0033
+2026-10-13 08:09:21 | 192.0.2.34 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0034
+2026-10-13 08:09:38 | 192.0.2.35 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0035
+2026-10-13 08:09:55 | 192.0.2.36 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0036
+2026-10-13 08:10:12 | 192.0.2.37 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0037
+2026-10-13 08:10:29 | 192.0.2.38 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0038
+2026-10-13 08:10:46 | 192.0.2.39 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0039
+2026-10-13 08:11:03 | 192.0.2.40 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 0040
+2026-10-13 08:11:20 | 192.0.2.41 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-001; evento simulato 0041
+2026-10-13 08:11:37 | 192.0.2.42 | WARNING | Connessione verso una porta insolita; dispositivo LAB-002; evento simulato 0042
+2026-10-13 08:11:54 | 192.0.2.43 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-003; evento simulato 0043
+2026-10-13 08:12:11 | 192.0.2.44 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-004; evento simulato 0044
+2026-10-13 08:12:28 | 192.0.2.45 | INFO | Regola firewall applicata correttamente; dispositivo LAB-005; evento simulato 0045
+2026-10-13 08:12:45 | 192.0.2.46 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-006; evento simulato 0046
+2026-10-13 08:13:02 | 192.0.2.47 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-007; evento simulato 0047
+2026-10-13 08:13:19 | 192.0.2.48 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-008; evento simulato 0048
+2026-10-13 08:13:36 | 192.0.2.49 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-009; evento simulato 0049
+2026-10-13 08:13:53 | 192.0.2.50 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-010; evento simulato 0050
+2026-10-13 08:14:10 | 192.0.2.51 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-011; evento simulato 0051
+2026-10-13 08:14:27 | 192.0.2.52 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-012; evento simulato 0052
+2026-10-13 08:14:44 | 192.0.2.53 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-013; evento simulato 0053
+2026-10-13 08:15:01 | 192.0.2.54 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-014; evento simulato 0054
+2026-10-13 08:15:18 | 192.0.2.55 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-015; evento simulato 0055
+2026-10-13 08:15:35 | 192.0.2.56 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-016; evento simulato 0056
+2026-10-13 08:15:52 | 192.0.2.57 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0057
+2026-10-13 08:16:09 | 192.0.2.58 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0058
+2026-10-13 08:16:26 | 192.0.2.59 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0059
+2026-10-13 08:16:43 | 192.0.2.60 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0060
+2026-10-13 08:17:00 | 192.0.2.61 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0061
+2026-10-13 08:17:17 | 192.0.2.62 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0062
+2026-10-13 08:17:34 | 192.0.2.63 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0063
+2026-10-13 08:17:51 | 192.0.2.64 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0064
+2026-10-13 08:18:08 | 192.0.2.65 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-025; evento simulato 0065
+2026-10-13 08:18:25 | 192.0.2.66 | WARNING | Password errata per un account utente; dispositivo LAB-026; evento simulato 0066
+2026-10-13 08:18:42 | 192.0.2.67 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-027; evento simulato 0067
+2026-10-13 08:18:59 | 192.0.2.68 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-028; evento simulato 0068
+2026-10-13 08:19:16 | 192.0.2.69 | INFO | Sessione utente terminata correttamente; dispositivo LAB-029; evento simulato 0069
+2026-10-13 08:19:33 | 192.0.2.70 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-030; evento simulato 0070
+2026-10-13 08:19:50 | 192.0.2.71 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-031; evento simulato 0071
+2026-10-13 08:20:07 | 192.0.2.72 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-032; evento simulato 0072
+2026-10-13 08:20:24 | 192.0.2.73 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-033; evento simulato 0073
+2026-10-13 08:20:41 | 192.0.2.74 | WARNING | Connessione verso una porta insolita; dispositivo LAB-034; evento simulato 0074
+2026-10-13 08:20:58 | 192.0.2.75 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-035; evento simulato 0075
+2026-10-13 08:21:15 | 192.0.2.76 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-036; evento simulato 0076
+2026-10-13 08:21:32 | 192.0.2.77 | INFO | Regola firewall applicata correttamente; dispositivo LAB-037; evento simulato 0077
+2026-10-13 08:21:49 | 192.0.2.78 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-038; evento simulato 0078
+2026-10-13 08:22:06 | 192.0.2.79 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-039; evento simulato 0079
+2026-10-13 08:22:23 | 192.0.2.80 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-040; evento simulato 0080
+2026-10-13 08:22:40 | 192.0.2.81 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-001; evento simulato 0081
+2026-10-13 08:22:57 | 192.0.2.82 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-002; evento simulato 0082
+2026-10-13 08:23:14 | 192.0.2.83 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-003; evento simulato 0083
+2026-10-13 08:23:31 | 192.0.2.84 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-004; evento simulato 0084
+2026-10-13 08:23:48 | 192.0.2.85 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-005; evento simulato 0085
+2026-10-13 08:24:05 | 192.0.2.86 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-006; evento simulato 0086
+2026-10-13 08:24:22 | 192.0.2.87 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-007; evento simulato 0087
+2026-10-13 08:24:39 | 192.0.2.88 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-008; evento simulato 0088
+2026-10-13 08:24:56 | 192.0.2.89 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0089
+2026-10-13 08:25:13 | 192.0.2.90 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0090
+2026-10-13 08:25:30 | 192.0.2.91 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0091
+2026-10-13 08:25:47 | 192.0.2.92 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0092
+2026-10-13 08:26:04 | 192.0.2.93 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0093
+2026-10-13 08:26:21 | 192.0.2.94 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0094
+2026-10-13 08:26:38 | 192.0.2.95 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0095
+2026-10-13 08:26:55 | 192.0.2.96 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0096
+2026-10-13 08:27:12 | 192.0.2.97 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-017; evento simulato 0097
+2026-10-13 08:27:29 | 192.0.2.98 | WARNING | Password errata per un account utente; dispositivo LAB-018; evento simulato 0098
+2026-10-13 08:27:46 | 192.0.2.99 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-019; evento simulato 0099
+2026-10-13 08:28:03 | 192.0.2.100 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-020; evento simulato 0100
+2026-10-13 08:28:20 | 192.0.2.101 | INFO | Sessione utente terminata correttamente; dispositivo LAB-021; evento simulato 0101
+2026-10-13 08:28:37 | 192.0.2.102 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-022; evento simulato 0102
+2026-10-13 08:28:54 | 192.0.2.103 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-023; evento simulato 0103
+2026-10-13 08:29:11 | 192.0.2.104 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-024; evento simulato 0104
+2026-10-13 08:29:28 | 192.0.2.105 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-025; evento simulato 0105
+2026-10-13 08:29:45 | 192.0.2.106 | WARNING | Connessione verso una porta insolita; dispositivo LAB-026; evento simulato 0106
+2026-10-13 08:30:02 | 192.0.2.107 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-027; evento simulato 0107
+2026-10-13 08:30:19 | 192.0.2.108 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-028; evento simulato 0108
+2026-10-13 08:30:36 | 192.0.2.109 | INFO | Regola firewall applicata correttamente; dispositivo LAB-029; evento simulato 0109
+2026-10-13 08:30:53 | 192.0.2.110 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-030; evento simulato 0110
+2026-10-13 08:31:10 | 192.0.2.111 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-031; evento simulato 0111
+2026-10-13 08:31:27 | 192.0.2.112 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-032; evento simulato 0112
+2026-10-13 08:31:44 | 192.0.2.113 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-033; evento simulato 0113
+2026-10-13 08:32:01 | 192.0.2.114 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-034; evento simulato 0114
+2026-10-13 08:32:18 | 192.0.2.115 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-035; evento simulato 0115
+2026-10-13 08:32:35 | 192.0.2.116 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-036; evento simulato 0116
+2026-10-13 08:32:52 | 192.0.2.117 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-037; evento simulato 0117
+2026-10-13 08:33:09 | 192.0.2.118 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-038; evento simulato 0118
+2026-10-13 08:33:26 | 192.0.2.119 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-039; evento simulato 0119
+2026-10-13 08:33:43 | 192.0.2.120 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-040; evento simulato 0120
+2026-10-13 08:34:00 | 192.0.2.121 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0121
+2026-10-13 08:34:17 | 192.0.2.122 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0122
+2026-10-13 08:34:34 | 192.0.2.123 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0123
+2026-10-13 08:34:51 | 192.0.2.124 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0124
+2026-10-13 08:35:08 | 192.0.2.125 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0125
+2026-10-13 08:35:25 | 192.0.2.126 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0126
+2026-10-13 08:35:42 | 192.0.2.127 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0127
+2026-10-13 08:35:59 | 192.0.2.128 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0128
+2026-10-13 08:36:16 | 192.0.2.129 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-009; evento simulato 0129
+2026-10-13 08:36:33 | 192.0.2.130 | WARNING | Password errata per un account utente; dispositivo LAB-010; evento simulato 0130
+2026-10-13 08:36:50 | 192.0.2.131 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-011; evento simulato 0131
+2026-10-13 08:37:07 | 192.0.2.132 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-012; evento simulato 0132
+2026-10-13 08:37:24 | 192.0.2.133 | INFO | Sessione utente terminata correttamente; dispositivo LAB-013; evento simulato 0133
+2026-10-13 08:37:41 | 192.0.2.134 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-014; evento simulato 0134
+2026-10-13 08:37:58 | 192.0.2.135 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-015; evento simulato 0135
+2026-10-13 08:38:15 | 192.0.2.136 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-016; evento simulato 0136
+2026-10-13 08:38:32 | 192.0.2.137 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-017; evento simulato 0137
+2026-10-13 08:38:49 | 192.0.2.138 | WARNING | Connessione verso una porta insolita; dispositivo LAB-018; evento simulato 0138
+2026-10-13 08:39:06 | 192.0.2.139 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-019; evento simulato 0139
+2026-10-13 08:39:23 | 192.0.2.140 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-020; evento simulato 0140
+2026-10-13 08:39:40 | 192.0.2.141 | INFO | Regola firewall applicata correttamente; dispositivo LAB-021; evento simulato 0141
+2026-10-13 08:39:57 | 192.0.2.142 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-022; evento simulato 0142
+2026-10-13 08:40:14 | 192.0.2.143 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-023; evento simulato 0143
+2026-10-13 08:40:31 | 192.0.2.144 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-024; evento simulato 0144
+2026-10-13 08:40:48 | 192.0.2.145 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-025; evento simulato 0145
+2026-10-13 08:41:05 | 192.0.2.146 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-026; evento simulato 0146
+2026-10-13 08:41:22 | 192.0.2.147 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-027; evento simulato 0147
+2026-10-13 08:41:39 | 192.0.2.148 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-028; evento simulato 0148
+2026-10-13 08:41:56 | 192.0.2.149 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-029; evento simulato 0149
+2026-10-13 08:42:13 | 192.0.2.150 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-030; evento simulato 0150
+2026-10-13 08:42:30 | 192.0.2.151 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-031; evento simulato 0151
+2026-10-13 08:42:47 | 192.0.2.152 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-032; evento simulato 0152
+2026-10-13 08:43:04 | 192.0.2.153 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0153
+2026-10-13 08:43:21 | 192.0.2.154 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0154
+2026-10-13 08:43:38 | 192.0.2.155 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0155
+2026-10-13 08:43:55 | 192.0.2.156 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0156
+2026-10-13 08:44:12 | 192.0.2.157 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0157
+2026-10-13 08:44:29 | 192.0.2.158 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0158
+2026-10-13 08:44:46 | 192.0.2.159 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0159
+2026-10-13 08:45:03 | 192.0.2.160 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0160
+2026-10-13 08:45:20 | 192.0.2.161 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0161
+2026-10-13 08:45:37 | 192.0.2.162 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0162
+2026-10-13 08:45:54 | 192.0.2.163 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0163
+2026-10-13 08:46:11 | 192.0.2.164 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0164
+2026-10-13 08:46:28 | 192.0.2.165 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0165
+2026-10-13 08:46:45 | 192.0.2.166 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0166
+2026-10-13 08:47:02 | 192.0.2.167 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0167
+2026-10-13 08:47:19 | 192.0.2.168 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0168
+2026-10-13 08:47:36 | 192.0.2.169 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0169
+2026-10-13 08:47:53 | 192.0.2.170 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0170
+2026-10-13 08:48:10 | 192.0.2.171 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0171
+2026-10-13 08:48:27 | 192.0.2.172 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0172
+2026-10-13 08:48:44 | 192.0.2.173 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0173
+2026-10-13 08:49:01 | 192.0.2.174 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0174
+2026-10-13 08:49:18 | 192.0.2.175 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0175
+2026-10-13 08:49:35 | 192.0.2.176 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0176
+2026-10-13 08:49:52 | 192.0.2.177 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0177
+2026-10-13 08:50:09 | 192.0.2.178 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0178
+2026-10-13 08:50:26 | 192.0.2.179 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0179
+2026-10-13 08:50:43 | 192.0.2.180 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0180
+2026-10-13 08:51:00 | 192.0.2.181 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0181
+2026-10-13 08:51:17 | 192.0.2.182 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0182
+2026-10-13 08:51:34 | 192.0.2.183 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0183
+2026-10-13 08:51:51 | 192.0.2.184 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0184
+2026-10-13 08:52:08 | 192.0.2.185 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0185
+2026-10-13 08:52:25 | 192.0.2.186 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0186
+2026-10-13 08:52:42 | 192.0.2.187 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0187
+2026-10-13 08:52:59 | 192.0.2.188 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0188
+2026-10-13 08:53:16 | 192.0.2.189 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0189
+2026-10-13 08:53:33 | 192.0.2.190 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0190
+2026-10-13 08:53:50 | 192.0.2.191 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0191
+2026-10-13 08:54:07 | 192.0.2.192 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0192
+2026-10-13 08:54:24 | 192.0.2.193 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0193
+2026-10-13 08:54:41 | 192.0.2.194 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0194
+2026-10-13 08:54:58 | 192.0.2.195 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0195
+2026-10-13 08:55:15 | 192.0.2.196 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0196
+2026-10-13 08:55:32 | 192.0.2.197 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0197
+2026-10-13 08:55:49 | 192.0.2.198 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0198
+2026-10-13 08:56:06 | 192.0.2.199 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0199
+2026-10-13 08:56:23 | 192.0.2.200 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 0200
+2026-10-13 08:56:40 | 192.0.2.201 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-001; evento simulato 0201
+2026-10-13 08:56:57 | 192.0.2.202 | WARNING | Connessione verso una porta insolita; dispositivo LAB-002; evento simulato 0202
+2026-10-13 08:57:14 | 192.0.2.203 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-003; evento simulato 0203
+2026-10-13 08:57:31 | 192.0.2.204 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-004; evento simulato 0204
+2026-10-13 08:57:48 | 192.0.2.205 | INFO | Regola firewall applicata correttamente; dispositivo LAB-005; evento simulato 0205
+2026-10-13 08:58:05 | 192.0.2.206 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-006; evento simulato 0206
+2026-10-13 08:58:22 | 192.0.2.207 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-007; evento simulato 0207
+2026-10-13 08:58:39 | 192.0.2.208 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-008; evento simulato 0208
+2026-10-13 08:58:56 | 192.0.2.209 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-009; evento simulato 0209
+2026-10-13 08:59:13 | 192.0.2.210 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-010; evento simulato 0210
+2026-10-13 08:59:30 | 192.0.2.211 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-011; evento simulato 0211
+2026-10-13 08:59:47 | 192.0.2.212 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-012; evento simulato 0212
+2026-10-13 09:00:04 | 192.0.2.213 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-013; evento simulato 0213
+2026-10-13 09:00:21 | 192.0.2.214 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-014; evento simulato 0214
+2026-10-13 09:00:38 | 192.0.2.215 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-015; evento simulato 0215
+2026-10-13 09:00:55 | 192.0.2.216 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-016; evento simulato 0216
+2026-10-13 09:01:12 | 192.0.2.217 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0217
+2026-10-13 09:01:29 | 192.0.2.218 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0218
+2026-10-13 09:01:46 | 192.0.2.219 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0219
+2026-10-13 09:02:03 | 192.0.2.220 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0220
+2026-10-13 09:02:20 | 192.0.2.221 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0221
+2026-10-13 09:02:37 | 192.0.2.222 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0222
+2026-10-13 09:02:54 | 192.0.2.223 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0223
+2026-10-13 09:03:11 | 192.0.2.224 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0224
+2026-10-13 09:03:28 | 192.0.2.225 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-025; evento simulato 0225
+2026-10-13 09:03:45 | 192.0.2.226 | WARNING | Password errata per un account utente; dispositivo LAB-026; evento simulato 0226
+2026-10-13 09:04:02 | 192.0.2.227 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-027; evento simulato 0227
+2026-10-13 09:04:19 | 192.0.2.228 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-028; evento simulato 0228
+2026-10-13 09:04:36 | 192.0.2.229 | INFO | Sessione utente terminata correttamente; dispositivo LAB-029; evento simulato 0229
+2026-10-13 09:04:53 | 192.0.2.230 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-030; evento simulato 0230
+2026-10-13 09:05:10 | 192.0.2.231 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-031; evento simulato 0231
+2026-10-13 09:05:27 | 192.0.2.232 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-032; evento simulato 0232
+2026-10-13 09:05:44 | 192.0.2.233 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-033; evento simulato 0233
+2026-10-13 09:06:01 | 192.0.2.234 | WARNING | Connessione verso una porta insolita; dispositivo LAB-034; evento simulato 0234
+2026-10-13 09:06:18 | 192.0.2.235 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-035; evento simulato 0235
+2026-10-13 09:06:35 | 192.0.2.236 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-036; evento simulato 0236
+2026-10-13 09:06:52 | 192.0.2.237 | INFO | Regola firewall applicata correttamente; dispositivo LAB-037; evento simulato 0237
+2026-10-13 09:07:09 | 192.0.2.238 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-038; evento simulato 0238
+2026-10-13 09:07:26 | 192.0.2.239 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-039; evento simulato 0239
+2026-10-13 09:07:43 | 192.0.2.240 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-040; evento simulato 0240
+2026-10-13 09:08:00 | 192.0.2.241 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-001; evento simulato 0241
+2026-10-13 09:08:17 | 192.0.2.242 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-002; evento simulato 0242
+2026-10-13 09:08:34 | 192.0.2.243 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-003; evento simulato 0243
+2026-10-13 09:08:51 | 192.0.2.244 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-004; evento simulato 0244
+2026-10-13 09:09:08 | 192.0.2.245 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-005; evento simulato 0245
+2026-10-13 09:09:25 | 192.0.2.246 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-006; evento simulato 0246
+2026-10-13 09:09:42 | 192.0.2.247 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-007; evento simulato 0247
+2026-10-13 09:09:59 | 192.0.2.248 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-008; evento simulato 0248
+2026-10-13 09:10:16 | 192.0.2.249 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0249
+2026-10-13 09:10:33 | 192.0.2.250 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0250
+2026-10-13 09:10:50 | 192.0.2.251 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0251
+2026-10-13 09:11:07 | 192.0.2.252 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0252
+2026-10-13 09:11:24 | 192.0.2.253 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0253
+2026-10-13 09:11:41 | 192.0.2.254 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0254
+2026-10-13 09:11:58 | 192.0.2.1 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0255
+2026-10-13 09:12:15 | 192.0.2.2 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0256
+2026-10-13 09:12:32 | 192.0.2.3 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-017; evento simulato 0257
+2026-10-13 09:12:49 | 192.0.2.4 | WARNING | Password errata per un account utente; dispositivo LAB-018; evento simulato 0258
+2026-10-13 09:13:06 | 192.0.2.5 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-019; evento simulato 0259
+2026-10-13 09:13:23 | 192.0.2.6 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-020; evento simulato 0260
+2026-10-13 09:13:40 | 192.0.2.7 | INFO | Sessione utente terminata correttamente; dispositivo LAB-021; evento simulato 0261
+2026-10-13 09:13:57 | 192.0.2.8 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-022; evento simulato 0262
+2026-10-13 09:14:14 | 192.0.2.9 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-023; evento simulato 0263
+2026-10-13 09:14:31 | 192.0.2.10 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-024; evento simulato 0264
+2026-10-13 09:14:48 | 192.0.2.11 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-025; evento simulato 0265
+2026-10-13 09:15:05 | 192.0.2.12 | WARNING | Connessione verso una porta insolita; dispositivo LAB-026; evento simulato 0266
+2026-10-13 09:15:22 | 192.0.2.13 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-027; evento simulato 0267
+2026-10-13 09:15:39 | 192.0.2.14 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-028; evento simulato 0268
+2026-10-13 09:15:56 | 192.0.2.15 | INFO | Regola firewall applicata correttamente; dispositivo LAB-029; evento simulato 0269
+2026-10-13 09:16:13 | 192.0.2.16 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-030; evento simulato 0270
+2026-10-13 09:16:30 | 192.0.2.17 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-031; evento simulato 0271
+2026-10-13 09:16:47 | 192.0.2.18 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-032; evento simulato 0272
+2026-10-13 09:17:04 | 192.0.2.19 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-033; evento simulato 0273
+2026-10-13 09:17:21 | 192.0.2.20 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-034; evento simulato 0274
+2026-10-13 09:17:38 | 192.0.2.21 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-035; evento simulato 0275
+2026-10-13 09:17:55 | 192.0.2.22 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-036; evento simulato 0276
+2026-10-13 09:18:12 | 192.0.2.23 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-037; evento simulato 0277
+2026-10-13 09:18:29 | 192.0.2.24 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-038; evento simulato 0278
+2026-10-13 09:18:46 | 192.0.2.25 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-039; evento simulato 0279
+2026-10-13 09:19:03 | 192.0.2.26 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-040; evento simulato 0280
+2026-10-13 09:19:20 | 192.0.2.27 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0281
+2026-10-13 09:19:37 | 192.0.2.28 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0282
+2026-10-13 09:19:54 | 192.0.2.29 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0283
+2026-10-13 09:20:11 | 192.0.2.30 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0284
+2026-10-13 09:20:28 | 192.0.2.31 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0285
+2026-10-13 09:20:45 | 192.0.2.32 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0286
+2026-10-13 09:21:02 | 192.0.2.33 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0287
+2026-10-13 09:21:19 | 192.0.2.34 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0288
+2026-10-13 09:21:36 | 192.0.2.35 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-009; evento simulato 0289
+2026-10-13 09:21:53 | 192.0.2.36 | WARNING | Password errata per un account utente; dispositivo LAB-010; evento simulato 0290
+2026-10-13 09:22:10 | 192.0.2.37 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-011; evento simulato 0291
+2026-10-13 09:22:27 | 192.0.2.38 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-012; evento simulato 0292
+2026-10-13 09:22:44 | 192.0.2.39 | INFO | Sessione utente terminata correttamente; dispositivo LAB-013; evento simulato 0293
+2026-10-13 09:23:01 | 192.0.2.40 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-014; evento simulato 0294
+2026-10-13 09:23:18 | 192.0.2.41 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-015; evento simulato 0295
+2026-10-13 09:23:35 | 192.0.2.42 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-016; evento simulato 0296
+2026-10-13 09:23:52 | 192.0.2.43 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-017; evento simulato 0297
+2026-10-13 09:24:09 | 192.0.2.44 | WARNING | Connessione verso una porta insolita; dispositivo LAB-018; evento simulato 0298
+2026-10-13 09:24:26 | 192.0.2.45 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-019; evento simulato 0299
+2026-10-13 09:24:43 | 192.0.2.46 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-020; evento simulato 0300
+2026-10-13 09:25:00 | 192.0.2.47 | INFO | Regola firewall applicata correttamente; dispositivo LAB-021; evento simulato 0301
+2026-10-13 09:25:17 | 192.0.2.48 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-022; evento simulato 0302
+2026-10-13 09:25:34 | 192.0.2.49 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-023; evento simulato 0303
+2026-10-13 09:25:51 | 192.0.2.50 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-024; evento simulato 0304
+2026-10-13 09:26:08 | 192.0.2.51 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-025; evento simulato 0305
+2026-10-13 09:26:25 | 192.0.2.52 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-026; evento simulato 0306
+2026-10-13 09:26:42 | 192.0.2.53 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-027; evento simulato 0307
+2026-10-13 09:26:59 | 192.0.2.54 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-028; evento simulato 0308
+2026-10-13 09:27:16 | 192.0.2.55 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-029; evento simulato 0309
+2026-10-13 09:27:33 | 192.0.2.56 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-030; evento simulato 0310
+2026-10-13 09:27:50 | 192.0.2.57 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-031; evento simulato 0311
+2026-10-13 09:28:07 | 192.0.2.58 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-032; evento simulato 0312
+2026-10-13 09:28:24 | 192.0.2.59 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0313
+2026-10-13 09:28:41 | 192.0.2.60 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0314
+2026-10-13 09:28:58 | 192.0.2.61 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0315
+2026-10-13 09:29:15 | 192.0.2.62 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0316
+2026-10-13 09:29:32 | 192.0.2.63 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0317
+2026-10-13 09:29:49 | 192.0.2.64 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0318
+2026-10-13 09:30:06 | 192.0.2.65 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0319
+2026-10-13 09:30:23 | 192.0.2.66 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0320
+2026-10-13 09:30:40 | 192.0.2.67 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0321
+2026-10-13 09:30:57 | 192.0.2.68 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0322
+2026-10-13 09:31:14 | 192.0.2.69 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0323
+2026-10-13 09:31:31 | 192.0.2.70 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0324
+2026-10-13 09:31:48 | 192.0.2.71 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0325
+2026-10-13 09:32:05 | 192.0.2.72 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0326
+2026-10-13 09:32:22 | 192.0.2.73 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0327
+2026-10-13 09:32:39 | 192.0.2.74 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0328
+2026-10-13 09:32:56 | 192.0.2.75 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0329
+2026-10-13 09:33:13 | 192.0.2.76 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0330
+2026-10-13 09:33:30 | 192.0.2.77 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0331
+2026-10-13 09:33:47 | 192.0.2.78 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0332
+2026-10-13 09:34:04 | 192.0.2.79 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0333
+2026-10-13 09:34:21 | 192.0.2.80 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0334
+2026-10-13 09:34:38 | 192.0.2.81 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0335
+2026-10-13 09:34:55 | 192.0.2.82 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0336
+2026-10-13 09:35:12 | 192.0.2.83 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0337
+2026-10-13 09:35:29 | 192.0.2.84 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0338
+2026-10-13 09:35:46 | 192.0.2.85 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0339
+2026-10-13 09:36:03 | 192.0.2.86 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0340
+2026-10-13 09:36:20 | 192.0.2.87 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0341
+2026-10-13 09:36:37 | 192.0.2.88 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0342
+2026-10-13 09:36:54 | 192.0.2.89 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0343
+2026-10-13 09:37:11 | 192.0.2.90 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0344
+2026-10-13 09:37:28 | 192.0.2.91 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0345
+2026-10-13 09:37:45 | 192.0.2.92 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0346
+2026-10-13 09:38:02 | 192.0.2.93 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0347
+2026-10-13 09:38:19 | 192.0.2.94 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0348
+2026-10-13 09:38:36 | 192.0.2.95 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0349
+2026-10-13 09:38:53 | 192.0.2.96 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0350
+2026-10-13 09:39:10 | 192.0.2.97 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0351
+2026-10-13 09:39:27 | 192.0.2.98 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0352
+2026-10-13 09:39:44 | 192.0.2.99 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0353
+2026-10-13 09:40:01 | 192.0.2.100 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0354
+2026-10-13 09:40:18 | 192.0.2.101 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0355
+2026-10-13 09:40:35 | 192.0.2.102 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0356
+2026-10-13 09:40:52 | 192.0.2.103 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0357
+2026-10-13 09:41:09 | 192.0.2.104 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0358
+2026-10-13 09:41:26 | 192.0.2.105 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0359
+2026-10-13 09:41:43 | 192.0.2.106 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 0360
+2026-10-13 09:42:00 | 192.0.2.107 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-001; evento simulato 0361
+2026-10-13 09:42:17 | 192.0.2.108 | WARNING | Connessione verso una porta insolita; dispositivo LAB-002; evento simulato 0362
+2026-10-13 09:42:34 | 192.0.2.109 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-003; evento simulato 0363
+2026-10-13 09:42:51 | 192.0.2.110 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-004; evento simulato 0364
+2026-10-13 09:43:08 | 192.0.2.111 | INFO | Regola firewall applicata correttamente; dispositivo LAB-005; evento simulato 0365
+2026-10-13 09:43:25 | 192.0.2.112 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-006; evento simulato 0366
+2026-10-13 09:43:42 | 192.0.2.113 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-007; evento simulato 0367
+2026-10-13 09:43:59 | 192.0.2.114 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-008; evento simulato 0368
+2026-10-13 09:44:16 | 192.0.2.115 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-009; evento simulato 0369
+2026-10-13 09:44:33 | 192.0.2.116 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-010; evento simulato 0370
+2026-10-13 09:44:50 | 192.0.2.117 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-011; evento simulato 0371
+2026-10-13 09:45:07 | 192.0.2.118 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-012; evento simulato 0372
+2026-10-13 09:45:24 | 192.0.2.119 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-013; evento simulato 0373
+2026-10-13 09:45:41 | 192.0.2.120 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-014; evento simulato 0374
+2026-10-13 09:45:58 | 192.0.2.121 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-015; evento simulato 0375
+2026-10-13 09:46:15 | 192.0.2.122 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-016; evento simulato 0376
+2026-10-13 09:46:32 | 192.0.2.123 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0377
+2026-10-13 09:46:49 | 192.0.2.124 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0378
+2026-10-13 09:47:06 | 192.0.2.125 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0379
+2026-10-13 09:47:23 | 192.0.2.126 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0380
+2026-10-13 09:47:40 | 192.0.2.127 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0381
+2026-10-13 09:47:57 | 192.0.2.128 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0382
+2026-10-13 09:48:14 | 192.0.2.129 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0383
+2026-10-13 09:48:31 | 192.0.2.130 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0384
+2026-10-13 09:48:48 | 192.0.2.131 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-025; evento simulato 0385
+2026-10-13 09:49:05 | 192.0.2.132 | WARNING | Password errata per un account utente; dispositivo LAB-026; evento simulato 0386
+2026-10-13 09:49:22 | 192.0.2.133 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-027; evento simulato 0387
+2026-10-13 09:49:39 | 192.0.2.134 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-028; evento simulato 0388
+2026-10-13 09:49:56 | 192.0.2.135 | INFO | Sessione utente terminata correttamente; dispositivo LAB-029; evento simulato 0389
+2026-10-13 09:50:13 | 192.0.2.136 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-030; evento simulato 0390
+2026-10-13 09:50:30 | 192.0.2.137 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-031; evento simulato 0391
+2026-10-13 09:50:47 | 192.0.2.138 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-032; evento simulato 0392
+2026-10-13 09:51:04 | 192.0.2.139 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-033; evento simulato 0393
+2026-10-13 09:51:21 | 192.0.2.140 | WARNING | Connessione verso una porta insolita; dispositivo LAB-034; evento simulato 0394
+2026-10-13 09:51:38 | 192.0.2.141 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-035; evento simulato 0395
+2026-10-13 09:51:55 | 192.0.2.142 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-036; evento simulato 0396
+2026-10-13 09:52:12 | 192.0.2.143 | INFO | Regola firewall applicata correttamente; dispositivo LAB-037; evento simulato 0397
+2026-10-13 09:52:29 | 192.0.2.144 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-038; evento simulato 0398
+2026-10-13 09:52:46 | 192.0.2.145 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-039; evento simulato 0399
+2026-10-13 09:53:03 | 192.0.2.146 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-040; evento simulato 0400
+2026-10-13 09:53:20 | 192.0.2.147 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-001; evento simulato 0401
+2026-10-13 09:53:37 | 192.0.2.148 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-002; evento simulato 0402
+2026-10-13 09:53:54 | 192.0.2.149 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-003; evento simulato 0403
+2026-10-13 09:54:11 | 192.0.2.150 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-004; evento simulato 0404
+2026-10-13 09:54:28 | 192.0.2.151 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-005; evento simulato 0405
+2026-10-13 09:54:45 | 192.0.2.152 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-006; evento simulato 0406
+2026-10-13 09:55:02 | 192.0.2.153 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-007; evento simulato 0407
+2026-10-13 09:55:19 | 192.0.2.154 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-008; evento simulato 0408
+2026-10-13 09:55:36 | 192.0.2.155 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0409
+2026-10-13 09:55:53 | 192.0.2.156 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0410
+2026-10-13 09:56:10 | 192.0.2.157 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0411
+2026-10-13 09:56:27 | 192.0.2.158 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0412
+2026-10-13 09:56:44 | 192.0.2.159 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0413
+2026-10-13 09:57:01 | 192.0.2.160 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0414
+2026-10-13 09:57:18 | 192.0.2.161 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0415
+2026-10-13 09:57:35 | 192.0.2.162 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0416
+2026-10-13 09:57:52 | 192.0.2.163 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-017; evento simulato 0417
+2026-10-13 09:58:09 | 192.0.2.164 | WARNING | Password errata per un account utente; dispositivo LAB-018; evento simulato 0418
+2026-10-13 09:58:26 | 192.0.2.165 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-019; evento simulato 0419
+2026-10-13 09:58:43 | 192.0.2.166 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-020; evento simulato 0420
+2026-10-13 09:59:00 | 192.0.2.167 | INFO | Sessione utente terminata correttamente; dispositivo LAB-021; evento simulato 0421
+2026-10-13 09:59:17 | 192.0.2.168 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-022; evento simulato 0422
+2026-10-13 09:59:34 | 192.0.2.169 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-023; evento simulato 0423
+2026-10-13 09:59:51 | 192.0.2.170 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-024; evento simulato 0424
+2026-10-13 10:00:08 | 192.0.2.171 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-025; evento simulato 0425
+2026-10-13 10:00:25 | 192.0.2.172 | WARNING | Connessione verso una porta insolita; dispositivo LAB-026; evento simulato 0426
+2026-10-13 10:00:42 | 192.0.2.173 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-027; evento simulato 0427
+2026-10-13 10:00:59 | 192.0.2.174 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-028; evento simulato 0428
+2026-10-13 10:01:16 | 192.0.2.175 | INFO | Regola firewall applicata correttamente; dispositivo LAB-029; evento simulato 0429
+2026-10-13 10:01:33 | 192.0.2.176 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-030; evento simulato 0430
+2026-10-13 10:01:50 | 192.0.2.177 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-031; evento simulato 0431
+2026-10-13 10:02:07 | 192.0.2.178 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-032; evento simulato 0432
+2026-10-13 10:02:24 | 192.0.2.179 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-033; evento simulato 0433
+2026-10-13 10:02:41 | 192.0.2.180 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-034; evento simulato 0434
+2026-10-13 10:02:58 | 192.0.2.181 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-035; evento simulato 0435
+2026-10-13 10:03:15 | 192.0.2.182 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-036; evento simulato 0436
+2026-10-13 10:03:32 | 192.0.2.183 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-037; evento simulato 0437
+2026-10-13 10:03:49 | 192.0.2.184 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-038; evento simulato 0438
+2026-10-13 10:04:06 | 192.0.2.185 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-039; evento simulato 0439
+2026-10-13 10:04:23 | 192.0.2.186 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-040; evento simulato 0440
+2026-10-13 10:04:40 | 192.0.2.187 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0441
+2026-10-13 10:04:57 | 192.0.2.188 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0442
+2026-10-13 10:05:14 | 192.0.2.189 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0443
+2026-10-13 10:05:31 | 192.0.2.190 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0444
+2026-10-13 10:05:48 | 192.0.2.191 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0445
+2026-10-13 10:06:05 | 192.0.2.192 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0446
+2026-10-13 10:06:22 | 192.0.2.193 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0447
+2026-10-13 10:06:39 | 192.0.2.194 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0448
+2026-10-13 10:06:56 | 192.0.2.195 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-009; evento simulato 0449
+2026-10-13 10:07:13 | 192.0.2.196 | WARNING | Password errata per un account utente; dispositivo LAB-010; evento simulato 0450
+2026-10-13 10:07:30 | 192.0.2.197 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-011; evento simulato 0451
+2026-10-13 10:07:47 | 192.0.2.198 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-012; evento simulato 0452
+2026-10-13 10:08:04 | 192.0.2.199 | INFO | Sessione utente terminata correttamente; dispositivo LAB-013; evento simulato 0453
+2026-10-13 10:08:21 | 192.0.2.200 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-014; evento simulato 0454
+2026-10-13 10:08:38 | 192.0.2.201 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-015; evento simulato 0455
+2026-10-13 10:08:55 | 192.0.2.202 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-016; evento simulato 0456
+2026-10-13 10:09:12 | 192.0.2.203 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-017; evento simulato 0457
+2026-10-13 10:09:29 | 192.0.2.204 | WARNING | Connessione verso una porta insolita; dispositivo LAB-018; evento simulato 0458
+2026-10-13 10:09:46 | 192.0.2.205 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-019; evento simulato 0459
+2026-10-13 10:10:03 | 192.0.2.206 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-020; evento simulato 0460
+2026-10-13 10:10:20 | 192.0.2.207 | INFO | Regola firewall applicata correttamente; dispositivo LAB-021; evento simulato 0461
+2026-10-13 10:10:37 | 192.0.2.208 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-022; evento simulato 0462
+2026-10-13 10:10:54 | 192.0.2.209 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-023; evento simulato 0463
+2026-10-13 10:11:11 | 192.0.2.210 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-024; evento simulato 0464
+2026-10-13 10:11:28 | 192.0.2.211 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-025; evento simulato 0465
+2026-10-13 10:11:45 | 192.0.2.212 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-026; evento simulato 0466
+2026-10-13 10:12:02 | 192.0.2.213 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-027; evento simulato 0467
+2026-10-13 10:12:19 | 192.0.2.214 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-028; evento simulato 0468
+2026-10-13 10:12:36 | 192.0.2.215 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-029; evento simulato 0469
+2026-10-13 10:12:53 | 192.0.2.216 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-030; evento simulato 0470
+2026-10-13 10:13:10 | 192.0.2.217 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-031; evento simulato 0471
+2026-10-13 10:13:27 | 192.0.2.218 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-032; evento simulato 0472
+2026-10-13 10:13:44 | 192.0.2.219 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0473
+2026-10-13 10:14:01 | 192.0.2.220 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0474
+2026-10-13 10:14:18 | 192.0.2.221 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0475
+2026-10-13 10:14:35 | 192.0.2.222 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0476
+2026-10-13 10:14:52 | 192.0.2.223 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0477
+2026-10-13 10:15:09 | 192.0.2.224 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0478
+2026-10-13 10:15:26 | 192.0.2.225 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0479
+2026-10-13 10:15:43 | 192.0.2.226 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0480
+2026-10-13 10:16:00 | 192.0.2.227 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0481
+2026-10-13 10:16:17 | 192.0.2.228 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0482
+2026-10-13 10:16:34 | 192.0.2.229 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0483
+2026-10-13 10:16:51 | 192.0.2.230 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0484
+2026-10-13 10:17:08 | 192.0.2.231 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0485
+2026-10-13 10:17:25 | 192.0.2.232 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0486
+2026-10-13 10:17:42 | 192.0.2.233 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0487
+2026-10-13 10:17:59 | 192.0.2.234 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0488
+2026-10-13 10:18:16 | 192.0.2.235 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0489
+2026-10-13 10:18:33 | 192.0.2.236 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0490
+2026-10-13 10:18:50 | 192.0.2.237 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0491
+2026-10-13 10:19:07 | 192.0.2.238 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0492
+2026-10-13 10:19:24 | 192.0.2.239 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0493
+2026-10-13 10:19:41 | 192.0.2.240 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0494
+2026-10-13 10:19:58 | 192.0.2.241 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0495
+2026-10-13 10:20:15 | 192.0.2.242 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0496
+2026-10-13 10:20:32 | 192.0.2.243 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0497
+2026-10-13 10:20:49 | 192.0.2.244 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0498
+2026-10-13 10:21:06 | 192.0.2.245 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0499
+2026-10-13 10:21:23 | 192.0.2.246 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0500
+2026-10-13 10:21:40 | 192.0.2.247 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0501
+2026-10-13 10:21:57 | 192.0.2.248 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0502
+2026-10-13 10:22:14 | 192.0.2.249 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0503
+2026-10-13 10:22:31 | 192.0.2.250 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0504
+2026-10-13 10:22:48 | 192.0.2.251 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0505
+2026-10-13 10:23:05 | 192.0.2.252 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0506
+2026-10-13 10:23:22 | 192.0.2.253 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0507
+2026-10-13 10:23:39 | 192.0.2.254 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0508
+2026-10-13 10:23:56 | 192.0.2.1 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0509
+2026-10-13 10:24:13 | 192.0.2.2 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0510
+2026-10-13 10:24:30 | 192.0.2.3 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0511
+2026-10-13 10:24:47 | 192.0.2.4 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0512
+2026-10-13 10:25:04 | 192.0.2.5 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0513
+2026-10-13 10:25:21 | 192.0.2.6 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0514
+2026-10-13 10:25:38 | 192.0.2.7 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0515
+2026-10-13 10:25:55 | 192.0.2.8 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0516
+2026-10-13 10:26:12 | 192.0.2.9 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0517
+2026-10-13 10:26:29 | 192.0.2.10 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0518
+2026-10-13 10:26:46 | 192.0.2.11 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0519
+2026-10-13 10:27:03 | 192.0.2.12 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 0520
+2026-10-13 10:27:20 | 192.0.2.13 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-001; evento simulato 0521
+2026-10-13 10:27:37 | 192.0.2.14 | WARNING | Connessione verso una porta insolita; dispositivo LAB-002; evento simulato 0522
+2026-10-13 10:27:54 | 192.0.2.15 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-003; evento simulato 0523
+2026-10-13 10:28:11 | 192.0.2.16 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-004; evento simulato 0524
+2026-10-13 10:28:28 | 192.0.2.17 | INFO | Regola firewall applicata correttamente; dispositivo LAB-005; evento simulato 0525
+2026-10-13 10:28:45 | 192.0.2.18 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-006; evento simulato 0526
+2026-10-13 10:29:02 | 192.0.2.19 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-007; evento simulato 0527
+2026-10-13 10:29:19 | 192.0.2.20 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-008; evento simulato 0528
+2026-10-13 10:29:36 | 192.0.2.21 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-009; evento simulato 0529
+2026-10-13 10:29:53 | 192.0.2.22 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-010; evento simulato 0530
+2026-10-13 10:30:10 | 192.0.2.23 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-011; evento simulato 0531
+2026-10-13 10:30:27 | 192.0.2.24 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-012; evento simulato 0532
+2026-10-13 10:30:44 | 192.0.2.25 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-013; evento simulato 0533
+2026-10-13 10:31:01 | 192.0.2.26 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-014; evento simulato 0534
+2026-10-13 10:31:18 | 192.0.2.27 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-015; evento simulato 0535
+2026-10-13 10:31:35 | 192.0.2.28 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-016; evento simulato 0536
+2026-10-13 10:31:52 | 192.0.2.29 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0537
+2026-10-13 10:32:09 | 192.0.2.30 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0538
+2026-10-13 10:32:26 | 192.0.2.31 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0539
+2026-10-13 10:32:43 | 192.0.2.32 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0540
+2026-10-13 10:33:00 | 192.0.2.33 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0541
+2026-10-13 10:33:17 | 192.0.2.34 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0542
+2026-10-13 10:33:34 | 192.0.2.35 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0543
+2026-10-13 10:33:51 | 192.0.2.36 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0544
+2026-10-13 10:34:08 | 192.0.2.37 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-025; evento simulato 0545
+2026-10-13 10:34:25 | 192.0.2.38 | WARNING | Password errata per un account utente; dispositivo LAB-026; evento simulato 0546
+2026-10-13 10:34:42 | 192.0.2.39 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-027; evento simulato 0547
+2026-10-13 10:34:59 | 192.0.2.40 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-028; evento simulato 0548
+2026-10-13 10:35:16 | 192.0.2.41 | INFO | Sessione utente terminata correttamente; dispositivo LAB-029; evento simulato 0549
+2026-10-13 10:35:33 | 192.0.2.42 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-030; evento simulato 0550
+2026-10-13 10:35:50 | 192.0.2.43 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-031; evento simulato 0551
+2026-10-13 10:36:07 | 192.0.2.44 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-032; evento simulato 0552
+2026-10-13 10:36:24 | 192.0.2.45 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-033; evento simulato 0553
+2026-10-13 10:36:41 | 192.0.2.46 | WARNING | Connessione verso una porta insolita; dispositivo LAB-034; evento simulato 0554
+2026-10-13 10:36:58 | 192.0.2.47 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-035; evento simulato 0555
+2026-10-13 10:37:15 | 192.0.2.48 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-036; evento simulato 0556
+2026-10-13 10:37:32 | 192.0.2.49 | INFO | Regola firewall applicata correttamente; dispositivo LAB-037; evento simulato 0557
+2026-10-13 10:37:49 | 192.0.2.50 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-038; evento simulato 0558
+2026-10-13 10:38:06 | 192.0.2.51 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-039; evento simulato 0559
+2026-10-13 10:38:23 | 192.0.2.52 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-040; evento simulato 0560
+2026-10-13 10:38:40 | 192.0.2.53 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-001; evento simulato 0561
+2026-10-13 10:38:57 | 192.0.2.54 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-002; evento simulato 0562
+2026-10-13 10:39:14 | 192.0.2.55 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-003; evento simulato 0563
+2026-10-13 10:39:31 | 192.0.2.56 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-004; evento simulato 0564
+2026-10-13 10:39:48 | 192.0.2.57 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-005; evento simulato 0565
+2026-10-13 10:40:05 | 192.0.2.58 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-006; evento simulato 0566
+2026-10-13 10:40:22 | 192.0.2.59 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-007; evento simulato 0567
+2026-10-13 10:40:39 | 192.0.2.60 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-008; evento simulato 0568
+2026-10-13 10:40:56 | 192.0.2.61 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0569
+2026-10-13 10:41:13 | 192.0.2.62 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0570
+2026-10-13 10:41:30 | 192.0.2.63 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0571
+2026-10-13 10:41:47 | 192.0.2.64 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0572
+2026-10-13 10:42:04 | 192.0.2.65 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0573
+2026-10-13 10:42:21 | 192.0.2.66 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0574
+2026-10-13 10:42:38 | 192.0.2.67 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0575
+2026-10-13 10:42:55 | 192.0.2.68 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0576
+2026-10-13 10:43:12 | 192.0.2.69 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-017; evento simulato 0577
+2026-10-13 10:43:29 | 192.0.2.70 | WARNING | Password errata per un account utente; dispositivo LAB-018; evento simulato 0578
+2026-10-13 10:43:46 | 192.0.2.71 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-019; evento simulato 0579
+2026-10-13 10:44:03 | 192.0.2.72 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-020; evento simulato 0580
+2026-10-13 10:44:20 | 192.0.2.73 | INFO | Sessione utente terminata correttamente; dispositivo LAB-021; evento simulato 0581
+2026-10-13 10:44:37 | 192.0.2.74 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-022; evento simulato 0582
+2026-10-13 10:44:54 | 192.0.2.75 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-023; evento simulato 0583
+2026-10-13 10:45:11 | 192.0.2.76 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-024; evento simulato 0584
+2026-10-13 10:45:28 | 192.0.2.77 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-025; evento simulato 0585
+2026-10-13 10:45:45 | 192.0.2.78 | WARNING | Connessione verso una porta insolita; dispositivo LAB-026; evento simulato 0586
+2026-10-13 10:46:02 | 192.0.2.79 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-027; evento simulato 0587
+2026-10-13 10:46:19 | 192.0.2.80 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-028; evento simulato 0588
+2026-10-13 10:46:36 | 192.0.2.81 | INFO | Regola firewall applicata correttamente; dispositivo LAB-029; evento simulato 0589
+2026-10-13 10:46:53 | 192.0.2.82 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-030; evento simulato 0590
+2026-10-13 10:47:10 | 192.0.2.83 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-031; evento simulato 0591
+2026-10-13 10:47:27 | 192.0.2.84 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-032; evento simulato 0592
+2026-10-13 10:47:44 | 192.0.2.85 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-033; evento simulato 0593
+2026-10-13 10:48:01 | 192.0.2.86 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-034; evento simulato 0594
+2026-10-13 10:48:18 | 192.0.2.87 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-035; evento simulato 0595
+2026-10-13 10:48:35 | 192.0.2.88 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-036; evento simulato 0596
+2026-10-13 10:48:52 | 192.0.2.89 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-037; evento simulato 0597
+2026-10-13 10:49:09 | 192.0.2.90 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-038; evento simulato 0598
+2026-10-13 10:49:26 | 192.0.2.91 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-039; evento simulato 0599
+2026-10-13 10:49:43 | 192.0.2.92 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-040; evento simulato 0600
+2026-10-13 10:50:00 | 192.0.2.93 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0601
+2026-10-13 10:50:17 | 192.0.2.94 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0602
+2026-10-13 10:50:34 | 192.0.2.95 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0603
+2026-10-13 10:50:51 | 192.0.2.96 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0604
+2026-10-13 10:51:08 | 192.0.2.97 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0605
+2026-10-13 10:51:25 | 192.0.2.98 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0606
+2026-10-13 10:51:42 | 192.0.2.99 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0607
+2026-10-13 10:51:59 | 192.0.2.100 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0608
+2026-10-13 10:52:16 | 192.0.2.101 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-009; evento simulato 0609
+2026-10-13 10:52:33 | 192.0.2.102 | WARNING | Password errata per un account utente; dispositivo LAB-010; evento simulato 0610
+2026-10-13 10:52:50 | 192.0.2.103 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-011; evento simulato 0611
+2026-10-13 10:53:07 | 192.0.2.104 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-012; evento simulato 0612
+2026-10-13 10:53:24 | 192.0.2.105 | INFO | Sessione utente terminata correttamente; dispositivo LAB-013; evento simulato 0613
+2026-10-13 10:53:41 | 192.0.2.106 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-014; evento simulato 0614
+2026-10-13 10:53:58 | 192.0.2.107 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-015; evento simulato 0615
+2026-10-13 10:54:15 | 192.0.2.108 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-016; evento simulato 0616
+2026-10-13 10:54:32 | 192.0.2.109 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-017; evento simulato 0617
+2026-10-13 10:54:49 | 192.0.2.110 | WARNING | Connessione verso una porta insolita; dispositivo LAB-018; evento simulato 0618
+2026-10-13 10:55:06 | 192.0.2.111 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-019; evento simulato 0619
+2026-10-13 10:55:23 | 192.0.2.112 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-020; evento simulato 0620
+2026-10-13 10:55:40 | 192.0.2.113 | INFO | Regola firewall applicata correttamente; dispositivo LAB-021; evento simulato 0621
+2026-10-13 10:55:57 | 192.0.2.114 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-022; evento simulato 0622
+2026-10-13 10:56:14 | 192.0.2.115 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-023; evento simulato 0623
+2026-10-13 10:56:31 | 192.0.2.116 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-024; evento simulato 0624
+2026-10-13 10:56:48 | 192.0.2.117 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-025; evento simulato 0625
+2026-10-13 10:57:05 | 192.0.2.118 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-026; evento simulato 0626
+2026-10-13 10:57:22 | 192.0.2.119 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-027; evento simulato 0627
+2026-10-13 10:57:39 | 192.0.2.120 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-028; evento simulato 0628
+2026-10-13 10:57:56 | 192.0.2.121 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-029; evento simulato 0629
+2026-10-13 10:58:13 | 192.0.2.122 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-030; evento simulato 0630
+2026-10-13 10:58:30 | 192.0.2.123 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-031; evento simulato 0631
+2026-10-13 10:58:47 | 192.0.2.124 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-032; evento simulato 0632
+2026-10-13 10:59:04 | 192.0.2.125 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0633
+2026-10-13 10:59:21 | 192.0.2.126 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0634
+2026-10-13 10:59:38 | 192.0.2.127 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0635
+2026-10-13 10:59:55 | 192.0.2.128 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0636
+2026-10-13 11:00:12 | 192.0.2.129 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0637
+2026-10-13 11:00:29 | 192.0.2.130 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0638
+2026-10-13 11:00:46 | 192.0.2.131 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0639
+2026-10-13 11:01:03 | 192.0.2.132 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0640
+2026-10-13 11:01:20 | 192.0.2.133 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0641
+2026-10-13 11:01:37 | 192.0.2.134 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0642
+2026-10-13 11:01:54 | 192.0.2.135 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0643
+2026-10-13 11:02:11 | 192.0.2.136 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0644
+2026-10-13 11:02:28 | 192.0.2.137 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0645
+2026-10-13 11:02:45 | 192.0.2.138 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0646
+2026-10-13 11:03:02 | 192.0.2.139 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0647
+2026-10-13 11:03:19 | 192.0.2.140 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0648
+2026-10-13 11:03:36 | 192.0.2.141 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0649
+2026-10-13 11:03:53 | 192.0.2.142 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0650
+2026-10-13 11:04:10 | 192.0.2.143 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0651
+2026-10-13 11:04:27 | 192.0.2.144 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0652
+2026-10-13 11:04:44 | 192.0.2.145 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0653
+2026-10-13 11:05:01 | 192.0.2.146 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0654
+2026-10-13 11:05:18 | 192.0.2.147 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0655
+2026-10-13 11:05:35 | 192.0.2.148 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0656
+2026-10-13 11:05:52 | 192.0.2.149 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0657
+2026-10-13 11:06:09 | 192.0.2.150 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0658
+2026-10-13 11:06:26 | 192.0.2.151 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0659
+2026-10-13 11:06:43 | 192.0.2.152 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0660
+2026-10-13 11:07:00 | 192.0.2.153 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0661
+2026-10-13 11:07:17 | 192.0.2.154 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0662
+2026-10-13 11:07:34 | 192.0.2.155 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0663
+2026-10-13 11:07:51 | 192.0.2.156 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0664
+2026-10-13 11:08:08 | 192.0.2.157 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0665
+2026-10-13 11:08:25 | 192.0.2.158 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0666
+2026-10-13 11:08:42 | 192.0.2.159 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0667
+2026-10-13 11:08:59 | 192.0.2.160 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0668
+2026-10-13 11:09:16 | 192.0.2.161 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0669
+2026-10-13 11:09:33 | 192.0.2.162 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0670
+2026-10-13 11:09:50 | 192.0.2.163 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0671
+2026-10-13 11:10:07 | 192.0.2.164 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0672
+2026-10-13 11:10:24 | 192.0.2.165 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0673
+2026-10-13 11:10:41 | 192.0.2.166 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0674
+2026-10-13 11:10:58 | 192.0.2.167 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0675
+2026-10-13 11:11:15 | 192.0.2.168 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0676
+2026-10-13 11:11:32 | 192.0.2.169 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0677
+2026-10-13 11:11:49 | 192.0.2.170 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0678
+2026-10-13 11:12:06 | 192.0.2.171 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0679
+2026-10-13 11:12:23 | 192.0.2.172 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 0680
+2026-10-13 11:12:40 | 192.0.2.173 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-001; evento simulato 0681
+2026-10-13 11:12:57 | 192.0.2.174 | WARNING | Connessione verso una porta insolita; dispositivo LAB-002; evento simulato 0682
+2026-10-13 11:13:14 | 192.0.2.175 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-003; evento simulato 0683
+2026-10-13 11:13:31 | 192.0.2.176 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-004; evento simulato 0684
+2026-10-13 11:13:48 | 192.0.2.177 | INFO | Regola firewall applicata correttamente; dispositivo LAB-005; evento simulato 0685
+2026-10-13 11:14:05 | 192.0.2.178 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-006; evento simulato 0686
+2026-10-13 11:14:22 | 192.0.2.179 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-007; evento simulato 0687
+2026-10-13 11:14:39 | 192.0.2.180 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-008; evento simulato 0688
+2026-10-13 11:14:56 | 192.0.2.181 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-009; evento simulato 0689
+2026-10-13 11:15:13 | 192.0.2.182 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-010; evento simulato 0690
+2026-10-13 11:15:30 | 192.0.2.183 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-011; evento simulato 0691
+2026-10-13 11:15:47 | 192.0.2.184 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-012; evento simulato 0692
+2026-10-13 11:16:04 | 192.0.2.185 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-013; evento simulato 0693
+2026-10-13 11:16:21 | 192.0.2.186 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-014; evento simulato 0694
+2026-10-13 11:16:38 | 192.0.2.187 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-015; evento simulato 0695
+2026-10-13 11:16:55 | 192.0.2.188 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-016; evento simulato 0696
+2026-10-13 11:17:12 | 192.0.2.189 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0697
+2026-10-13 11:17:29 | 192.0.2.190 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0698
+2026-10-13 11:17:46 | 192.0.2.191 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0699
+2026-10-13 11:18:03 | 192.0.2.192 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0700
+2026-10-13 11:18:20 | 192.0.2.193 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0701
+2026-10-13 11:18:37 | 192.0.2.194 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0702
+2026-10-13 11:18:54 | 192.0.2.195 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0703
+2026-10-13 11:19:11 | 192.0.2.196 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0704
+2026-10-13 11:19:28 | 192.0.2.197 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-025; evento simulato 0705
+2026-10-13 11:19:45 | 192.0.2.198 | WARNING | Password errata per un account utente; dispositivo LAB-026; evento simulato 0706
+2026-10-13 11:20:02 | 192.0.2.199 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-027; evento simulato 0707
+2026-10-13 11:20:19 | 192.0.2.200 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-028; evento simulato 0708
+2026-10-13 11:20:36 | 192.0.2.201 | INFO | Sessione utente terminata correttamente; dispositivo LAB-029; evento simulato 0709
+2026-10-13 11:20:53 | 192.0.2.202 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-030; evento simulato 0710
+2026-10-13 11:21:10 | 192.0.2.203 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-031; evento simulato 0711
+2026-10-13 11:21:27 | 192.0.2.204 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-032; evento simulato 0712
+2026-10-13 11:21:44 | 192.0.2.205 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-033; evento simulato 0713
+2026-10-13 11:22:01 | 192.0.2.206 | WARNING | Connessione verso una porta insolita; dispositivo LAB-034; evento simulato 0714
+2026-10-13 11:22:18 | 192.0.2.207 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-035; evento simulato 0715
+2026-10-13 11:22:35 | 192.0.2.208 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-036; evento simulato 0716
+2026-10-13 11:22:52 | 192.0.2.209 | INFO | Regola firewall applicata correttamente; dispositivo LAB-037; evento simulato 0717
+2026-10-13 11:23:09 | 192.0.2.210 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-038; evento simulato 0718
+2026-10-13 11:23:26 | 192.0.2.211 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-039; evento simulato 0719
+2026-10-13 11:23:43 | 192.0.2.212 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-040; evento simulato 0720
+2026-10-13 11:24:00 | 192.0.2.213 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-001; evento simulato 0721
+2026-10-13 11:24:17 | 192.0.2.214 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-002; evento simulato 0722
+2026-10-13 11:24:34 | 192.0.2.215 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-003; evento simulato 0723
+2026-10-13 11:24:51 | 192.0.2.216 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-004; evento simulato 0724
+2026-10-13 11:25:08 | 192.0.2.217 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-005; evento simulato 0725
+2026-10-13 11:25:25 | 192.0.2.218 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-006; evento simulato 0726
+2026-10-13 11:25:42 | 192.0.2.219 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-007; evento simulato 0727
+2026-10-13 11:25:59 | 192.0.2.220 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-008; evento simulato 0728
+2026-10-13 11:26:16 | 192.0.2.221 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0729
+2026-10-13 11:26:33 | 192.0.2.222 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0730
+2026-10-13 11:26:50 | 192.0.2.223 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0731
+2026-10-13 11:27:07 | 192.0.2.224 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0732
+2026-10-13 11:27:24 | 192.0.2.225 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0733
+2026-10-13 11:27:41 | 192.0.2.226 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0734
+2026-10-13 11:27:58 | 192.0.2.227 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0735
+2026-10-13 11:28:15 | 192.0.2.228 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0736
+2026-10-13 11:28:32 | 192.0.2.229 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-017; evento simulato 0737
+2026-10-13 11:28:49 | 192.0.2.230 | WARNING | Password errata per un account utente; dispositivo LAB-018; evento simulato 0738
+2026-10-13 11:29:06 | 192.0.2.231 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-019; evento simulato 0739
+2026-10-13 11:29:23 | 192.0.2.232 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-020; evento simulato 0740
+2026-10-13 11:29:40 | 192.0.2.233 | INFO | Sessione utente terminata correttamente; dispositivo LAB-021; evento simulato 0741
+2026-10-13 11:29:57 | 192.0.2.234 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-022; evento simulato 0742
+2026-10-13 11:30:14 | 192.0.2.235 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-023; evento simulato 0743
+2026-10-13 11:30:31 | 192.0.2.236 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-024; evento simulato 0744
+2026-10-13 11:30:48 | 192.0.2.237 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-025; evento simulato 0745
+2026-10-13 11:31:05 | 192.0.2.238 | WARNING | Connessione verso una porta insolita; dispositivo LAB-026; evento simulato 0746
+2026-10-13 11:31:22 | 192.0.2.239 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-027; evento simulato 0747
+2026-10-13 11:31:39 | 192.0.2.240 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-028; evento simulato 0748
+2026-10-13 11:31:56 | 192.0.2.241 | INFO | Regola firewall applicata correttamente; dispositivo LAB-029; evento simulato 0749
+2026-10-13 11:32:13 | 192.0.2.242 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-030; evento simulato 0750
+2026-10-13 11:32:30 | 192.0.2.243 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-031; evento simulato 0751
+2026-10-13 11:32:47 | 192.0.2.244 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-032; evento simulato 0752
+2026-10-13 11:33:04 | 192.0.2.245 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-033; evento simulato 0753
+2026-10-13 11:33:21 | 192.0.2.246 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-034; evento simulato 0754
+2026-10-13 11:33:38 | 192.0.2.247 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-035; evento simulato 0755
+2026-10-13 11:33:55 | 192.0.2.248 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-036; evento simulato 0756
+2026-10-13 11:34:12 | 192.0.2.249 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-037; evento simulato 0757
+2026-10-13 11:34:29 | 192.0.2.250 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-038; evento simulato 0758
+2026-10-13 11:34:46 | 192.0.2.251 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-039; evento simulato 0759
+2026-10-13 11:35:03 | 192.0.2.252 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-040; evento simulato 0760
+2026-10-13 11:35:20 | 192.0.2.253 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0761
+2026-10-13 11:35:37 | 192.0.2.254 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0762
+2026-10-13 11:35:54 | 192.0.2.1 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0763
+2026-10-13 11:36:11 | 192.0.2.2 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0764
+2026-10-13 11:36:28 | 192.0.2.3 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0765
+2026-10-13 11:36:45 | 192.0.2.4 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0766
+2026-10-13 11:37:02 | 192.0.2.5 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0767
+2026-10-13 11:37:19 | 192.0.2.6 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0768
+2026-10-13 11:37:36 | 192.0.2.7 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-009; evento simulato 0769
+2026-10-13 11:37:53 | 192.0.2.8 | WARNING | Password errata per un account utente; dispositivo LAB-010; evento simulato 0770
+2026-10-13 11:38:10 | 192.0.2.9 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-011; evento simulato 0771
+2026-10-13 11:38:27 | 192.0.2.10 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-012; evento simulato 0772
+2026-10-13 11:38:44 | 192.0.2.11 | INFO | Sessione utente terminata correttamente; dispositivo LAB-013; evento simulato 0773
+2026-10-13 11:39:01 | 192.0.2.12 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-014; evento simulato 0774
+2026-10-13 11:39:18 | 192.0.2.13 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-015; evento simulato 0775
+2026-10-13 11:39:35 | 192.0.2.14 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-016; evento simulato 0776
+2026-10-13 11:39:52 | 192.0.2.15 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-017; evento simulato 0777
+2026-10-13 11:40:09 | 192.0.2.16 | WARNING | Connessione verso una porta insolita; dispositivo LAB-018; evento simulato 0778
+2026-10-13 11:40:26 | 192.0.2.17 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-019; evento simulato 0779
+2026-10-13 11:40:43 | 192.0.2.18 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-020; evento simulato 0780
+2026-10-13 11:41:00 | 192.0.2.19 | INFO | Regola firewall applicata correttamente; dispositivo LAB-021; evento simulato 0781
+2026-10-13 11:41:17 | 192.0.2.20 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-022; evento simulato 0782
+2026-10-13 11:41:34 | 192.0.2.21 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-023; evento simulato 0783
+2026-10-13 11:41:51 | 192.0.2.22 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-024; evento simulato 0784
+2026-10-13 11:42:08 | 192.0.2.23 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-025; evento simulato 0785
+2026-10-13 11:42:25 | 192.0.2.24 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-026; evento simulato 0786
+2026-10-13 11:42:42 | 192.0.2.25 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-027; evento simulato 0787
+2026-10-13 11:42:59 | 192.0.2.26 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-028; evento simulato 0788
+2026-10-13 11:43:16 | 192.0.2.27 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-029; evento simulato 0789
+2026-10-13 11:43:33 | 192.0.2.28 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-030; evento simulato 0790
+2026-10-13 11:43:50 | 192.0.2.29 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-031; evento simulato 0791
+2026-10-13 11:44:07 | 192.0.2.30 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-032; evento simulato 0792
+2026-10-13 11:44:24 | 192.0.2.31 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0793
+2026-10-13 11:44:41 | 192.0.2.32 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0794
+2026-10-13 11:44:58 | 192.0.2.33 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0795
+2026-10-13 11:45:15 | 192.0.2.34 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0796
+2026-10-13 11:45:32 | 192.0.2.35 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0797
+2026-10-13 11:45:49 | 192.0.2.36 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0798
+2026-10-13 11:46:06 | 192.0.2.37 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0799
+2026-10-13 11:46:23 | 192.0.2.38 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0800
+2026-10-13 11:46:40 | 192.0.2.39 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0801
+2026-10-13 11:46:57 | 192.0.2.40 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0802
+2026-10-13 11:47:14 | 192.0.2.41 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0803
+2026-10-13 11:47:31 | 192.0.2.42 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0804
+2026-10-13 11:47:48 | 192.0.2.43 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0805
+2026-10-13 11:48:05 | 192.0.2.44 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0806
+2026-10-13 11:48:22 | 192.0.2.45 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0807
+2026-10-13 11:48:39 | 192.0.2.46 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0808
+2026-10-13 11:48:56 | 192.0.2.47 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0809
+2026-10-13 11:49:13 | 192.0.2.48 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0810
+2026-10-13 11:49:30 | 192.0.2.49 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0811
+2026-10-13 11:49:47 | 192.0.2.50 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0812
+2026-10-13 11:50:04 | 192.0.2.51 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0813
+2026-10-13 11:50:21 | 192.0.2.52 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0814
+2026-10-13 11:50:38 | 192.0.2.53 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0815
+2026-10-13 11:50:55 | 192.0.2.54 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0816
+2026-10-13 11:51:12 | 192.0.2.55 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0817
+2026-10-13 11:51:29 | 192.0.2.56 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0818
+2026-10-13 11:51:46 | 192.0.2.57 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0819
+2026-10-13 11:52:03 | 192.0.2.58 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0820
+2026-10-13 11:52:20 | 192.0.2.59 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0821
+2026-10-13 11:52:37 | 192.0.2.60 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0822
+2026-10-13 11:52:54 | 192.0.2.61 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0823
+2026-10-13 11:53:11 | 192.0.2.62 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0824
+2026-10-13 11:53:28 | 192.0.2.63 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0825
+2026-10-13 11:53:45 | 192.0.2.64 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0826
+2026-10-13 11:54:02 | 192.0.2.65 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0827
+2026-10-13 11:54:19 | 192.0.2.66 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0828
+2026-10-13 11:54:36 | 192.0.2.67 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0829
+2026-10-13 11:54:53 | 192.0.2.68 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0830
+2026-10-13 11:55:10 | 192.0.2.69 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0831
+2026-10-13 11:55:27 | 192.0.2.70 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0832
+2026-10-13 11:55:44 | 192.0.2.71 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0833
+2026-10-13 11:56:01 | 192.0.2.72 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0834
+2026-10-13 11:56:18 | 192.0.2.73 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0835
+2026-10-13 11:56:35 | 192.0.2.74 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0836
+2026-10-13 11:56:52 | 192.0.2.75 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0837
+2026-10-13 11:57:09 | 192.0.2.76 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0838
+2026-10-13 11:57:26 | 192.0.2.77 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0839
+2026-10-13 11:57:43 | 192.0.2.78 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 0840
+2026-10-13 11:58:00 | 192.0.2.79 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-001; evento simulato 0841
+2026-10-13 11:58:17 | 192.0.2.80 | WARNING | Connessione verso una porta insolita; dispositivo LAB-002; evento simulato 0842
+2026-10-13 11:58:34 | 192.0.2.81 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-003; evento simulato 0843
+2026-10-13 11:58:51 | 192.0.2.82 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-004; evento simulato 0844
+2026-10-13 11:59:08 | 192.0.2.83 | INFO | Regola firewall applicata correttamente; dispositivo LAB-005; evento simulato 0845
+2026-10-13 11:59:25 | 192.0.2.84 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-006; evento simulato 0846
+2026-10-13 11:59:42 | 192.0.2.85 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-007; evento simulato 0847
+2026-10-13 11:59:59 | 192.0.2.86 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-008; evento simulato 0848
+2026-10-13 12:00:16 | 192.0.2.87 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-009; evento simulato 0849
+2026-10-13 12:00:33 | 192.0.2.88 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-010; evento simulato 0850
+2026-10-13 12:00:50 | 192.0.2.89 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-011; evento simulato 0851
+2026-10-13 12:01:07 | 192.0.2.90 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-012; evento simulato 0852
+2026-10-13 12:01:24 | 192.0.2.91 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-013; evento simulato 0853
+2026-10-13 12:01:41 | 192.0.2.92 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-014; evento simulato 0854
+2026-10-13 12:01:58 | 192.0.2.93 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-015; evento simulato 0855
+2026-10-13 12:02:15 | 192.0.2.94 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-016; evento simulato 0856
+2026-10-13 12:02:32 | 192.0.2.95 | INFO | Backup del server completato correttamente; dispositivo LAB-017; evento simulato 0857
+2026-10-13 12:02:49 | 192.0.2.96 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-018; evento simulato 0858
+2026-10-13 12:03:06 | 192.0.2.97 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-019; evento simulato 0859
+2026-10-13 12:03:23 | 192.0.2.98 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-020; evento simulato 0860
+2026-10-13 12:03:40 | 192.0.2.99 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-021; evento simulato 0861
+2026-10-13 12:03:57 | 192.0.2.100 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-022; evento simulato 0862
+2026-10-13 12:04:14 | 192.0.2.101 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-023; evento simulato 0863
+2026-10-13 12:04:31 | 192.0.2.102 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-024; evento simulato 0864
+2026-10-13 12:04:48 | 192.0.2.103 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-025; evento simulato 0865
+2026-10-13 12:05:05 | 192.0.2.104 | WARNING | Password errata per un account utente; dispositivo LAB-026; evento simulato 0866
+2026-10-13 12:05:22 | 192.0.2.105 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-027; evento simulato 0867
+2026-10-13 12:05:39 | 192.0.2.106 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-028; evento simulato 0868
+2026-10-13 12:05:56 | 192.0.2.107 | INFO | Sessione utente terminata correttamente; dispositivo LAB-029; evento simulato 0869
+2026-10-13 12:06:13 | 192.0.2.108 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-030; evento simulato 0870
+2026-10-13 12:06:30 | 192.0.2.109 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-031; evento simulato 0871
+2026-10-13 12:06:47 | 192.0.2.110 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-032; evento simulato 0872
+2026-10-13 12:07:04 | 192.0.2.111 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-033; evento simulato 0873
+2026-10-13 12:07:21 | 192.0.2.112 | WARNING | Connessione verso una porta insolita; dispositivo LAB-034; evento simulato 0874
+2026-10-13 12:07:38 | 192.0.2.113 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-035; evento simulato 0875
+2026-10-13 12:07:55 | 192.0.2.114 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-036; evento simulato 0876
+2026-10-13 12:08:12 | 192.0.2.115 | INFO | Regola firewall applicata correttamente; dispositivo LAB-037; evento simulato 0877
+2026-10-13 12:08:29 | 192.0.2.116 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-038; evento simulato 0878
+2026-10-13 12:08:46 | 192.0.2.117 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-039; evento simulato 0879
+2026-10-13 12:09:03 | 192.0.2.118 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-040; evento simulato 0880
+2026-10-13 12:09:20 | 192.0.2.119 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-001; evento simulato 0881
+2026-10-13 12:09:37 | 192.0.2.120 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-002; evento simulato 0882
+2026-10-13 12:09:54 | 192.0.2.121 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-003; evento simulato 0883
+2026-10-13 12:10:11 | 192.0.2.122 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-004; evento simulato 0884
+2026-10-13 12:10:28 | 192.0.2.123 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-005; evento simulato 0885
+2026-10-13 12:10:45 | 192.0.2.124 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-006; evento simulato 0886
+2026-10-13 12:11:02 | 192.0.2.125 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-007; evento simulato 0887
+2026-10-13 12:11:19 | 192.0.2.126 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-008; evento simulato 0888
+2026-10-13 12:11:36 | 192.0.2.127 | INFO | Backup del server completato correttamente; dispositivo LAB-009; evento simulato 0889
+2026-10-13 12:11:53 | 192.0.2.128 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-010; evento simulato 0890
+2026-10-13 12:12:10 | 192.0.2.129 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-011; evento simulato 0891
+2026-10-13 12:12:27 | 192.0.2.130 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-012; evento simulato 0892
+2026-10-13 12:12:44 | 192.0.2.131 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-013; evento simulato 0893
+2026-10-13 12:13:01 | 192.0.2.132 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-014; evento simulato 0894
+2026-10-13 12:13:18 | 192.0.2.133 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-015; evento simulato 0895
+2026-10-13 12:13:35 | 192.0.2.134 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-016; evento simulato 0896
+2026-10-13 12:13:52 | 192.0.2.135 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-017; evento simulato 0897
+2026-10-13 12:14:09 | 192.0.2.136 | WARNING | Password errata per un account utente; dispositivo LAB-018; evento simulato 0898
+2026-10-13 12:14:26 | 192.0.2.137 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-019; evento simulato 0899
+2026-10-13 12:14:43 | 192.0.2.138 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-020; evento simulato 0900
+2026-10-13 12:15:00 | 192.0.2.139 | INFO | Sessione utente terminata correttamente; dispositivo LAB-021; evento simulato 0901
+2026-10-13 12:15:17 | 192.0.2.140 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-022; evento simulato 0902
+2026-10-13 12:15:34 | 192.0.2.141 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-023; evento simulato 0903
+2026-10-13 12:15:51 | 192.0.2.142 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-024; evento simulato 0904
+2026-10-13 12:16:08 | 192.0.2.143 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-025; evento simulato 0905
+2026-10-13 12:16:25 | 192.0.2.144 | WARNING | Connessione verso una porta insolita; dispositivo LAB-026; evento simulato 0906
+2026-10-13 12:16:42 | 192.0.2.145 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-027; evento simulato 0907
+2026-10-13 12:16:59 | 192.0.2.146 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-028; evento simulato 0908
+2026-10-13 12:17:16 | 192.0.2.147 | INFO | Regola firewall applicata correttamente; dispositivo LAB-029; evento simulato 0909
+2026-10-13 12:17:33 | 192.0.2.148 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-030; evento simulato 0910
+2026-10-13 12:17:50 | 192.0.2.149 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-031; evento simulato 0911
+2026-10-13 12:18:07 | 192.0.2.150 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-032; evento simulato 0912
+2026-10-13 12:18:24 | 192.0.2.151 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-033; evento simulato 0913
+2026-10-13 12:18:41 | 192.0.2.152 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-034; evento simulato 0914
+2026-10-13 12:18:58 | 192.0.2.153 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-035; evento simulato 0915
+2026-10-13 12:19:15 | 192.0.2.154 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-036; evento simulato 0916
+2026-10-13 12:19:32 | 192.0.2.155 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-037; evento simulato 0917
+2026-10-13 12:19:49 | 192.0.2.156 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-038; evento simulato 0918
+2026-10-13 12:20:06 | 192.0.2.157 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-039; evento simulato 0919
+2026-10-13 12:20:23 | 192.0.2.158 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-040; evento simulato 0920
+2026-10-13 12:20:40 | 192.0.2.159 | INFO | Backup del server completato correttamente; dispositivo LAB-001; evento simulato 0921
+2026-10-13 12:20:57 | 192.0.2.160 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-002; evento simulato 0922
+2026-10-13 12:21:14 | 192.0.2.161 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-003; evento simulato 0923
+2026-10-13 12:21:31 | 192.0.2.162 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-004; evento simulato 0924
+2026-10-13 12:21:48 | 192.0.2.163 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-005; evento simulato 0925
+2026-10-13 12:22:05 | 192.0.2.164 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-006; evento simulato 0926
+2026-10-13 12:22:22 | 192.0.2.165 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-007; evento simulato 0927
+2026-10-13 12:22:39 | 192.0.2.166 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-008; evento simulato 0928
+2026-10-13 12:22:56 | 192.0.2.167 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-009; evento simulato 0929
+2026-10-13 12:23:13 | 192.0.2.168 | WARNING | Password errata per un account utente; dispositivo LAB-010; evento simulato 0930
+2026-10-13 12:23:30 | 192.0.2.169 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-011; evento simulato 0931
+2026-10-13 12:23:47 | 192.0.2.170 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-012; evento simulato 0932
+2026-10-13 12:24:04 | 192.0.2.171 | INFO | Sessione utente terminata correttamente; dispositivo LAB-013; evento simulato 0933
+2026-10-13 12:24:21 | 192.0.2.172 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-014; evento simulato 0934
+2026-10-13 12:24:38 | 192.0.2.173 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-015; evento simulato 0935
+2026-10-13 12:24:55 | 192.0.2.174 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-016; evento simulato 0936
+2026-10-13 12:25:12 | 192.0.2.175 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-017; evento simulato 0937
+2026-10-13 12:25:29 | 192.0.2.176 | WARNING | Connessione verso una porta insolita; dispositivo LAB-018; evento simulato 0938
+2026-10-13 12:25:46 | 192.0.2.177 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-019; evento simulato 0939
+2026-10-13 12:26:03 | 192.0.2.178 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-020; evento simulato 0940
+2026-10-13 12:26:20 | 192.0.2.179 | INFO | Regola firewall applicata correttamente; dispositivo LAB-021; evento simulato 0941
+2026-10-13 12:26:37 | 192.0.2.180 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-022; evento simulato 0942
+2026-10-13 12:26:54 | 192.0.2.181 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-023; evento simulato 0943
+2026-10-13 12:27:11 | 192.0.2.182 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-024; evento simulato 0944
+2026-10-13 12:27:28 | 192.0.2.183 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-025; evento simulato 0945
+2026-10-13 12:27:45 | 192.0.2.184 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-026; evento simulato 0946
+2026-10-13 12:28:02 | 192.0.2.185 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-027; evento simulato 0947
+2026-10-13 12:28:19 | 192.0.2.186 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-028; evento simulato 0948
+2026-10-13 12:28:36 | 192.0.2.187 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-029; evento simulato 0949
+2026-10-13 12:28:53 | 192.0.2.188 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-030; evento simulato 0950
+2026-10-13 12:29:10 | 192.0.2.189 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-031; evento simulato 0951
+2026-10-13 12:29:27 | 192.0.2.190 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-032; evento simulato 0952
+2026-10-13 12:29:44 | 192.0.2.191 | INFO | Backup del server completato correttamente; dispositivo LAB-033; evento simulato 0953
+2026-10-13 12:30:01 | 192.0.2.192 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-034; evento simulato 0954
+2026-10-13 12:30:18 | 192.0.2.193 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-035; evento simulato 0955
+2026-10-13 12:30:35 | 192.0.2.194 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-036; evento simulato 0956
+2026-10-13 12:30:52 | 192.0.2.195 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-037; evento simulato 0957
+2026-10-13 12:31:09 | 192.0.2.196 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-038; evento simulato 0958
+2026-10-13 12:31:26 | 192.0.2.197 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-039; evento simulato 0959
+2026-10-13 12:31:43 | 192.0.2.198 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-040; evento simulato 0960
+2026-10-13 12:32:00 | 192.0.2.199 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0961
+2026-10-13 12:32:17 | 192.0.2.200 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0962
+2026-10-13 12:32:34 | 192.0.2.201 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0963
+2026-10-13 12:32:51 | 192.0.2.202 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0964
+2026-10-13 12:33:08 | 192.0.2.203 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0965
+2026-10-13 12:33:25 | 192.0.2.204 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0966
+2026-10-13 12:33:42 | 192.0.2.205 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0967
+2026-10-13 12:33:59 | 192.0.2.206 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0968
+2026-10-13 12:34:16 | 192.0.2.207 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0969
+2026-10-13 12:34:33 | 192.0.2.208 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0970
+2026-10-13 12:34:50 | 192.0.2.209 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0971
+2026-10-13 12:35:07 | 192.0.2.210 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0972
+2026-10-13 12:35:24 | 192.0.2.211 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0973
+2026-10-13 12:35:41 | 192.0.2.212 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0974
+2026-10-13 12:35:58 | 192.0.2.213 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0975
+2026-10-13 12:36:15 | 192.0.2.214 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0976
+2026-10-13 12:36:32 | 192.0.2.215 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0977
+2026-10-13 12:36:49 | 192.0.2.216 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0978
+2026-10-13 12:37:06 | 192.0.2.217 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0979
+2026-10-13 12:37:23 | 192.0.2.218 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0980
+2026-10-13 12:37:40 | 192.0.2.219 | INFO | Definizioni antivirus aggiornate correttamente; dispositivo LAB-021; evento simulato 0981
+2026-10-13 12:37:57 | 192.0.2.220 | WARNING | Esecuzione di un programma non riconosciuto; dispositivo LAB-022; evento simulato 0982
+2026-10-13 12:38:14 | 192.0.2.221 | ERROR | Tentativo di modifica sospetta dei file di sistema; dispositivo LAB-023; evento simulato 0983
+2026-10-13 12:38:31 | 192.0.2.222 | CRITICAL | Dispositivo isolato dopo il rilevamento di una minaccia; dispositivo LAB-024; evento simulato 0984
+2026-10-13 12:38:48 | 192.0.2.223 | INFO | Backup del server completato correttamente; dispositivo LAB-025; evento simulato 0985
+2026-10-13 12:39:05 | 192.0.2.224 | WARNING | Spazio disponibile sul disco inferiore alla soglia; dispositivo LAB-026; evento simulato 0986
+2026-10-13 12:39:22 | 192.0.2.225 | ERROR | Servizio applicativo arrestato in modo inatteso; dispositivo LAB-027; evento simulato 0987
+2026-10-13 12:39:39 | 192.0.2.226 | CRITICAL | Servizio di sicurezza non disponibile sul dispositivo; dispositivo LAB-028; evento simulato 0988
+2026-10-13 12:39:56 | 192.0.2.227 | INFO | Aggiornamento di sicurezza installato correttamente; dispositivo LAB-029; evento simulato 0989
+2026-10-13 12:40:13 | 192.0.2.228 | WARNING | Utilizzo della memoria superiore alla soglia; dispositivo LAB-030; evento simulato 0990
+2026-10-13 12:40:30 | 192.0.2.229 | ERROR | Aggiornamento di sicurezza non completato; dispositivo LAB-031; evento simulato 0991
+2026-10-13 12:40:47 | 192.0.2.230 | CRITICAL | Modifica non autorizzata della configurazione del server; dispositivo LAB-032; evento simulato 0992
+2026-10-13 12:41:04 | 192.0.2.231 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-033; evento simulato 0993
+2026-10-13 12:41:21 | 192.0.2.232 | WARNING | Password errata per un account utente; dispositivo LAB-034; evento simulato 0994
+2026-10-13 12:41:38 | 192.0.2.233 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-035; evento simulato 0995
+2026-10-13 12:41:55 | 192.0.2.234 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-036; evento simulato 0996
+2026-10-13 12:42:12 | 192.0.2.235 | INFO | Sessione utente terminata correttamente; dispositivo LAB-037; evento simulato 0997
+2026-10-13 12:42:29 | 192.0.2.236 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-038; evento simulato 0998
+2026-10-13 12:42:46 | 192.0.2.237 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-039; evento simulato 0999
+2026-10-13 12:43:03 | 192.0.2.238 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-040; evento simulato 1000

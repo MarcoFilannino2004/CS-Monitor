@@ -1,0 +1,26 @@
+2026-10-13 08:00:00 | 192.0.2.1 | INFO | Accesso riuscito al portale aziendale; dispositivo LAB-001; evento simulato 0001
+2026-10-13 08:00:17 | 192.0.2.2 | WARNING | Password errata per un account utente; dispositivo LAB-002; evento simulato 0002
+2026-10-13 08:00:34 | 192.0.2.3 | ERROR | Account bloccato dopo ripetuti tentativi di accesso; dispositivo LAB-003; evento simulato 0003
+2026-10-13 08:00:51 | 192.0.2.4 | CRITICAL | Accesso amministratore da dispositivo non riconosciuto; dispositivo LAB-004; evento simulato 0004
+2026-10-13 08:01:08 | 192.0.2.5 | INFO | Sessione utente terminata correttamente; dispositivo LAB-005; evento simulato 0005
+2026-10-13 08:01:25 | 192.0.2.6 | WARNING | Richiesta di accesso fuori dall'orario abituale; dispositivo LAB-006; evento simulato 0006
+2026-10-13 08:01:42 | 192.0.2.7 | ERROR | Tentativo di accesso a una risorsa riservata; dispositivo LAB-007; evento simulato 0007
+2026-10-13 08:01:59 | 192.0.2.8 | CRITICAL | Numerosi tentativi di accesso a diversi account; dispositivo LAB-008; evento simulato 0008
+2026-10-13 08:02:16 | 192.0.2.9 | INFO | Connessione HTTPS consentita dal firewall; dispositivo LAB-009; evento simulato 0009
+2026-10-13 08:02:33 | 192.0.2.10 | WARNING | Connessione verso una porta insolita; dispositivo LAB-010; evento simulato 0010
+2026-10-13 08:02:50 | 192.0.2.11 | ERROR | Connessione in ingresso bloccata dalla regola di sicurezza; dispositivo LAB-011; evento simulato 0011
+2026-10-13 08:03:07 | 192.0.2.12 | CRITICAL | Rilevata scansione su numerose porte del server; dispositivo LAB-012; evento simulato 0012
+2026-10-13 08:03:24 | 192.0.2.13 | INFO | Regola firewall applicata correttamente; dispositivo LAB-013; evento simulato 0013
+2026-10-13 08:03:41 | 192.0.2.14 | WARNING | Elevato numero di connessioni dalla stessa origine; dispositivo LAB-014; evento simulato 0014
+2026-10-13 08:03:58 | 192.0.2.15 | ERROR | Traffico verso una destinazione vietata bloccato; dispositivo LAB-015; evento simulato 0015
+2026-10-13 08:04:15 | 192.0.2.16 | CRITICAL | Traffico anomalo compatibile con un attacco simulato; dispositivo LAB-016; evento simulato 0016
+2026-10-13 08:04:32 | 192.0.2.17 | INFO | Scansione antivirus completata senza minacce; dispositivo LAB-017; evento simulato 0017
+2026-10-13 08:04:49 | 192.0.2.18 | WARNING | File sospetto segnalato durante il download; dispositivo LAB-018; evento simulato 0018
+2026-10-13 08:05:06 | 192.0.2.19 | ERROR | File dannoso bloccato e messo in quarantena; dispositivo LAB-019; evento simulato 0019
+2026-10-13 08:05:23 | 192.0.2.20 | CRITICAL | Comportamento compatibile con ransomware rilevato; dispositivo LAB-020; evento simulato 0020
+Questa riga non rispetta il formato richiesto
+2026-10-13 10:00:00 | 999.1.2.3 | WARNING | Indirizzo IP non valido
+2026-02-30 10:00:00 | 192.0.2.10 | ERROR | Data inesistente
+2026-10-13 25:00:00 | 192.0.2.11 | ERROR | Ora non valida
+2026-10-13 10:00:00 | 192.0.2.12 | DEBUG | Livello non supportato
+2026-10-13 10:00:00 | 192.0.2.13 | INFO |

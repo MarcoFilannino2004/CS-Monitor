@@ -97,6 +97,17 @@ class AccountDatabaseTests(unittest.TestCase):
         self.assertEqual(statisticheEventi()['totale'], 0)
         self.assertEqual(self.client.get(f'/eventi/{evento}').status_code, 200)
 
+    def test_categorie_predefinite_conservano_esistenti_e_non_duplicano(self):
+        from database.categorie_repository import aggiungiCategoriePredefinite, visualizzaCategorie, CATEGORIE_PREDEFINITE
+        prima = {c['id_categoria']: c['nome'] for c in visualizzaCategorie()}
+        aggiungiCategoriePredefinite()
+        dopo = {c['id_categoria']: c['nome'] for c in visualizzaCategorie()}
+        for id_categoria, nome in prima.items():
+            self.assertEqual(dopo[id_categoria], nome)
+        self.assertTrue(set(CATEGORIE_PREDEFINITE).issubset(set(dopo.values())))
+        self.assertEqual(aggiungiCategoriePredefinite(), 0)
+        self.assertEqual(len(visualizzaCategorie()), len(dopo))
+
     def test_isolamento_lettura_modifica_elimina_csv_statistiche(self):
         evento = self.evento()
         altro = creaUtente('altro_' + uuid.uuid4().hex[:8], uuid.uuid4().hex + '@test.example', self.password)

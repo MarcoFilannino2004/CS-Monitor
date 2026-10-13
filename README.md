@@ -237,11 +237,16 @@ La data deve seguire il formato `AAAA-MM-GG HH:MM:SS`. Sono accettati IP sia IPv
 1. Apri **Importa log** e premi **Scegli file**.
 2. Seleziona un file `.log` o `.txt` in UTF-8 e premi **Analizza file**.
 3. Controlla l'anteprima e le segnalazioni delle righe non valide.
-4. Lascia selezionati gli eventi desiderati e scegli **una categoria per ogni evento**.
-5. Premi **Importa eventi selezionati**: si apre il dettaglio dell’importazione, con il file originale scaricabile e gli eventi salvati.
-6. Puoi ritrovare il file in **Storico log** e gli eventi nella dashboard.
+4. Lascia selezionati gli eventi desiderati. Puoi usare **Seleziona tutti** e **Deseleziona tutti**.
+5. Scegli una categoria dal menu **Categoria da applicare** e premi **Applica ai selezionati**. Puoi correggere la categoria di ogni singola riga; le righe non selezionate restano invariate.
+6. Premi **Importa eventi selezionati**: si apre il dettaglio dell’importazione, con il file originale scaricabile e gli eventi salvati.
+7. Puoi ritrovare il file in **Storico log** e gli eventi nella dashboard.
 
 Puoi provare il flusso con [`esempi/eventi.log`](esempi/eventi.log).
+
+Altri file, da 100 a 1000 eventi, sono descritti nella [guida degli esempi](esempi/README.md). Per un file come `firewall.log` puoi assegnare la categoria a tutti i 200 eventi in un solo passaggio.
+
+La preparazione degli account aggiunge anche 30 categorie predefinite per accessi, attacchi di rete, malware, applicazioni e problemi di sistema. Le categorie già presenti e i loro ID vengono conservati; ripetere la preparazione non aggiunge nuovamente gli stessi nomi.
 
 ### Controlli applicati
 
@@ -365,7 +370,7 @@ python -m unittest test_importazione_log test_correzioni -v
 python -m unittest test_account test_correzioni test_importazione_log -v
 ```
 
-Sono 33 test senza scritture sul database reale. Per aggiungere 11 prove complete su MySQL:
+Sono 33 test senza scritture sul database reale. Per aggiungere 12 prove complete su MySQL:
 
 ```powershell
 $env:CS_MONITOR_TEST_DB='1'

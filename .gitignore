@@ -3,6 +3,6 @@ __pycache__/
 *.pyc
 .env
 *.log
-!esempi/eventi.log
+!esempi/*.log
 .pytest_cache/
 instance/credenziali-admin.txt
