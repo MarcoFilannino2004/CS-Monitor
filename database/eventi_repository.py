@@ -1,4 +1,3 @@
-
 import mysql.connector
 from database.connessione import creaConnessione
 from models.evento_sicurezza import EventoSicurezza
@@ -18,7 +17,15 @@ def inserisciEvento(evento: EventoSicurezza, id_utente=None):
             VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
 
-        valori = (evento.id_categoria, evento.indirizzo_ip, evento.descrizione, evento.gravita, evento.stato, evento.data_evento, id_utente)
+        valori = (
+            evento.id_categoria,
+            evento.indirizzo_ip,
+            evento.descrizione,
+            evento.gravita,
+            evento.stato,
+            evento.data_evento,
+            id_utente,
+        )
 
         cursore.execute(query, valori)
         connessione.commit()
@@ -50,8 +57,10 @@ def inserisciEventi(eventi):
             """INSERT INTO eventi
                (id_categoria, indirizzo_ip, descrizione, gravita, stato, data_evento)
                VALUES (%s, %s, %s, %s, %s, %s)""",
-            [(e.id_categoria, e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento)
-             for e in eventi],
+            [
+                (e.id_categoria, e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento)
+                for e in eventi
+            ],
         )
         connessione.commit()
     except mysql.connector.Error:
@@ -66,7 +75,15 @@ def inserisciEventi(eventi):
 
 
 # READ - Tutti gli eventi
-def visualizzaEventi(gravita=None, stato=None, ordine="recenti", testo=None, id_utente=None, amministratore=False, id_importazione=None):
+def visualizzaEventi(
+    gravita=None,
+    stato=None,
+    ordine="recenti",
+    testo=None,
+    id_utente=None,
+    amministratore=False,
+    id_importazione=None,
+):
     connessione = None
     cursore = None
 
@@ -185,7 +202,14 @@ def modificaEvento(evento: EventoSicurezza, id_utente=None, amministratore=False
             WHERE id_evento = %s
         """
 
-        valori = (evento.id_categoria, evento.indirizzo_ip, evento.descrizione, evento.gravita, evento.stato, evento.id_evento)
+        valori = (
+            evento.id_categoria,
+            evento.indirizzo_ip,
+            evento.descrizione,
+            evento.gravita,
+            evento.stato,
+            evento.id_evento,
+        )
 
         if not amministratore:
             query += " AND id_utente = %s"
@@ -245,6 +269,7 @@ def eliminaEvento(id_evento: int, id_utente=None, amministratore=False):
         if connessione is not None and connessione.is_connected():
             connessione.close()
 
+
 def statisticheEventi(id_utente=None, amministratore=False):
     connessione = creaConnessione()
     cursore = connessione.cursor(dictionary=True)
@@ -271,4 +296,3 @@ def statisticheEventi(id_utente=None, amministratore=False):
     finally:
         cursore.close()
         connessione.close()
-

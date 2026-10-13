@@ -1,4 +1,5 @@
 """Test di accesso e protezione dei moduli, senza scrivere sul database."""
+
 import unittest
 from unittest.mock import patch
 from app import app
@@ -17,7 +18,9 @@ class AccountTests(unittest.TestCase):
 
     def accedi(self, ruolo='utente', versione=0):
         self.lookup.stop()
-        self.lookup = patch('database.utenti_repository.cercaUtente', return_value=dict(UTENTE, ruolo=ruolo))
+        self.lookup = patch(
+            'database.utenti_repository.cercaUtente', return_value=dict(UTENTE, ruolo=ruolo)
+        )
         self.lookup.start()
         self.addCleanup(self.lookup.stop)
         with self.client.session_transaction() as s:
@@ -26,19 +29,29 @@ class AccountTests(unittest.TestCase):
     def test_pagine_pubbliche_e_redirect_private(self):
         for url in ('/', '/info', '/login', '/registrazione'):
             self.assertEqual(self.client.get(url).status_code, 200)
-        for url in ('/dashboard', '/eventi/1', '/eventi/esporta', '/importazioni', '/amministrazione/utenti'):
+        for url in (
+            '/dashboard',
+            '/eventi/1',
+            '/eventi/esporta',
+            '/importazioni',
+            '/amministrazione/utenti',
+        ):
             r = self.client.get(url)
             self.assertEqual(r.status_code, 302)
             self.assertTrue(r.location.endswith('/login'))
 
     def test_csrf_obbligatorio_anche_registrazione(self):
         with patch('routes.account.creaUtente') as crea:
-            self.assertEqual(self.client.post('/registrazione', data={'username': 'nuovo'}).status_code, 400)
+            self.assertEqual(
+                self.client.post('/registrazione', data={'username': 'nuovo'}).status_code, 400
+            )
             crea.assert_not_called()
 
     def test_csrf_non_ascii_restituisce_errore_comprensibile(self):
         self.client.get('/registrazione')
-        self.assertEqual(self.client.post('/registrazione', data={'csrf_token': 'non-valido-é'}).status_code, 400)
+        self.assertEqual(
+            self.client.post('/registrazione', data={'csrf_token': 'non-valido-é'}).status_code, 400
+        )
 
     def test_utente_non_puo_amministrare(self):
         self.accedi()
@@ -49,7 +62,17 @@ class AccountTests(unittest.TestCase):
         with self.client.session_transaction() as s:
             token = s['csrf_token']
         with patch('routes.account.creaUtente') as crea:
-            r = self.client.post('/registrazione', data=dict(csrf_token=token, username='nuovo', email='nuovo@example.com', password='una-password-lunga', conferma_password='una-password-lunga', ruolo='admin'))
+            r = self.client.post(
+                '/registrazione',
+                data=dict(
+                    csrf_token=token,
+                    username='nuovo',
+                    email='nuovo@example.com',
+                    password='una-password-lunga',
+                    conferma_password='una-password-lunga',
+                    ruolo='admin',
+                ),
+            )
             self.assertEqual(r.status_code, 303)
             crea.assert_called_once_with('nuovo', 'nuovo@example.com', 'una-password-lunga')
 
@@ -57,7 +80,10 @@ class AccountTests(unittest.TestCase):
         self.client.get('/registrazione')
         with self.client.session_transaction() as s:
             token = s['csrf_token']
-        r = self.client.post('/registrazione', data=dict(csrf_token=token, username='nuovo', email='nuovo@example.com'))
+        r = self.client.post(
+            '/registrazione',
+            data=dict(csrf_token=token, username='nuovo', email='nuovo@example.com'),
+        )
         self.assertEqual(r.status_code, 200)
         self.assertIn(b'password deve contenere', r.data)
 
@@ -67,7 +93,9 @@ class AccountTests(unittest.TestCase):
 
     def test_account_disattivato_perde_accesso(self):
         self.accedi()
-        with patch('database.utenti_repository.cercaUtente', return_value=dict(UTENTE, attivo=False)):
+        with patch(
+            'database.utenti_repository.cercaUtente', return_value=dict(UTENTE, attivo=False)
+        ):
             self.assertEqual(self.client.get('/importazioni').status_code, 302)
 
     def test_logout_solo_post_protetto(self):
@@ -80,7 +108,9 @@ class AccountTests(unittest.TestCase):
 
     def test_dashboard_e_csv_passano_proprietario(self):
         self.accedi()
-        with patch('app.visualizzaEventi', return_value=[]) as elenco, patch('app.statisticheEventi', return_value={}):
+        with patch('app.visualizzaEventi', return_value=[]) as elenco, patch(
+            'app.statisticheEventi', return_value={}
+        ):
             self.client.get('/dashboard')
             self.client.get('/eventi/esporta')
             for chiamata in elenco.call_args_list:
@@ -88,7 +118,9 @@ class AccountTests(unittest.TestCase):
 
     def test_admin_puo_consultare_tutto(self):
         self.accedi('admin')
-        with patch('app.visualizzaEventi', return_value=[]) as elenco, patch('app.statisticheEventi', return_value={}):
+        with patch('app.visualizzaEventi', return_value=[]) as elenco, patch(
+            'app.statisticheEventi', return_value={}
+        ):
             self.client.get('/dashboard')
             self.assertEqual(elenco.call_args.kwargs, dict(id_utente=1, amministratore=True))
 

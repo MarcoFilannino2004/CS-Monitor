@@ -20,7 +20,9 @@ def preparaAccount():
         cursore.execute('SHOW COLUMNS FROM utenti')
         colonne_utenti = {c[0] for c in cursore.fetchall()}
         if 'password_da_cambiare' not in colonne_utenti:
-            cursore.execute('ALTER TABLE utenti ADD COLUMN password_da_cambiare BOOLEAN NOT NULL DEFAULT FALSE')
+            cursore.execute(
+                'ALTER TABLE utenti ADD COLUMN password_da_cambiare BOOLEAN NOT NULL DEFAULT FALSE'
+            )
         cursore.execute("""CREATE TABLE IF NOT EXISTS importazioni (
             id_importazione INT AUTO_INCREMENT PRIMARY KEY,
             id_utente INT NOT NULL,
@@ -38,7 +40,11 @@ def preparaAccount():
         cursore.execute("SHOW COLUMNS FROM eventi")
         colonne = {c[0] for c in cursore.fetchall()}
         if 'id_utente' not in colonne:
-            cursore.execute("ALTER TABLE eventi ADD COLUMN id_utente INT NULL, ADD CONSTRAINT fk_eventi_utente FOREIGN KEY (id_utente) REFERENCES utenti(id_utente), ADD INDEX idx_eventi_utente (id_utente)")
+            cursore.execute(
+                "ALTER TABLE eventi ADD COLUMN id_utente INT NULL, ADD CONSTRAINT fk_eventi_utente FOREIGN KEY (id_utente) REFERENCES utenti(id_utente), ADD INDEX idx_eventi_utente (id_utente)"
+            )
         if 'id_importazione' not in colonne:
-            cursore.execute("ALTER TABLE eventi ADD COLUMN id_importazione INT NULL, ADD CONSTRAINT fk_eventi_importazione FOREIGN KEY (id_importazione) REFERENCES importazioni(id_importazione), ADD INDEX idx_eventi_importazione (id_importazione)")
+            cursore.execute(
+                "ALTER TABLE eventi ADD COLUMN id_importazione INT NULL, ADD CONSTRAINT fk_eventi_importazione FOREIGN KEY (id_importazione) REFERENCES importazioni(id_importazione), ADD INDEX idx_eventi_importazione (id_importazione)"
+            )
         connessione.commit()

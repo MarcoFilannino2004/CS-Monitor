@@ -1,108 +1,83 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dettagli evento - CS Monitor</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/stile.css') }}">
-</head>
-
-<body class="d-flex flex-column min-vh-100">
-    {% include 'navbar.html' %}
-
-    <main class="container d-flex justify-content-center py-5 flex-grow-1">
-
-        <div class="card dettagli-card shadow-sm">
-
-            <div class="card-body p-4 p-md-5">
-
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div>
-                        <small class="text-secondary">EVENTO DI SICUREZZA</small>
-                        <h2 class="mt-2 mb-0">Dettagli evento ID: {{ evento.id_evento }}</h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dettagli evento - CS Monitor</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+              rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='css/stile.css') }}">
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        {% include "navbar.html" %}
+        <main class="container d-flex justify-content-center py-5 flex-grow-1">
+            <div class="card dettagli-card shadow-sm">
+                <div class="card-body p-4 p-md-5">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <small class="text-secondary">EVENTO DI SICUREZZA</small>
+                            <h2 class="mt-2 mb-0">Dettagli evento ID: {{ evento.id_evento }}</h2>
+                        </div>
+                        <span class="badge bg-danger">{{ evento.gravita }}</span>
                     </div>
-
-                    <span class="badge bg-danger">{{ evento.gravita }}</span>
+                    <hr>
+                    {% if utente_corrente.ruolo == "admin" and evento.autore %}
+                        <p>Utente: <strong>{{ evento.autore }}</strong></p>
+                    {% endif %}
+                    {% if evento.id_importazione %}
+                        <p>Origine: <a href="{{ url_for('dettagliImportazione', id_importazione=evento.id_importazione) }}">File di log importato</a></p>
+                    {% endif %}
+                    <div class="row g-4 my-2">
+                        <div class="col-md-6">
+                            <small class="text-secondary">Categoria</small>
+                            <p class="fw-semibold">{{ evento.categoria }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <small class="text-secondary">Indirizzo IP</small>
+                            <p class="fw-semibold">{{ evento.indirizzo_ip }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <small class="text-secondary">Gravità</small>
+                            <p class="fw-semibold">{{ evento.gravita }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <small class="text-secondary">Stato</small>
+                            <p class="fw-semibold">{{ evento.stato }}</p>
+                        </div>
+                        <div class="col-12">
+                            <small class="text-secondary">Data e ora</small>
+                            <p class="fw-semibold">{{ evento.data_evento }}</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <small class="text-secondary">Descrizione</small>
+                        <div class="bg-light rounded p-3 mt-2">{{ evento.descrizione }}</div>
+                    </div>
+                    <hr>
+                    <div class="d-flex flex-wrap gap-2 mt-4">
+                        <a href="{{ url_for('modificaEventoPagina', id_evento=evento.id_evento) }}"
+                           class="btn btn-warning">
+                            <i class="bi bi-pencil-square"></i> Modifica evento
+                        </a>
+                        <form action="{{ url_for('eliminaEventoPagina', id_evento=evento.id_evento) }}"
+                              method="post"
+                              onsubmit="return confirm('Sei sicuro di voler eliminare questo evento?');">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash"></i> Elimina evento
+                            </button>
+                        </form>
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-applicaFiltri">
+                            <i class="bi bi-arrow-left"></i> Torna alla dashboard
+                        </a>
+                    </div>
                 </div>
-
-                <hr>
-
-                {% if utente_corrente.ruolo == 'admin' and evento.autore %}<p>Utente: <strong>{{ evento.autore }}</strong></p>{% endif %}
-                {% if evento.id_importazione %}<p>Origine: <a href="{{ url_for('dettagliImportazione', id_importazione=evento.id_importazione) }}">File di log importato</a></p>{% endif %}
-
-                <div class="row g-4 my-2">
-
-                    <div class="col-md-6">
-                        <small class="text-secondary">Categoria</small>
-                        <p class="fw-semibold">{{ evento.categoria }}</p>
-                    </div>
-
-                    <div class="col-md-6">
-                        <small class="text-secondary">Indirizzo IP</small>
-                        <p class="fw-semibold">{{ evento.indirizzo_ip }}</p>
-                    </div>
-
-                    <div class="col-md-6">
-                        <small class="text-secondary">Gravità</small>
-                        <p class="fw-semibold">{{ evento.gravita }}</p>
-                    </div>
-
-                    <div class="col-md-6">
-                        <small class="text-secondary">Stato</small>
-                        <p class="fw-semibold">{{ evento.stato }}</p>
-                    </div>
-
-                    <div class="col-12">
-                        <small class="text-secondary">Data e ora</small>
-                        <p class="fw-semibold">{{ evento.data_evento }}</p>
-                    </div>
-
-                </div>
-
-                <div class="mb-4">
-                    <small class="text-secondary">Descrizione</small>
-                    <div class="bg-light rounded p-3 mt-2">
-                        {{ evento.descrizione }}
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="d-flex flex-wrap gap-2 mt-4">
-
-                    <a href="{{ url_for('modificaEventoPagina', id_evento=evento.id_evento) }}"
-                    class="btn btn-warning">
-                        <i class="bi bi-pencil-square"></i> Modifica evento
-                    </a>
-
-                    <form action="{{ url_for('eliminaEventoPagina', id_evento=evento.id_evento) }}"
-                        method="POST"
-                        onsubmit="return confirm('Sei sicuro di voler eliminare questo evento?');">
-<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
-                        <button type="submit" class="btn btn-danger">
-                            <i class="bi bi-trash"></i> Elimina evento
-                        </button>
-
-                    </form>
-
-                    <a href="{{ url_for('dashboard') }}" class="btn btn-applicaFiltri">
-                        <i class="bi bi-arrow-left"></i> Torna alla dashboard
-                    </a>
-
-                </div>
-
             </div>
-
-        </div>
-
-    </main>
-        {% include 'footer.html' %}
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+        </main>
+        {% include "footer.html" %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

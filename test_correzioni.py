@@ -14,10 +14,27 @@ class CorrezioniTests(unittest.TestCase):
         self.config = app.config.copy()
         app.config.update(TESTING=True, SECRET_KEY="test-correzioni")
         self.client = preparaClient(self, app)
-        self.categorie = [{"id_categoria": 1, "nome": "Accessi"}, {"id_categoria": 2, "nome": "Firewall"}]
-        self.evento = dict(id_evento=1, id_categoria=1, categoria="Accessi", indirizzo_ip="192.0.2.1",
-                           descrizione="Originale", gravita="Media", stato="Nuovo", data_evento=datetime(2026, 10, 12))
-        self.dati = dict(id_categoria="2", indirizzo_ip="errato", descrizione="Bozza da conservare", gravita="Alta", stato="In analisi")
+        self.categorie = [
+            {"id_categoria": 1, "nome": "Accessi"},
+            {"id_categoria": 2, "nome": "Firewall"},
+        ]
+        self.evento = dict(
+            id_evento=1,
+            id_categoria=1,
+            categoria="Accessi",
+            indirizzo_ip="192.0.2.1",
+            descrizione="Originale",
+            gravita="Media",
+            stato="Nuovo",
+            data_evento=datetime(2026, 10, 12),
+        )
+        self.dati = dict(
+            id_categoria="2",
+            indirizzo_ip="errato",
+            descrizione="Bozza da conservare",
+            gravita="Alta",
+            stato="In analisi",
+        )
         self.cat_patch = patch("app.visualizzaCategorie", return_value=self.categorie)
         self.cat_patch.start()
 
@@ -54,9 +71,15 @@ class CorrezioniTests(unittest.TestCase):
         self.assertIn('value="Media" selected', html)
 
     def test_errori_database_gestiti(self):
-        for target, url in [('app.visualizzaEventi', '/dashboard'), ('app.cercaEvento', '/eventi/1'),
-                            ('app.visualizzaCategorie', '/eventi/nuovo'), ('app.visualizzaEventi', '/eventi/esporta')]:
-            with self.subTest(url=url), patch(target, side_effect=mysql.connector.Error('dettaglio riservato')):
+        for target, url in [
+            ('app.visualizzaEventi', '/dashboard'),
+            ('app.cercaEvento', '/eventi/1'),
+            ('app.visualizzaCategorie', '/eventi/nuovo'),
+            ('app.visualizzaEventi', '/eventi/esporta'),
+        ]:
+            with self.subTest(url=url), patch(
+                target, side_effect=mysql.connector.Error('dettaglio riservato')
+            ):
                 risposta = self.client.get(url)
                 self.assertEqual(risposta.status_code, 503)
                 self.assertIn(b'Servizio temporaneamente non disponibile', risposta.data)
@@ -75,7 +98,12 @@ class CorrezioniTests(unittest.TestCase):
         cursore = MagicMock()
         cursore.fetchall.return_value = []
         crea.return_value.cursor.return_value = cursore
-        for testo, atteso in [('²', ('%²%', '%²%')), ('0012', (12,)), ('9' * 5000, ()), ('0' * 5000 + '12', (12,))]:
+        for testo, atteso in [
+            ('²', ('%²%', '%²%')),
+            ('0012', (12,)),
+            ('9' * 5000, ()),
+            ('0' * 5000 + '12', (12,)),
+        ]:
             with self.subTest(testo=testo[:20]):
                 visualizzaEventi(testo=testo, amministratore=True)
                 query, valori = cursore.execute.call_args.args
@@ -86,18 +114,25 @@ class CorrezioniTests(unittest.TestCase):
     def test_esportazioni_indipendenti_e_filtrate(self):
         def elenco(gravita, stato, ordine, testo, **ambito):
             return [dict(self.evento, descrizione=testo)]
-        with patch('app.visualizzaEventi', side_effect=elenco) as leggi, patch('builtins.open', side_effect=AssertionError('Scrittura su disco non prevista')):
+
+        with patch('app.visualizzaEventi', side_effect=elenco) as leggi, patch(
+            'builtins.open', side_effect=AssertionError('Scrittura su disco non prevista')
+        ):
             prima = self.client.get('/eventi/esporta?testo=prima&gravita=Alta', buffered=False)
             seconda = self.client.get('/eventi/esporta?testo=seconda', buffered=False)
             for risposta, atteso in [(prima, 'prima'), (seconda, 'seconda')]:
-                righe = list(csv.reader(io.StringIO(risposta.data.decode('utf-8-sig')), delimiter=';'))
+                righe = list(
+                    csv.reader(io.StringIO(risposta.data.decode('utf-8-sig')), delimiter=';')
+                )
                 self.assertEqual(righe[1][3], atteso)
                 self.assertIn('attachment', risposta.headers['Content-Disposition'])
                 risposta.close()
             self.assertEqual(leggi.call_args_list[0].args, ('Alta', None, 'recenti', 'prima'))
 
     def test_html_unico_e_tabella_vuota(self):
-        with patch('app.visualizzaEventi', return_value=[]), patch('app.statisticheEventi', return_value=dict(totale=0)):
+        with patch('app.visualizzaEventi', return_value=[]), patch(
+            'app.statisticheEventi', return_value=dict(totale=0)
+        ):
             html = self.client.get('/dashboard').get_data(as_text=True)
         self.assertEqual(html.count('<html'), 1)
         self.assertEqual(html.count('<head>'), 1)

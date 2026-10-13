@@ -1,91 +1,106 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info e Contatti - CS Monitor</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/stile.css') }}">
-</head>
-
-<body class="d-flex flex-column min-vh-100">
-
-    {% include 'navbar.html' %}
-
-    <main class="container py-5 flex-grow-1">
-
-        <section class="text-center mb-5 info-introduzione mx-auto">
-
-            <h1 class="display-5 fw-bold">Info e Contatti</h1>
-            <p class="lead text-secondary mb-0">Il progetto, le tecnologie e la persona dietro CS Monitor.</p>
-        </section>
-
-        <div class="row g-4">
-            <div class="col-lg-7">
-                <section class="card info-card mb-4" aria-labelledby="titolo-progetto">
-                    <div class="card-body p-4 p-md-5">
-                        <div class="d-flex align-items-center gap-3 mb-4">
-                            <span class="info-icona"><i class="bi bi-window" aria-hidden="true"></i></span>
-                            <h2 id="titolo-progetto" class="h4 mb-0 fw-bold">Il progetto</h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Info e Contatti - CS Monitor</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+              rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <link rel="stylesheet"
+              href="{{ url_for('static', filename='css/stile.css') }}">
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        {% include "navbar.html" %}
+        <main class="container py-5 flex-grow-1">
+            <section class="text-center mb-5 info-introduzione mx-auto">
+                <h1 class="display-5 fw-bold">Info e Contatti</h1>
+                <p class="lead text-secondary mb-0">Il progetto, le tecnologie e la persona dietro CS Monitor.</p>
+            </section>
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <section class="card info-card mb-4" aria-labelledby="titolo-progetto">
+                        <div class="card-body p-4 p-md-5">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <span class="info-icona"><i class="bi bi-window"
+   aria-hidden="true"></i></span>
+                                <h2 id="titolo-progetto" class="h4 mb-0 fw-bold">Il progetto</h2>
+                            </div>
+                            <p class="text-secondary info-testo">CS Monitor è una web application sviluppata per la gestione degli eventi di sicurezza informatica. Un unico spazio per organizzare le segnalazioni e seguirne l'analisi.</p>
+                            <ul class="list-unstyled mb-4 info-funzionalita">
+                                <li>
+                                    <i class="bi bi-check-circle"
+                                       aria-hidden="true"></i> Registra e gestisci gli eventi di sicurezza
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"
+                                       aria-hidden="true"></i> Cerca, filtra e consulta le statistiche
+                                </li>
+                                <li>
+                                    <i class="bi bi-check-circle"
+                                       aria-hidden="true"></i> Importa i log ed esporta gli eventi in CSV
+                                </li>
+                            </ul>
                         </div>
-                        <p class="text-secondary info-testo">CS Monitor è una web application sviluppata per la gestione degli eventi di sicurezza informatica. Un unico spazio per organizzare le segnalazioni e seguirne l'analisi.</p>
-                        <ul class="list-unstyled mb-4 info-funzionalita">
-                            <li><i class="bi bi-check-circle" aria-hidden="true"></i> Registra e gestisci gli eventi di sicurezza</li>
-                            <li><i class="bi bi-check-circle" aria-hidden="true"></i> Cerca, filtra e consulta le statistiche</li>
-                            <li><i class="bi bi-check-circle" aria-hidden="true"></i> Importa i log ed esporta gli eventi in CSV</li>
-                        </ul>
-
-                    </div>
-                </section>
-
-                <section class="card info-card" aria-labelledby="titolo-tecnologie">
-                    <div class="card-body p-4 p-md-5">
-                        <div class="d-flex align-items-center gap-3 mb-4">
-                            <span class="info-icona"><i class="bi bi-code-slash" aria-hidden="true"></i></span>
-                            <h2 id="titolo-tecnologie" class="h4 mb-0 fw-bold">Tecnologie utilizzate</h2>
+                    </section>
+                    <section class="card info-card" aria-labelledby="titolo-tecnologie">
+                        <div class="card-body p-4 p-md-5">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <span class="info-icona"><i class="bi bi-code-slash"
+   aria-hidden="true"></i></span>
+                                <h2 id="titolo-tecnologie"
+                                    class="h4 mb-0 fw-bold">Tecnologie utilizzate</h2>
+                            </div>
+                            <p class="text-secondary mb-3">Dalla logica applicativa al database, fino all'interfaccia web.</p>
+                            <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
+                                {% for tecnologia in ['Python', 'Flask', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Jinja', 'Git'] %}
+                                    <li class="info-tecnologia">{{ tecnologia }}</li>
+                                {% endfor %}
+                            </ul>
                         </div>
-                        <p class="text-secondary mb-3">Dalla logica applicativa al database, fino all'interfaccia web.</p>
-                        <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0">
-                            {% for tecnologia in ['Python', 'Flask', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Bootstrap', 'Jinja', 'Git'] %}
-                            <li class="info-tecnologia">{{ tecnologia }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </section>
-            </div>
-
-            <div class="col-lg-5">
-                <section class="card info-card info-profilo" aria-labelledby="titolo-sviluppatore">
-                    <div class="card-body p-4 p-md-5">
-                        <img class="info-avatar mb-4" src="{{ url_for('static', filename='img/profilo.png') }}" alt="Foto di Marco Filannino" width="76" height="76">
-                        <h2 id="titolo-sviluppatore" class="h6 text-secondary mb-2">Lo sviluppatore</h2>
-                        <h3 class="h3 fw-bold mb-3">Marco Filannino</h3>
-                        <p class="text-secondary info-testo">Studente di Ingegneria Informatica e dell'Automazione presso il Politecnico di Bari.</p>
-                        <div class="info-contatti mt-4 pt-4">
-                            <h4 class="h6 fw-bold mb-3">Contatti professionali</h4>
-                            <div class="d-grid gap-2">
-                                <a href="https://github.com/MarcoFilannino2004" target="_blank" rel="noopener noreferrer" class="info-contatto">
-                                    <i class="bi bi-github" aria-hidden="true"></i><span>GitHub</span><i class="bi bi-box-arrow-up-right ms-auto" aria-hidden="true"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/marco-filannino/" target="_blank" rel="noopener noreferrer" class="info-contatto">
-                                    <i class="bi bi-linkedin" aria-hidden="true"></i><span>LinkedIn</span><i class="bi bi-box-arrow-up-right ms-auto" aria-hidden="true"></i>
-                                </a>
-                                <a href="mailto:marcofilannino04@gmail.com" class="info-contatto">
-                                    <i class="bi bi-envelope" aria-hidden="true"></i><span>Email</span><i class="bi bi-arrow-right ms-auto" aria-hidden="true"></i>
-                                </a>
+                    </section>
+                </div>
+                <div class="col-lg-5">
+                    <section class="card info-card info-profilo"
+                             aria-labelledby="titolo-sviluppatore">
+                        <div class="card-body p-4 p-md-5">
+                            <img class="info-avatar mb-4"
+                                 src="{{ url_for('static', filename='img/profilo.png') }}"
+                                 alt="Foto di Marco Filannino"
+                                 width="76"
+                                 height="76">
+                            <h2 id="titolo-sviluppatore"
+                                class="h6 text-secondary mb-2">Lo sviluppatore</h2>
+                            <h3 class="h3 fw-bold mb-3">Marco Filannino</h3>
+                            <p class="text-secondary info-testo">Studente di Ingegneria Informatica e dell'Automazione presso il Politecnico di Bari.</p>
+                            <div class="info-contatti mt-4 pt-4">
+                                <h4 class="h6 fw-bold mb-3">Contatti professionali</h4>
+                                <div class="d-grid gap-2">
+                                    <a href="https://github.com/MarcoFilannino2004"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="info-contatto">
+                                        <i class="bi bi-github" aria-hidden="true"></i><span>GitHub</span><i class="bi bi-box-arrow-up-right ms-auto" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/marco-filannino/"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       class="info-contatto">
+                                        <i class="bi bi-linkedin" aria-hidden="true"></i><span>LinkedIn</span><i class="bi bi-box-arrow-up-right ms-auto" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="mailto:marcofilannino04@gmail.com"
+                                       class="info-contatto">
+                                        <i class="bi bi-envelope" aria-hidden="true"></i><span>Email</span><i class="bi bi-arrow-right ms-auto" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </div>
-        </div>
-
-    </main>
-    {% include 'footer.html' %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+        </main>
+        {% include "footer.html" %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

@@ -2,18 +2,37 @@ import mysql.connector
 from database.connessione import creaConnessione
 from database.strumenti import apriCursore
 
-
 CATEGORIE_PREDEFINITE = (
-    'Autenticazione e accessi', 'Tentativi di forza bruta', 'Account bloccati',
-    'Accessi non autorizzati', 'Permessi e privilegi', 'Gestione delle sessioni',
-    'Firewall e traffico bloccato', 'Scansione delle porte', 'Traffico di rete anomalo',
-    'Attacchi DoS e DDoS', 'Connessioni VPN', 'Errori DNS', 'Certificati e connessioni TLS',
-    'Malware e antivirus', 'Ransomware', 'Phishing e posta sospetta',
-    'File sospetti e quarantena', 'Integrità dei file', 'Esfiltrazione dei dati',
-    'Errori applicativi', 'Errori del database', 'Servizi non disponibili',
-    'Errori del sistema operativo', 'Spazio disco e archiviazione',
-    'Prestazioni e risorse', 'Backup e ripristino', 'Aggiornamenti di sicurezza',
-    'Configurazioni non autorizzate', 'Dispositivi e hardware', 'Monitoraggio e audit',
+    'Autenticazione e accessi',
+    'Tentativi di forza bruta',
+    'Account bloccati',
+    'Accessi non autorizzati',
+    'Permessi e privilegi',
+    'Gestione delle sessioni',
+    'Firewall e traffico bloccato',
+    'Scansione delle porte',
+    'Traffico di rete anomalo',
+    'Attacchi DoS e DDoS',
+    'Connessioni VPN',
+    'Errori DNS',
+    'Certificati e connessioni TLS',
+    'Malware e antivirus',
+    'Ransomware',
+    'Phishing e posta sospetta',
+    'File sospetti e quarantena',
+    'Integrità dei file',
+    'Esfiltrazione dei dati',
+    'Errori applicativi',
+    'Errori del database',
+    'Servizi non disponibili',
+    'Errori del sistema operativo',
+    'Spazio disco e archiviazione',
+    'Prestazioni e risorse',
+    'Backup e ripristino',
+    'Aggiornamenti di sicurezza',
+    'Configurazioni non autorizzate',
+    'Dispositivi e hardware',
+    'Monitoraggio e audit',
 )
 
 

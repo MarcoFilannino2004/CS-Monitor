@@ -6,19 +6,46 @@ def salvaImportazione(eventi, id_utente, nome_file, contenuto, righe_valide, rig
     """Registra file e tutti gli eventi nella stessa transazione; token evita doppi invii."""
     try:
         with apriCursore() as (connessione, cursore):
-            cursore.execute('''INSERT INTO importazioni (id_utente, token_importazione, nome_file,
+            cursore.execute(
+                '''INSERT INTO importazioni (id_utente, token_importazione, nome_file,
                 contenuto, dimensione, righe_valide, righe_errate, eventi_importati)
                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s)''',
-                (id_utente, token, nome_file, contenuto, len(contenuto), righe_valide, righe_errate, len(eventi)))
+                (
+                    id_utente,
+                    token,
+                    nome_file,
+                    contenuto,
+                    len(contenuto),
+                    righe_valide,
+                    righe_errate,
+                    len(eventi),
+                ),
+            )
             id_importazione = cursore.lastrowid
-            cursore.executemany('''INSERT INTO eventi (id_categoria, indirizzo_ip, descrizione,
+            cursore.executemany(
+                '''INSERT INTO eventi (id_categoria, indirizzo_ip, descrizione,
                 gravita, stato, data_evento, id_utente, id_importazione) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)''',
-                [(e.id_categoria, e.indirizzo_ip, e.descrizione, e.gravita, e.stato, e.data_evento, id_utente, id_importazione) for e in eventi])
+                [
+                    (
+                        e.id_categoria,
+                        e.indirizzo_ip,
+                        e.descrizione,
+                        e.gravita,
+                        e.stato,
+                        e.data_evento,
+                        id_utente,
+                        id_importazione,
+                    )
+                    for e in eventi
+                ],
+            )
             connessione.commit()
             return id_importazione
     except mysql.connector.IntegrityError as errore:
         if errore.errno == 1062:
-            raise ValueError('Questo file è già stato importato da questa anteprima. Consulta lo storico.') from None
+            raise ValueError(
+                'Questo file è già stato importato da questa anteprima. Consulta lo storico.'
+            ) from None
         raise
 
 
@@ -30,7 +57,10 @@ def visualizzaImportazioni(id_utente, amministratore=False):
             FROM importazioni i JOIN utenti u ON i.id_utente=u.id_utente'''
         if not amministratore:
             query += ' WHERE i.id_utente=%s'
-        cursore.execute(query + ' ORDER BY i.data_importazione DESC, i.id_importazione DESC', () if amministratore else (id_utente,))
+        cursore.execute(
+            query + ' ORDER BY i.data_importazione DESC, i.id_importazione DESC',
+            () if amministratore else (id_utente,),
+        )
         return cursore.fetchall()
 
 

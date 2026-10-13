@@ -22,7 +22,9 @@ try:
     eventi = cursore.fetchall()
 
     for evento in eventi:
-        print(f"{evento['id_evento']} | {evento['categoria']} | {evento['indirizzo_ip']} | {evento['gravita']} | {evento['stato']}")
+        print(
+            f"{evento['id_evento']} | {evento['categoria']} | {evento['indirizzo_ip']} | {evento['gravita']} | {evento['stato']}"
+        )
 
 except mysql.connector.Error as errore:
     print(f"Errore MySQL: {errore}")

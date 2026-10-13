@@ -7,7 +7,16 @@ class EventoSicurezza:
     GRAVITA_CONSENTITE = ("Bassa", "Media", "Alta", "Critica")
     STATI_CONSENTITI = ("Nuovo", "In analisi", "Risolto")
 
-    def __init__(self, id_evento: int | None, id_categoria: int, indirizzo_ip: str, descrizione: str, gravita: str, stato: str = "Nuovo", data_evento: datetime | None = None):
+    def __init__(
+        self,
+        id_evento: int | None,
+        id_categoria: int,
+        indirizzo_ip: str,
+        descrizione: str,
+        gravita: str,
+        stato: str = "Nuovo",
+        data_evento: datetime | None = None,
+    ):
         self.id_evento = id_evento
         self.id_categoria = id_categoria
         self.indirizzo_ip = indirizzo_ip

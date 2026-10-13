@@ -2,7 +2,7 @@ import os
 import mysql.connector
 from dotenv import load_dotenv
 
-#Carico le variabili d'ambiente dal file .env
+# Carico le variabili d'ambiente dal file .env
 load_dotenv()
 
 
@@ -12,7 +12,7 @@ def creaConnessione():
         port=int(os.getenv("DB_PORT", "3306")),
         user=os.getenv("DB_USER"),
         password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME")
+        database=os.getenv("DB_NAME"),
     )
 
     return connessione

@@ -1,19 +1,81 @@
-{% extends 'base_account.html' %}
+{% extends "base_account.html" %}
 {% block titolo %}Il mio account{% endblock %}
 {% block contenuto %}
-<h1>Il mio account</h1><p class="text-secondary">Gestisci i tuoi dati e la password. Ruolo: {{ utente_corrente.ruolo }}.</p>
-{% if utente_corrente.password_da_cambiare %}<div class="alert alert-warning">Stai usando una password temporanea. Cambiala qui sotto per accedere agli eventi e ai log.</div>{% endif %}
-<div class="row g-4"><div class="col-lg-6"><div class="card info-card h-100"><div class="card-body p-4">
-<h2 class="h4">Dati personali</h2><form method="POST">
-<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="azione" value="profilo">
-<label class="form-label" for="username">Nome utente</label><input class="form-control mb-3" id="username" name="username" minlength="3" maxlength="40" value="{{ request.form.get('username', utente_corrente.username) }}" required>
-<label class="form-label" for="email">Email</label><input class="form-control mb-4" id="email" name="email" type="email" maxlength="254" value="{{ request.form.get('email', utente_corrente.email) }}" required>
-<button class="btn btn-applicaFiltri" type="submit">Salva profilo</button></form>
-</div></div></div><div class="col-lg-6"><div class="card info-card"><div class="card-body p-4">
-<h2 class="h4">Cambia password</h2><p class="text-secondary">Dopo il cambio dovrai accedere di nuovo su tutti i dispositivi.</p><form method="POST">
-<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><input type="hidden" name="azione" value="password">
-<label class="form-label" for="password_attuale">Password attuale</label><input class="form-control mb-3" id="password_attuale" name="password_attuale" type="password" autocomplete="current-password" maxlength="128" required>
-<label class="form-label" for="nuova_password">Nuova password</label><input class="form-control mb-3" id="nuova_password" name="nuova_password" type="password" autocomplete="new-password" minlength="10" maxlength="128" required>
-<label class="form-label" for="conferma_password">Conferma nuova password</label><input class="form-control mb-4" id="conferma_password" name="conferma_password" type="password" autocomplete="new-password" minlength="10" maxlength="128" required>
-<button class="btn btn-applicaFiltri" type="submit">Cambia password</button></form>
-</div></div></div></div>{% endblock %}
+    <h1>Il mio account</h1>
+    <p class="text-secondary">Gestisci i tuoi dati e la password. Ruolo: {{ utente_corrente.ruolo }}.</p>
+    {% if utente_corrente.password_da_cambiare %}
+        <div class="alert alert-warning">
+            Stai usando una password temporanea. Cambiala qui sotto per accedere agli eventi e ai log.
+        </div>
+    {% endif %}
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card info-card h-100">
+                <div class="card-body p-4">
+                    <h2 class="h4">Dati personali</h2>
+                    <form method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="azione" value="profilo">
+                        <label class="form-label" for="username">Nome utente</label>
+                        <input class="form-control mb-3"
+                               id="username"
+                               name="username"
+                               minlength="3"
+                               maxlength="40"
+                               value="{{ request.form.get('username', utente_corrente.username) }}"
+                               required>
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-control mb-4"
+                               id="email"
+                               name="email"
+                               type="email"
+                               maxlength="254"
+                               value="{{ request.form.get('email', utente_corrente.email) }}"
+                               required>
+                        <button class="btn btn-applicaFiltri" type="submit">Salva profilo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card info-card">
+                <div class="card-body p-4">
+                    <h2 class="h4">Cambia password</h2>
+                    <p class="text-secondary">Dopo il cambio dovrai accedere di nuovo su tutti i dispositivi.</p>
+                    <form method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="azione" value="password">
+                        <label class="form-label" for="password_attuale">Password attuale</label>
+                        <input class="form-control mb-3"
+                               id="password_attuale"
+                               name="password_attuale"
+                               type="password"
+                               autocomplete="current-password"
+                               maxlength="128"
+                               required>
+                        <label class="form-label" for="nuova_password">Nuova password</label>
+                        <input class="form-control mb-3"
+                               id="nuova_password"
+                               name="nuova_password"
+                               type="password"
+                               autocomplete="new-password"
+                               minlength="10"
+                               maxlength="128"
+                               required>
+                        <label class="form-label"
+                               for="conferma_password">Conferma nuova password</label>
+                        <input class="form-control mb-4"
+                               id="conferma_password"
+                               name="conferma_password"
+                               type="password"
+                               autocomplete="new-password"
+                               minlength="10"
+                               maxlength="128"
+                               required>
+                        <button class="btn btn-applicaFiltri" type="submit">Cambia password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

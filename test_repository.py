@@ -1,5 +1,10 @@
-
-from database.eventi_repository import inserisciEvento, visualizzaEventi, cercaEvento, modificaEvento, eliminaEvento
+from database.eventi_repository import (
+    inserisciEvento,
+    visualizzaEventi,
+    cercaEvento,
+    modificaEvento,
+    eliminaEvento,
+)
 from models.evento_sicurezza import EventoSicurezza
 
 
@@ -7,7 +12,9 @@ def stampaEventi():
     print("\n========== ELENCO EVENTI ==========")
 
     for evento in visualizzaEventi(amministratore=True):
-        print(f"{evento['id_evento']} | {evento['categoria']} | {evento['indirizzo_ip']} | {evento['gravita']} | {evento['stato']}")
+        print(
+            f"{evento['id_evento']} | {evento['categoria']} | {evento['indirizzo_ip']} | {evento['gravita']} | {evento['stato']}"
+        )
 
 
 def testCRUD():
@@ -20,7 +27,9 @@ def testCRUD():
         # CREATE
         print("\n========== CREATE ==========")
 
-        nuovo_evento = EventoSicurezza(None, 1, "192.168.1.200", "Evento temporaneo per test CRUD", "Media")
+        nuovo_evento = EventoSicurezza(
+            None, 1, "192.168.1.200", "Evento temporaneo per test CRUD", "Media"
+        )
         id_test = inserisciEvento(nuovo_evento)
 
         print(f"Evento creato con ID: {id_test}")
@@ -57,7 +66,9 @@ def testCRUD():
         eliminato = eliminaEvento(id_test, amministratore=True)
         assert eliminato, "L'eliminazione non Ã¨ stata eseguita."
 
-        assert cercaEvento(id_test, amministratore=True) is None, "L'evento risulta ancora presente."
+        assert (
+            cercaEvento(id_test, amministratore=True) is None
+        ), "L'evento risulta ancora presente."
 
         id_test = None
         print("Evento eliminato correttamente!")

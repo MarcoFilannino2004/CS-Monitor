@@ -1,4 +1,5 @@
 """Prove reali in un database temporaneo; richiedono CS_MONITOR_TEST_DB=1."""
+
 import os
 import io
 import re
@@ -9,12 +10,21 @@ from werkzeug.security import check_password_hash
 from app import app
 from database.connessione import creaConnessione
 from database.migrazioni import preparaAccount
-from database.utenti_repository import creaUtente, cercaUtente, autenticaUtente, gestisciUtente, reimpostaPassword
+from database.utenti_repository import (
+    creaUtente,
+    cercaUtente,
+    autenticaUtente,
+    gestisciUtente,
+    reimpostaPassword,
+)
 from database.eventi_repository import visualizzaEventi
 from test_importazione_log import RIGA
 
 
-@unittest.skipUnless(os.getenv('CS_MONITOR_TEST_DB') == '1', 'Richiede CS_MONITOR_TEST_DB=1 e MySQL con permesso di creare database di prova.')
+@unittest.skipUnless(
+    os.getenv('CS_MONITOR_TEST_DB') == '1',
+    'Richiede CS_MONITOR_TEST_DB=1 e MySQL con permesso di creare database di prova.',
+)
 class AccountDatabaseTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -22,12 +32,21 @@ class AccountDatabaseTests(unittest.TestCase):
         cls.nome = 'cs_monitor_test_' + uuid.uuid4().hex
         cls.config = app.config.copy()
         app.config.update(TESTING=True, SECRET_KEY='test-database')
-        cls.server = mysql.connector.connect(host=os.getenv('DB_HOST'), port=int(os.getenv('DB_PORT', '3306')), user=os.getenv('DB_USER'), password=os.getenv('DB_PASSWORD'))
+        cls.server = mysql.connector.connect(
+            host=os.getenv('DB_HOST'),
+            port=int(os.getenv('DB_PORT', '3306')),
+            user=os.getenv('DB_USER'),
+            password=os.getenv('DB_PASSWORD'),
+        )
         c = cls.server.cursor()
         c.execute(f'CREATE DATABASE `{cls.nome}` CHARACTER SET utf8mb4')
         c.execute(f'USE `{cls.nome}`')
-        c.execute('CREATE TABLE categorie (id_categoria INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100)) ENGINE=InnoDB')
-        c.execute("CREATE TABLE eventi (id_evento INT AUTO_INCREMENT PRIMARY KEY, id_categoria INT NOT NULL, indirizzo_ip VARCHAR(45), descrizione TEXT, gravita VARCHAR(20), stato VARCHAR(20), data_evento DATETIME, FOREIGN KEY (id_categoria) REFERENCES categorie(id_categoria)) ENGINE=InnoDB")
+        c.execute(
+            'CREATE TABLE categorie (id_categoria INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100)) ENGINE=InnoDB'
+        )
+        c.execute(
+            "CREATE TABLE eventi (id_evento INT AUTO_INCREMENT PRIMARY KEY, id_categoria INT NOT NULL, indirizzo_ip VARCHAR(45), descrizione TEXT, gravita VARCHAR(20), stato VARCHAR(20), data_evento DATETIME, FOREIGN KEY (id_categoria) REFERENCES categorie(id_categoria)) ENGINE=InnoDB"
+        )
         c.execute("INSERT INTO categorie (nome) VALUES ('Accessi')")
         cls.server.commit()
         c.close()
@@ -62,7 +81,12 @@ class AccountDatabaseTests(unittest.TestCase):
             return s['csrf_token']
 
     def login(self, client, username, password):
-        return client.post('/login', data=dict(csrf_token=self.token(client, '/login'), identificativo=username, password=password))
+        return client.post(
+            '/login',
+            data=dict(
+                csrf_token=self.token(client, '/login'), identificativo=username, password=password
+            ),
+        )
 
     def post(self, url, data, client=None):
         client = client or self.client
@@ -70,7 +94,15 @@ class AccountDatabaseTests(unittest.TestCase):
         return client.post(url, data=data)
 
     def evento(self):
-        r = self.post('/eventi/nuovo', dict(id_categoria='1', indirizzo_ip='192.0.2.1', descrizione='Evento privato', gravita='Alta'))
+        r = self.post(
+            '/eventi/nuovo',
+            dict(
+                id_categoria='1',
+                indirizzo_ip='192.0.2.1',
+                descrizione='Evento privato',
+                gravita='Alta',
+            ),
+        )
         self.assertEqual(r.status_code, 302)
         return visualizzaEventi(id_utente=self.id)[0]['id_evento']
 
@@ -90,6 +122,7 @@ class AccountDatabaseTests(unittest.TestCase):
 
     def test_repository_senza_proprietario_non_espone_eventi(self):
         from database.eventi_repository import cercaEvento, eliminaEvento, statisticheEventi
+
         evento = self.evento()
         self.assertEqual(visualizzaEventi(), [])
         self.assertIsNone(cercaEvento(evento))
@@ -98,7 +131,12 @@ class AccountDatabaseTests(unittest.TestCase):
         self.assertEqual(self.client.get(f'/eventi/{evento}').status_code, 200)
 
     def test_categorie_predefinite_conservano_esistenti_e_non_duplicano(self):
-        from database.categorie_repository import aggiungiCategoriePredefinite, visualizzaCategorie, CATEGORIE_PREDEFINITE
+        from database.categorie_repository import (
+            aggiungiCategoriePredefinite,
+            visualizzaCategorie,
+            CATEGORIE_PREDEFINITE,
+        )
+
         prima = {c['id_categoria']: c['nome'] for c in visualizzaCategorie()}
         aggiungiCategoriePredefinite()
         dopo = {c['id_categoria']: c['nome'] for c in visualizzaCategorie()}
@@ -110,14 +148,29 @@ class AccountDatabaseTests(unittest.TestCase):
 
     def test_isolamento_lettura_modifica_elimina_csv_statistiche(self):
         evento = self.evento()
-        altro = creaUtente('altro_' + uuid.uuid4().hex[:8], uuid.uuid4().hex + '@test.example', self.password)
+        altro = creaUtente(
+            'altro_' + uuid.uuid4().hex[:8], uuid.uuid4().hex + '@test.example', self.password
+        )
         client = app.test_client()
         u = cercaUtente(altro)
         self.login(client, u['username'], self.password)
         for suffix in ('', '/modifica'):
             self.assertEqual(client.get(f'/eventi/{evento}{suffix}').status_code, 404)
         self.assertEqual(self.post(f'/eventi/{evento}/elimina', {}, client).status_code, 404)
-        self.assertEqual(self.post(f'/eventi/{evento}/modifica', dict(id_categoria=1, indirizzo_ip='192.0.2.2', descrizione='Tentativo', gravita='Bassa', stato='Nuovo'), client).status_code, 404)
+        self.assertEqual(
+            self.post(
+                f'/eventi/{evento}/modifica',
+                dict(
+                    id_categoria=1,
+                    indirizzo_ip='192.0.2.2',
+                    descrizione='Tentativo',
+                    gravita='Bassa',
+                    stato='Nuovo',
+                ),
+                client,
+            ).status_code,
+            404,
+        )
         self.assertNotIn(b'Evento privato', client.get('/eventi/esporta').data)
         self.assertNotIn(b'Evento privato', client.get('/dashboard').data)
         self.assertEqual(len(visualizzaEventi(id_utente=altro)), 0)
@@ -135,7 +188,9 @@ class AccountDatabaseTests(unittest.TestCase):
         estraneo = app.test_client()
         self.login(estraneo, 'admin_test', 'password-admin-test')
         self.assertEqual(estraneo.get(url + '/file').status_code, 200)
-        altro = creaUtente('estraneo_' + uuid.uuid4().hex[:8], uuid.uuid4().hex + '@test.example', self.password)
+        altro = creaUtente(
+            'estraneo_' + uuid.uuid4().hex[:8], uuid.uuid4().hex + '@test.example', self.password
+        )
         estraneo = app.test_client()
         self.login(estraneo, cercaUtente(altro)['username'], self.password)
         self.assertEqual(estraneo.get(url).status_code, 404)
@@ -147,7 +202,15 @@ class AccountDatabaseTests(unittest.TestCase):
     def test_cambio_password_revoca_sessioni(self):
         secondo = app.test_client()
         self.login(secondo, self.username, self.password)
-        r = self.post('/account', dict(azione='password', password_attuale=self.password, nuova_password='nuova-password-1234', conferma_password='nuova-password-1234'))
+        r = self.post(
+            '/account',
+            dict(
+                azione='password',
+                password_attuale=self.password,
+                nuova_password='nuova-password-1234',
+                conferma_password='nuova-password-1234',
+            ),
+        )
         self.assertEqual(r.status_code, 303)
         self.assertEqual(secondo.get('/dashboard').status_code, 302)
         self.assertIsNone(autenticaUtente(self.username, self.password))
@@ -172,10 +235,20 @@ class AccountDatabaseTests(unittest.TestCase):
     def test_reset_password_richiede_cambio_e_revoca_sessioni(self):
         reimpostaPassword(self.id, self.admin, 'password-temporanea-123')
         self.assertEqual(self.client.get('/dashboard').status_code, 302)
-        self.assertEqual(self.login(self.client, self.username, 'password-temporanea-123').status_code, 303)
+        self.assertEqual(
+            self.login(self.client, self.username, 'password-temporanea-123').status_code, 303
+        )
         self.assertTrue(self.client.get('/dashboard').location.endswith('/account'))
         self.assertIn(b'password temporanea', self.client.get('/account').data)
-        r = self.post('/account', dict(azione='password', password_attuale='password-temporanea-123', nuova_password='password-scelta-utente-123', conferma_password='password-scelta-utente-123'))
+        r = self.post(
+            '/account',
+            dict(
+                azione='password',
+                password_attuale='password-temporanea-123',
+                nuova_password='password-scelta-utente-123',
+                conferma_password='password-scelta-utente-123',
+            ),
+        )
         self.assertEqual(r.status_code, 303)
         self.login(self.client, self.username, 'password-scelta-utente-123')
         self.assertEqual(self.client.get('/dashboard').status_code, 200)
@@ -183,6 +256,7 @@ class AccountDatabaseTests(unittest.TestCase):
     def test_importazione_fallita_annulla_file_ed_eventi(self):
         from database.importazioni_repository import salvaImportazione, visualizzaImportazioni
         from models.evento_sicurezza import EventoSicurezza
+
         e = EventoSicurezza(None, 99999, '192.0.2.1', 'Categoria inesistente', 'Alta')
         with self.assertRaises(mysql.connector.IntegrityError):
             salvaImportazione([e], self.id, 'prova.log', RIGA.encode(), 1, 0, uuid.uuid4().hex)
@@ -202,12 +276,27 @@ class AccountDatabaseTests(unittest.TestCase):
     def test_registrazione_pubblica_duplicati_e_profilo(self):
         client = app.test_client()
         nome = 'registrato_' + uuid.uuid4().hex[:8]
-        dati = dict(username=nome, email=nome + '@test.example', password=self.password, conferma_password=self.password, ruolo='admin')
+        dati = dict(
+            username=nome,
+            email=nome + '@test.example',
+            password=self.password,
+            conferma_password=self.password,
+            ruolo='admin',
+        )
         dati['csrf_token'] = self.token(client, '/registrazione')
         self.assertEqual(client.post('/registrazione', data=dati).status_code, 303)
         self.assertEqual(autenticaUtente(nome, self.password)['ruolo'], 'utente')
-        self.assertIn('già utilizzati', client.post('/registrazione', data=dati).get_data(as_text=True))
-        r = self.post('/account', dict(azione='profilo', username=self.username + '_edit', email='edit_' + uuid.uuid4().hex + '@test.example'))
+        self.assertIn(
+            'già utilizzati', client.post('/registrazione', data=dati).get_data(as_text=True)
+        )
+        r = self.post(
+            '/account',
+            dict(
+                azione='profilo',
+                username=self.username + '_edit',
+                email='edit_' + uuid.uuid4().hex + '@test.example',
+            ),
+        )
         self.assertEqual(r.status_code, 303)
         self.assertEqual(cercaUtente(self.id)['username'], self.username + '_edit')
 

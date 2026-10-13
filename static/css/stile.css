@@ -271,18 +271,27 @@ thead th {
 }
 
 /* Account e storico: stessi colori e schede del resto del progetto. */
-.account-card { max-width: 560px; }
+.account-card {
+    max-width: 560px;
+}
 
 
 /* Colori comuni anche per collegamenti e stati dei moduli. */
-a { color: #004aad; }
-a:hover { color: #003580; }
+a {
+    color: #004aad;
+}
+
+a:hover {
+    color: #003580;
+}
+
 .btn-applicaFiltri:focus-visible,
 .btn-azioni:focus-visible {
     background-color: #003580;
     color: #fff;
     box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.25);
 }
+
 .btn-applicaFiltri:active,
 .btn-azioni:active,
 .btn-applicaFiltri:disabled,
@@ -290,11 +299,18 @@ a:hover { color: #003580; }
     background-color: #003580;
     color: #fff;
 }
+
 .form-control:focus,
 .form-select:focus {
     border-color: #004aad;
     box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2);
 }
-.navbar .nav-link { color: rgba(255, 255, 255, 0.65); }
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.65);
+}
+
 .navbar .nav-link:hover,
-.navbar .nav-link:focus-visible { color: #fff; }
+.navbar .nav-link:focus-visible {
+    color: #fff;
+}

@@ -1,16 +1,32 @@
-{% extends 'base_account.html' %}
+{% extends "base_account.html" %}
 {% block titolo %}Accedi{% endblock %}
 {% block contenuto %}
-<div class="account-card card info-card mx-auto"><div class="card-body p-4 p-md-5">
-<span class="info-tecnologia d-inline-block mb-3">CS Monitor</span><h1 class="h2">Bentornato</h1>
-<p class="text-secondary">Accedi per gestire i tuoi eventi e ritrovare i log importati.</p>
-<form method="POST">
-<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-<label class="form-label" for="identificativo">Nome utente o email</label>
-<input class="form-control mb-3" id="identificativo" name="identificativo" autocomplete="username" maxlength="254" value="{{ request.form.get('identificativo', '') }}" required>
-<label class="form-label" for="password">Password</label>
-<input class="form-control mb-4" id="password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
-<button class="btn btn-applicaFiltri w-100" type="submit">Accedi</button>
-</form><p class="mt-4 mb-0">Non hai un account? <a href="{{ url_for('account.registrazione') }}">Registrati</a></p>
-</div></div>
+    <div class="account-card card info-card mx-auto">
+        <div class="card-body p-4 p-md-5">
+            <span class="info-tecnologia d-inline-block mb-3">CS Monitor</span>
+            <h1 class="h2">Bentornato</h1>
+            <p class="text-secondary">Accedi per gestire i tuoi eventi e ritrovare i log importati.</p>
+            <form method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <label class="form-label" for="identificativo">Nome utente o email</label>
+                <input class="form-control mb-3"
+                       id="identificativo"
+                       name="identificativo"
+                       autocomplete="username"
+                       maxlength="254"
+                       value="{{ request.form.get('identificativo', '') }}"
+                       required>
+                <label class="form-label" for="password">Password</label>
+                <input class="form-control mb-4"
+                       id="password"
+                       name="password"
+                       type="password"
+                       autocomplete="current-password"
+                       maxlength="128"
+                       required>
+                <button class="btn btn-applicaFiltri w-100" type="submit">Accedi</button>
+            </form>
+            <p class="mt-4 mb-0">Non hai un account? <a href="{{ url_for('account.registrazione') }}">Registrati</a></p>
+        </div>
+    </div>
 {% endblock %}
