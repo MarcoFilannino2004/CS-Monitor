@@ -48,3 +48,27 @@ def preparaAccount():
                 "ALTER TABLE eventi ADD COLUMN id_importazione INT NULL, ADD CONSTRAINT fk_eventi_importazione FOREIGN KEY (id_importazione) REFERENCES importazioni(id_importazione), ADD INDEX idx_eventi_importazione (id_importazione)"
             )
         connessione.commit()
+    preparaRegistroAttivita()
+
+
+def preparaRegistroAttivita():
+    """Crea il registro indipendente dagli eventi, conservando la cronologia."""
+    with apriCursore() as (connessione, cursore):
+        cursore.execute("""CREATE TABLE IF NOT EXISTS registro_attivita (
+            id_attivita BIGINT AUTO_INCREMENT PRIMARY KEY,
+            data_attivita DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+            id_utente INT NULL,
+            username VARCHAR(40) NOT NULL,
+            indirizzo_ip VARCHAR(45) NULL,
+            azione VARCHAR(64) NOT NULL,
+            esito ENUM('Riuscito', 'Fallito', 'Negato') NOT NULL,
+            risorsa VARCHAR(100) NOT NULL,
+            dettagli VARCHAR(500) NOT NULL,
+            metodo VARCHAR(10) NOT NULL,
+            percorso VARCHAR(255) NOT NULL,
+            codice_http SMALLINT NOT NULL,
+            INDEX idx_registro_data (data_attivita, id_attivita),
+            INDEX idx_registro_utente (id_utente),
+            INDEX idx_registro_azione (azione, esito)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4""")
+        connessione.commit()

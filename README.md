@@ -55,6 +55,26 @@ I moduli includono una protezione CSRF. Le anteprime dei log sono firmate e lega
 
 Le sessioni scadono dopo due ore di inattività. I cookie sono HttpOnly e SameSite=Lax; quando il sito usa HTTPS imposta `SESSION_COOKIE_SECURE=true` nel `.env`. Le email servono come identificativo e contatto: non vengono ancora inviate email di verifica o recupero password. Per recuperare l'accesso si contatta un amministratore.
 
+### Registro delle attività, riservato agli amministratori
+
+Il menu **Registro attività** compare soltanto agli amministratori. Anche l'accesso diretto alle route `/amministrazione/registro` e `/amministrazione/registro/esporta` è controllato dal server: gli utenti normali ricevono un rifiuto e i visitatori vengono indirizzati al login.
+
+Il registro raccoglie automaticamente accessi riusciti e falliti, logout, registrazioni, consultazioni delle principali pagine private, creazione/modifica/eliminazione degli eventi, analisi e importazione dei log, download, esportazioni e gestione degli account. Registra anche i tentativi di accesso non autorizzati e i moduli rifiutati dalla protezione CSRF. Le risorse statiche non vengono registrate.
+
+Ogni voce contiene data e ora del database, autore autenticato, IP della connessione, azione, esito, risorsa interessata e dettagli essenziali. Per le modifiche agli eventi vengono registrati i nomi dei campi aggiornati, senza copiarne le descrizioni. Password, hash delle password, cookie, token e corpi completi dei moduli non vengono copiati nel registro. Un login fallito viene attribuito a **Non autenticato**, senza conservare l'identificativo digitato nel modulo. L'IP proviene dalla connessione e non da header di inoltro forniti dal client.
+
+La pagina permette di filtrare per operazione, esito, utente/IP/risorsa e intervallo di date. Mostra 50 voci per pagina; **Scarica registro (.log)** esporta tutte le voci corrispondenti ai filtri, anche quelle delle pagine successive. La consultazione e l'esportazione del registro vengono anch'esse registrate dopo la risposta.
+
+I dati sono conservati nella tabella `registro_attivita`, separata dagli eventi e non modificabile o cancellabile dall'interfaccia. Eliminare gli eventi risolti non elimina la relativa cronologia. Il controllo automatico delle anomalie e gli avvisi non sono ancora presenti: questa funzione prepara la raccolta dei dati su cui costruirli.
+
+Nelle nuove installazioni la tabella viene creata dalla preparazione degli account. Per aggiornare un database già esistente:
+
+```powershell
+python -c "from database.migrazioni import preparaRegistroAttivita; preparaRegistroAttivita()"
+```
+
+L'aggiornamento è già stato eseguito sul database locale. La raccolta parte da questo momento e non ricostruisce le operazioni passate. Se una scrittura del registro non riesce, viene segnalato un errore generico nei log del server; un'operazione già completata non viene presentata come fallita né ripetuta. Non è ancora presente una coda di recupero o una politica automatica di conservazione del registro.
+
 ## Come funziona
 
 Il percorso di un evento inserito manualmente è questo:
@@ -206,6 +226,18 @@ Le statistiche in alto riguardano **tutti gli eventi del tuo account**, anche qu
 
 Ogni esportazione viene generata in memoria per la singola richiesta, senza sovrascrivere un file condiviso. In caso di errore nei moduli di inserimento e modifica, i valori digitati vengono conservati. Se il database non è disponibile, l'app mostra un messaggio comprensibile.
 
+### Scarica ed elimina gli eventi risolti
+
+Clicca sulla card **Eventi risolti** nella dashboard per aprire la pagina dedicata.
+
+1. Controlla l'elenco: include soltanto gli eventi con stato **Risolto** del tuo account. Gli amministratori vedono quelli di tutti gli utenti.
+2. Premi **Scarica eventi risolti (CSV)** e conserva il file sul tuo dispositivo.
+3. Seleziona la conferma di salvataggio e premi **Elimina tutti i risolti**; conferma l'avviso del browser.
+
+L'esportazione da questa pagina è obbligatoria prima della cancellazione e vale per 30 minuti. Se gli eventi cambiano dopo il download, l'operazione viene bloccata: occorre scaricare un CSV aggiornato. Il controllo e la cancellazione avvengono nella stessa transazione; vengono rimossi soltanto gli eventi esportati ancora risolti, rispettando i permessi dell'account.
+
+La cancellazione è definitiva. Gli eventi Nuovi e In analisi, le importazioni e i file originali nello storico restano conservati. Le righe eliminate liberano spazio riutilizzabile dal database; questo non comporta necessariamente una riduzione immediata del file MySQL sul disco.
+
 ## Importazione dei log
 
 ### Formato accettato
@@ -299,7 +331,7 @@ Le operazioni **CRUD** sono le quattro azioni fondamentali sui dati: **Create** 
 
 ## Database
 
-Il database contiene quattro tabelle. Una categoria può avere più eventi; un utente può avere più eventi e importazioni; un file importato può avere più eventi. Le categorie sono condivise tra gli account.
+Il database contiene cinque tabelle. Una categoria può avere più eventi; un utente può avere più eventi e importazioni; un file importato può avere più eventi. Le categorie sono condivise tra gli account.
 
 | Tabella | Campi |
 |---|---|
@@ -307,6 +339,7 @@ Il database contiene quattro tabelle. Una categoria può avere più eventi; un u
 | `eventi` | Dati dell’evento, `id_utente` e `id_importazione` (vuoto per gli eventi manuali). |
 | `utenti` | Nome utente, email, hash password, ruolo, stato e informazioni per le sessioni e il blocco degli accessi. |
 | `importazioni` | Proprietario, file originale, data e conteggi dell’importazione. |
+| `registro_attivita` | Cronologia delle operazioni, esiti, autori e risorse coinvolte. Accessibile dal sito solo agli amministratori. |
 
 `id_evento` identifica ogni evento. `id_categoria` nella tabella `eventi` è una **chiave esterna**: collega l'evento a una categoria esistente.
 
@@ -367,18 +400,18 @@ python -m unittest test_importazione_log test_correzioni -v
 ### Test degli account
 
 ```powershell
-python -m unittest test_account test_correzioni test_importazione_log -v
+python -m unittest test_registro test_eventi_risolti test_account test_correzioni test_importazione_log -v
 ```
 
-Sono 33 test senza scritture sul database reale. Per aggiungere 12 prove complete su MySQL:
+Sono 57 test senza scritture sul database reale. Per aggiungere 18 prove complete su MySQL (75 test complessivi):
 
 ```powershell
 $env:CS_MONITOR_TEST_DB='1'
-python -m unittest test_account test_account_database test_correzioni test_importazione_log -v
+python -m unittest test_registro test_eventi_risolti test_account test_account_database test_correzioni test_importazione_log -v
 Remove-Item Env:CS_MONITOR_TEST_DB
 ```
 
-Le prove MySQL creano un database temporaneo con nome casuale, lo usano per tutti i dati di prova e lo rimuovono al termine. Richiedono permessi per creare e rimuovere database. Verificano anche l'isolamento tra utenti, lo storico e i download, il doppio invio, il cambio e reset password, la disattivazione e l'annullamento di importazioni fallite.
+Le prove MySQL creano un database temporaneo con nome casuale, lo usano per tutti i dati di prova e lo rimuovono al termine. Richiedono permessi per creare e rimuovere database. Verificano anche l'isolamento tra utenti, lo storico e i download, il doppio invio, il cambio e reset password, la disattivazione, l'annullamento di importazioni fallite e la cancellazione dei risolti soltanto dopo l'esportazione.
 
 ### Riferimenti per le protezioni degli account
 

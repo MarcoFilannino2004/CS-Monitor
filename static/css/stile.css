@@ -314,3 +314,17 @@ a:hover {
 .navbar .nav-link:focus-visible {
     color: #fff;
 }
+
+/* Collegamento dalla dashboard alla gestione degli eventi risolti. */
+.card-risolti {
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.card-risolti:hover,
+.card-risolti:focus-visible {
+    color: inherit;
+    border-color: #004aad;
+    box-shadow: 0 0 0 3px rgba(0, 74, 173, 0.2) !important;
+}

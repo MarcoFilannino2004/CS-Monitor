@@ -296,3 +296,42 @@ def statisticheEventi(id_utente=None, amministratore=False):
     finally:
         cursore.close()
         connessione.close()
+
+
+def eliminaEventiRisolti(firma_attesa, id_utente=None, amministratore=False):
+    """Elimina soltanto l'elenco esportato, se ancora interamente risolto e invariato."""
+    from database.strumenti import apriCursore
+    from services.esportazione import firmaEventi
+
+    with apriCursore(True) as (connessione, cursore):
+        query = """SELECT e.id_evento, c.nome AS categoria, e.indirizzo_ip,
+                          e.descrizione, e.gravita, e.stato, e.data_evento
+                   FROM eventi e JOIN categorie c ON e.id_categoria=c.id_categoria
+                   WHERE e.stato='Risolto'"""
+        valori = []
+        if not amministratore:
+            query += " AND e.id_utente=%s"
+            valori.append(id_utente)
+        query += " ORDER BY e.data_evento DESC, e.id_evento DESC FOR UPDATE"
+        cursore.execute(query, tuple(valori))
+        eventi = cursore.fetchall()
+        if not eventi or firmaEventi(eventi) != firma_attesa:
+            raise ValueError(
+                "L'elenco dei risolti è cambiato. Scarica nuovamente il CSV prima di eliminare."
+            )
+
+        # Gli ID espliciti escludono anche nuovi eventi risolti durante l'operazione.
+        segnaposto = ', '.join(['%s'] * len(eventi))
+        query = f"DELETE FROM eventi WHERE stato='Risolto' AND id_evento IN ({segnaposto})"
+        valori = [e['id_evento'] for e in eventi]
+        if not amministratore:
+            query += " AND id_utente=%s"
+            valori.append(id_utente)
+        cursore.execute(query, tuple(valori))
+        eliminati = cursore.rowcount
+        if eliminati != len(eventi):
+            raise ValueError(
+                "Gli eventi sono cambiati. Scarica nuovamente il CSV prima di eliminare."
+            )
+        connessione.commit()
+        return eliminati

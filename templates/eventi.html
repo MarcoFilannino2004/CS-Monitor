@@ -44,12 +44,14 @@
                         </div>
                     </div>
                     <div class="col-6 col-md-3">
-                        <div class="card text-center shadow-sm">
+                        <a href="{{ url_for('eventiRisolti') }}"
+                           class="card text-center shadow-sm card-risolti"
+                           aria-label="Apri gli eventi risolti per scaricarli ed eliminarli">
                             <div class="card-body p-2">
                                 <small>Eventi risolti</small>
                                 <h5 class="text-success mb-0">{{ statistiche.risolti or 0 }}</h5>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </section>

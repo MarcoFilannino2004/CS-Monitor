@@ -1,4 +1,15 @@
-from flask import Flask, render_template, abort, request, redirect, url_for, send_file, flash, g
+from flask import (
+    Flask,
+    render_template,
+    abort,
+    request,
+    redirect,
+    url_for,
+    send_file,
+    flash,
+    g,
+    session,
+)
 from database.eventi_repository import (
     visualizzaEventi,
     cercaEvento,
@@ -6,26 +17,30 @@ from database.eventi_repository import (
     modificaEvento,
     eliminaEvento,
     statisticheEventi,
+    eliminaEventiRisolti,
 )
 from models.evento_sicurezza import EventoSicurezza
 from database.categorie_repository import visualizzaCategorie
 import mysql.connector
 import os
-import csv
+import time
 import secrets
 import base64
 from werkzeug.utils import secure_filename
 from services.account import configuraSicurezza
 from routes.account import account
+from routes.registro import registro
+from services.registro import configuraRegistro, segnaAttivita
 from database.importazioni_repository import (
     salvaImportazione,
     visualizzaImportazioni,
     cercaImportazione,
 )
-from io import BytesIO, StringIO
+from io import BytesIO
 from datetime import datetime
 from itsdangerous import URLSafeTimedSerializer, BadSignature
 from services.log_importer import analizzaLog, MAX_BYTES
+from services.esportazione import contenutoCsv, firmaEventi
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY") or secrets.token_hex(32)
@@ -33,7 +48,9 @@ app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024
 app.config["MAX_FORM_MEMORY_SIZE"] = 2 * 1024 * 1024
 app.config["SESSION_COOKIE_SECURE"] = os.getenv("SESSION_COOKIE_SECURE", "false").lower() == "true"
 app.register_blueprint(account)
+app.register_blueprint(registro)
 configuraSicurezza(app)
+configuraRegistro(app)
 
 
 def ambitoEventi():
@@ -70,6 +87,11 @@ def scaricaLog(id_importazione):
     importazione = cercaImportazione(id_importazione, **ambitoEventi())
     if importazione is None:
         abort(404)
+    segnaAttivita(
+        'DOWNLOAD_LOG',
+        risorsa=f'importazione:{id_importazione}',
+        dettagli='File originale scaricato.',
+    )
     return send_file(
         BytesIO(importazione['contenuto']),
         mimetype='text/plain',
@@ -156,6 +178,11 @@ def importaLog():
                     anteprima['righe_errate'],
                     anteprima['identificativo'],
                 )
+                segnaAttivita(
+                    'IMPORTAZIONE_LOG',
+                    risorsa=f'importazione:{id_importazione}',
+                    dettagli=f'Eventi salvati: {len(da_salvare)}; righe errate: {anteprima["righe_errate"]}.',
+                )
                 flash(
                     f"Importazione completata: {len(da_salvare)} eventi salvati con stato Nuovo.",
                     'success',
@@ -171,6 +198,11 @@ def importaLog():
                     raise ValueError("Sono ammessi soltanto file .log e .txt.")
                 contenuto = file.read(MAX_BYTES + 1)
                 eventi, errori = analizzaLog(contenuto)
+                segnaAttivita(
+                    'ANALISI_LOG',
+                    esito='Riuscito' if eventi else 'Fallito',
+                    dettagli=f'Eventi validi: {len(eventi)}; righe errate: {len(errori)}. Anteprima senza salvataggio.',
+                )
                 if eventi:
                     token = firma.dumps(
                         dict(
@@ -257,6 +289,11 @@ def nuovoEvento():
 
             evento = EventoSicurezza(None, id_categoria, indirizzo_ip, descrizione, gravita)
             inserisciEvento(evento, id_utente=g.utente["id_utente"])
+            segnaAttivita(
+                'CREAZIONE_EVENTO',
+                risorsa=f'evento:{evento.id_evento}',
+                dettagli='Evento manuale creato.',
+            )
             flash("Evento aggiunto correttamente.", "success")
 
             return redirect(url_for("dashboard"))
@@ -312,6 +349,18 @@ def modificaEventoPagina(id_evento):
             )
 
             modificaEvento(evento_modificato, **ambitoEventi())
+            campi = ('id_categoria', 'indirizzo_ip', 'descrizione', 'gravita', 'stato')
+            cambiati = [
+                campo for campo in campi if evento[campo] != getattr(evento_modificato, campo)
+            ]
+            dettagli = (
+                'Campi aggiornati: ' + ', '.join(cambiati)
+                if cambiati
+                else 'Nessuna variazione nei dati.'
+            )
+            if 'stato' in cambiati:
+                dettagli += f"; stato: {evento['stato']} → {evento_modificato.stato}."
+            segnaAttivita('MODIFICA_EVENTO', risorsa=f'evento:{id_evento}', dettagli=dettagli)
 
             return redirect(url_for("dettagliEvento", id_evento=id_evento))
 
@@ -334,7 +383,12 @@ def eliminaEventoPagina(id_evento):
     if evento is None:
         abort(404)
 
-    eliminaEvento(id_evento, **ambitoEventi())
+    eliminato = eliminaEvento(id_evento, **ambitoEventi())
+    segnaAttivita(
+        'ELIMINAZIONE_EVENTO',
+        esito='Riuscito' if eliminato else 'Fallito',
+        risorsa=f'evento:{id_evento}',
+    )
 
     return redirect(url_for("dashboard"))
 
@@ -353,27 +407,73 @@ def esportaEventi():
 
     eventi = visualizzaEventi(gravita, stato, ordine, testo, **ambitoEventi())
 
-    file = StringIO(newline="")
-    writer = csv.writer(file, delimiter=";")
-    writer.writerow(
-        ["ID", "Categoria", "Indirizzo IP", "Descrizione", "GravitÃ ", "Stato", "Data evento"]
-    )
-    for evento in eventi:
-        writer.writerow(
-            [
-                evento["id_evento"],
-                evento["categoria"],
-                evento["indirizzo_ip"],
-                evento["descrizione"],
-                evento["gravita"],
-                evento["stato"],
-                evento["data_evento"],
-            ]
-        )
-    contenuto = BytesIO(file.getvalue().encode("utf-8-sig"))
+    segnaAttivita('ESPORTAZIONE_CSV', dettagli=f'Eventi esportati: {len(eventi)}.')
+    contenuto = BytesIO(contenutoCsv(eventi))
     return send_file(
         contenuto, mimetype="text/csv", as_attachment=True, download_name="eventi_sicurezza.csv"
     )
+
+
+@app.get('/eventi/risolti')
+def eventiRisolti():
+    eventi = visualizzaEventi(stato='Risolto', **ambitoEventi())
+    return render_template('eventi_risolti.html', eventi=eventi)
+
+
+@app.get('/eventi/risolti/esporta')
+def esportaRisolti():
+    eventi = visualizzaEventi(stato='Risolto', **ambitoEventi())
+    if not eventi:
+        flash('Non ci sono eventi risolti da esportare.', 'info')
+        return redirect(url_for('eventiRisolti'), code=303)
+    segnaAttivita('ESPORTAZIONE_RISOLTI', dettagli=f'Eventi risolti esportati: {len(eventi)}.')
+    session['esportazione_risolti'] = dict(
+        firma=firmaEventi(eventi),
+        id_utente=g.utente['id_utente'],
+        amministratore=g.utente['ruolo'] == 'admin',
+        scadenza=time.time() + 1800,
+    )
+    return send_file(
+        BytesIO(contenutoCsv(eventi)),
+        mimetype='text/csv',
+        as_attachment=True,
+        download_name='eventi_risolti.csv',
+    )
+
+
+@app.post('/eventi/risolti/elimina')
+def eliminaRisolti():
+    esportazione = session.get('esportazione_risolti')
+    ambito = ambitoEventi()
+    if request.form.get('conferma') != 'si':
+        flash('Conferma di aver salvato il CSV e di voler eliminare gli eventi risolti.', 'warning')
+    elif (
+        not isinstance(esportazione, dict)
+        or esportazione.get('id_utente') != ambito['id_utente']
+        or esportazione.get('amministratore') != ambito['amministratore']
+        or esportazione.get('scadenza', 0) < time.time()
+    ):
+        session.pop('esportazione_risolti', None)
+        flash(
+            'Prima di eliminare, scarica il CSV degli eventi risolti da questa pagina. Il download vale per 30 minuti.',
+            'warning',
+        )
+    else:
+        try:
+            eliminati = eliminaEventiRisolti(esportazione['firma'], **ambito)
+            segnaAttivita(
+                'ELIMINAZIONE_RISOLTI',
+                dettagli=f'Eventi risolti eliminati: {eliminati}. File originali conservati.',
+            )
+            session.pop('esportazione_risolti', None)
+            flash(
+                f'Eliminazione completata: {eliminati} eventi risolti rimossi dal database.',
+                'success',
+            )
+        except ValueError as errore:
+            session.pop('esportazione_risolti', None)
+            flash(str(errore), 'warning')
+    return redirect(url_for('eventiRisolti'), code=303)
 
 
 if __name__ == "__main__":

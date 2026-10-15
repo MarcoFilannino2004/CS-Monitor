@@ -1,0 +1,89 @@
+{% extends "base_account.html" %}
+{% block titolo %}Eventi risolti{% endblock %}
+{% block contenuto %}
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <h1>Eventi risolti</h1>
+            <p class="text-secondary mb-0">
+                {% if utente_corrente.ruolo == 'admin' %}
+                    Vista amministratore: tutti gli eventi risolti degli utenti.
+                {% else %}
+                    Gli eventi del tuo account che hanno concluso l'analisi.
+                {% endif %}
+            </p>
+        </div>
+        <a class="btn btn-secondary" href="{{ url_for('dashboard') }}">Torna alla dashboard</a>
+    </div>
+    <div class="card info-card mb-4">
+        <div class="card-body p-4">
+            <h2 class="h4">Scarica e libera spazio</h2>
+            <p>Prima scarica il CSV, poi conferma l'eliminazione degli eventi risolti elencati qui sotto.</p>
+            <p class="small text-secondary">
+                Il CSV conserva i dati degli eventi sul tuo dispositivo. L'eliminazione è definitiva e
+                non modifica gli eventi Nuovi o In analisi. I file di log originali restano nello storico.
+            </p>
+            {% if eventi %}
+                <a class="btn btn-applicaFiltri mb-3" href="{{ url_for('esportaRisolti') }}">
+                    1. Scarica eventi risolti (CSV)
+                </a>
+                <form method="post" action="{{ url_for('eliminaRisolti') }}"
+                      onsubmit="return confirm('Eliminare definitivamente tutti gli eventi risolti elencati? Assicurati di aver conservato il CSV.');">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" name="conferma"
+                               id="conferma-eliminazione" value="si" required>
+                        <label class="form-check-label" for="conferma-eliminazione">
+                            Ho salvato il CSV e voglio eliminare definitivamente gli eventi risolti.
+                        </label>
+                    </div>
+                    <button class="btn btn-danger" type="submit">2. Elimina tutti i risolti ({{ eventi|length }})</button>
+                </form>
+            {% else %}
+                <p class="mb-0">Non ci sono eventi risolti da scaricare o eliminare.</p>
+            {% endif %}
+        </div>
+    </div>
+    <h2 class="h4">Eventi risolti ({{ eventi|length }})</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Indirizzo IP</th>
+                    <th>Descrizione</th>
+                    <th>Gravità</th>
+                    <th>Stato</th>
+                    <th>Data</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventi %}
+                    <tr>
+                        <td>
+                            {{ evento.id_evento }}
+                            {% if utente_corrente.ruolo == 'admin' and evento.autore %}
+                                <br><small class="text-secondary">{{ evento.autore }}</small>
+                            {% endif %}
+                        </td>
+                        <td>{{ evento.categoria }}</td>
+                        <td>{{ evento.indirizzo_ip }}</td>
+                        <td>{{ evento.descrizione }}</td>
+                        <td>{{ evento.gravita }}</td>
+                        <td>{{ evento.stato }}</td>
+                        <td>{{ evento.data_evento }}</td>
+                        <td>
+                            <a class="btn btn-azioni btn-sm"
+                               href="{{ url_for('dettagliEvento', id_evento=evento.id_evento) }}">Dettagli</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center">Nessun evento risolto presente.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

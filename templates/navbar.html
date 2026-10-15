@@ -43,6 +43,8 @@
                 {% if utente_corrente %}
                     {% if utente_corrente.ruolo == "admin" %}
                         <a class="nav-link text-nowrap"
+                           href="{{ url_for('registro.pagina') }}">Registro attività</a>
+                        <a class="nav-link text-nowrap"
                            href="{{ url_for('account.amministrazione') }}">Gestione account</a>
                     {% endif %}
                     <a class="nav-link text-nowrap"

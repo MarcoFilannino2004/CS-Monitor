@@ -3,6 +3,7 @@ from functools import wraps
 from datetime import timedelta
 import secrets
 from flask import g, session, request, abort, redirect, url_for
+from services.registro import segnaAttivita
 
 USERNAME = re.compile(r"^[A-Za-z0-9_.-]{3,40}$")
 EMAIL = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
@@ -37,6 +38,9 @@ def soloAdmin(funzione):
     @wraps(funzione)
     def protetta(*args, **kwargs):
         if g.utente is None or g.utente['ruolo'] != 'admin':
+            segnaAttivita(
+                'ACCESSO_NEGATO', esito='Negato', dettagli='Pagina riservata agli amministratori.'
+            )
             abort(403)
         return funzione(*args, **kwargs)
 
@@ -68,6 +72,11 @@ def configuraSicurezza(app):
             else:
                 session.clear()
         if request.endpoint is not None and request.endpoint not in pubbliche and g.utente is None:
+            segnaAttivita(
+                'ACCESSO_NON_AUTENTICATO',
+                esito='Negato',
+                dettagli='Accesso richiesto a una pagina privata.',
+            )
             return redirect(url_for('account.login'))
         if request.method == 'POST':
             inviato = request.form.get('csrf_token', '')
@@ -75,6 +84,11 @@ def configuraSicurezza(app):
             if not atteso or not secrets.compare_digest(
                 inviato.encode('utf-8'), atteso.encode('utf-8')
             ):
+                segnaAttivita(
+                    'RICHIESTA_RIFIUTATA',
+                    esito='Negato',
+                    dettagli='Protezione del modulo non valida.',
+                )
                 abort(
                     400,
                     description='Il modulo è scaduto o non valido. Ricarica la pagina e riprova.',

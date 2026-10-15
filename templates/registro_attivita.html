@@ -1,0 +1,116 @@
+{% extends "base_account.html" %}
+{% block titolo %}Registro attività{% endblock %}
+{% block contenuto %}
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <h1>Registro attività</h1>
+            <p class="text-secondary mb-0">Cronologia delle operazioni e degli accessi. Visibile soltanto agli amministratori.</p>
+        </div>
+        <a class="btn btn-applicaFiltri"
+           href="{{ url_for('registro.esporta', **filtri) }}">Scarica registro (.log)</a>
+    </div>
+    <div class="card info-card mb-4">
+        <div class="card-body p-4">
+            <h2 class="h4">Cerca nel registro</h2>
+            <form method="get"
+                  action="{{ url_for('registro.pagina') }}"
+                  class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label" for="azione">Operazione</label>
+                    <select class="form-select" id="azione" name="azione">
+                        <option value="">Tutte le operazioni</option>
+                        {% for azione in azioni %}
+                            <option value="{{ azione }}"
+                                    {% if filtri.azione == azione %}selected{% endif %}>{{ azione|replace('_', ' ')|capitalize }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="esito">Esito</label>
+                    <select class="form-select" id="esito" name="esito">
+                        <option value="">Tutti gli esiti</option>
+                        {% for esito in esiti %}
+                            <option value="{{ esito }}"
+                                    {% if filtri.esito == esito %}selected{% endif %}>{{ esito }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="dal">Dal giorno</label>
+                    <input class="form-control"
+                           type="date"
+                           id="dal"
+                           name="dal"
+                           value="{{ filtri.dal }}">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label" for="al">Al giorno</label>
+                    <input class="form-control"
+                           type="date"
+                           id="al"
+                           name="al"
+                           value="{{ filtri.al }}">
+                </div>
+                <div class="col-12">
+                    <label class="form-label" for="testo">Utente, indirizzo IP o risorsa</label>
+                    <input class="form-control"
+                           id="testo"
+                           name="testo"
+                           maxlength="100"
+                           value="{{ filtri.testo }}"
+                           placeholder="Cerca un utente, un IP o evento:45">
+                </div>
+                <div class="d-flex flex-wrap gap-2">
+                    <button class="btn btn-applicaFiltri" type="submit">Applica filtri</button>
+                    <a class="btn btn-secondary"
+                       href="{{ url_for('registro.pagina') }}">Reimposta filtri</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <p class="text-secondary">{{ totale }} attività trovate · Pagina {{ pagina }} di {{ pagine }} · Fino a 50 voci per pagina</p>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+            <thead>
+                <tr>
+                    <th>Data e ora</th>
+                    <th>Utente</th>
+                    <th>IP</th>
+                    <th>Operazione</th>
+                    <th>Esito</th>
+                    <th>Risorsa</th>
+                    <th>Dettagli</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for voce in attivita %}
+                    <tr>
+                        <td class="text-nowrap">{{ voce.data_attivita.strftime('%d/%m/%Y %H:%M:%S') }}</td>
+                        <td>{{ voce.username }}{% if voce.id_utente %}<br><small class="text-secondary">ID {{ voce.id_utente }}</small>{% endif %}</td>
+                        <td>{{ voce.indirizzo_ip or 'Non disponibile' }}</td>
+                        <td>{{ voce.azione|replace('_', ' ')|capitalize }}</td>
+                        <td><span class="badge text-bg-{{ 'success' if voce.esito == 'Riuscito' else 'warning' if voce.esito == 'Negato' else 'danger' }}">{{ voce.esito }}</span></td>
+                        <td class="text-break">{{ voce.risorsa or '—' }}</td>
+                        <td>
+                            {{ voce.dettagli or '—' }}
+                            <br>
+                            <small class="text-secondary">{{ voce.metodo }} {{ voce.percorso }} · HTTP {{ voce.codice_http }}</small>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7"
+                            class="text-center py-4">Nessuna attività trovata con questi filtri.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <nav class="d-flex flex-wrap gap-2" aria-label="Pagine del registro">
+        {% if pagina > 1 %}<a class="btn btn-azioni"
+   href="{{ url_for('registro.pagina', pagina=pagina-1, **filtri) }}">Precedente</a>{% endif %}
+        {% if pagina < pagine %}<a class="btn btn-azioni"
+   href="{{ url_for('registro.pagina', pagina=pagina+1, **filtri) }}">Successiva</a>{% endif %}
+    </nav>
+    <p class="small text-secondary mt-4">Il registro è di sola lettura. Password, cookie e token non vengono registrati. Gli accessi falliti senza un utente autenticato compaiono come “Non autenticato”.</p>
+{% endblock %}

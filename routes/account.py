@@ -9,6 +9,7 @@ from database.utenti_repository import (
     reimpostaPassword,
 )
 from services.account import soloAdmin
+from services.registro import segnaAttivita
 
 account = Blueprint('account', __name__)
 
@@ -21,10 +22,15 @@ def registrazione():
             if request.form.get('password') != request.form.get('conferma_password'):
                 raise ValueError('Le password non coincidono.')
             # Il ruolo pubblico è sempre utente, indipendentemente dai dati inviati.
-            creaUtente(
+            id_creato = creaUtente(
                 request.form.get('username'),
                 request.form.get('email'),
                 request.form.get('password'),
+            )
+            segnaAttivita(
+                'REGISTRAZIONE',
+                risorsa=f'utente:{id_creato}',
+                utente=dict(id_utente=id_creato, username=request.form.get('username', '').strip()),
             )
             flash('Registrazione completata. Ora puoi accedere.', 'success')
             return redirect(url_for('account.login'), code=303)
@@ -43,6 +49,7 @@ def login():
             request.form.get('identificativo'), request.form.get('password', '')
         )
         if utente:
+            segnaAttivita('LOGIN', utente=utente, dettagli='Accesso riuscito.')
             session.clear()
             session.update(
                 id_utente=utente['id_utente'], versione_sessione=utente['versione_sessione']
@@ -72,6 +79,11 @@ def profilo():
                     request.form.get('password_attuale', ''),
                     request.form.get('nuova_password'),
                 )
+                segnaAttivita(
+                    'CAMBIO_PASSWORD',
+                    risorsa=f"utente:{g.utente['id_utente']}",
+                    dettagli='Password cambiata e sessioni precedenti invalidate.',
+                )
                 session.clear()
                 flash(
                     'Password cambiata. Accedi nuovamente: tutte le vecchie sessioni sono state chiuse.',
@@ -80,6 +92,11 @@ def profilo():
                 return redirect(url_for('account.login'), code=303)
             aggiornaProfilo(
                 g.utente['id_utente'], request.form.get('username'), request.form.get('email')
+            )
+            segnaAttivita(
+                'MODIFICA_PROFILO',
+                risorsa=f"utente:{g.utente['id_utente']}",
+                dettagli='Dati del profilo aggiornati.',
             )
             flash('Profilo aggiornato.', 'success')
             return redirect(url_for('account.profilo'), code=303)
@@ -95,12 +112,17 @@ def amministrazione():
     if request.method == 'POST':
         try:
             if request.form.get('azione') == 'crea':
-                creaUtente(
+                id_creato = creaUtente(
                     request.form.get('username'),
                     request.form.get('email'),
                     request.form.get('password'),
                     request.form.get('ruolo', 'utente'),
                     cambio_password=True,
+                )
+                segnaAttivita(
+                    'CREAZIONE_ACCOUNT',
+                    risorsa=f'utente:{id_creato}',
+                    dettagli='Account creato con password temporanea.',
                 )
                 flash('Account creato.', 'success')
             elif request.form.get('azione') == 'password':
@@ -109,6 +131,11 @@ def amministrazione():
                     raise ValueError('Account non valido.')
                 reimpostaPassword(
                     id_utente, g.utente['id_utente'], request.form.get('nuova_password')
+                )
+                segnaAttivita(
+                    'RESET_PASSWORD',
+                    risorsa=f'utente:{id_utente}',
+                    dettagli='Password temporanea impostata; cambio obbligatorio al prossimo accesso.',
                 )
                 flash(
                     'Password temporanea impostata. L’utente dovrà cambiarla al prossimo accesso.',
@@ -123,6 +150,13 @@ def amministrazione():
                     g.utente['id_utente'],
                     request.form.get('ruolo'),
                     request.form.get('attivo') == '1',
+                )
+                ruolo = request.form.get('ruolo')
+                attivo = request.form.get('attivo') == '1'
+                segnaAttivita(
+                    'GESTIONE_ACCOUNT',
+                    risorsa=f'utente:{id_utente}',
+                    dettagli=f'Ruolo: {ruolo}; attivo: {attivo}. Sessioni invalidate e blocco accessi azzerato.',
                 )
                 flash(
                     'Account aggiornato. Le sessioni precedenti e il blocco per tentativi errati sono stati azzerati.',

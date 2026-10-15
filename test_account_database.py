@@ -114,6 +114,166 @@ class AccountDatabaseTests(unittest.TestCase):
         self.assertEqual(r.status_code, 303)
         return r.location, dati
 
+    def risolvi(self, id_evento):
+        from database.strumenti import apriCursore
+
+        with apriCursore() as (connessione, cursore):
+            cursore.execute("UPDATE eventi SET stato='Risolto' WHERE id_evento=%s", (id_evento,))
+            connessione.commit()
+
+    def test_risolti_esportazione_elimina_solo_propri_e_preserva_originale(self):
+        from database.eventi_repository import cercaEvento, inserisciEvento
+        from models.evento_sicurezza import EventoSicurezza
+
+        importazione, _ = self.importazione()
+        risolto = visualizzaEventi(id_utente=self.id)[0]['id_evento']
+        self.risolvi(risolto)
+        nuovo = self.evento()
+        altro = creaUtente(
+            'altro_' + uuid.uuid4().hex[:8], uuid.uuid4().hex + '@test.example', self.password
+        )
+        estraneo = inserisciEvento(
+            EventoSicurezza(None, 1, '192.0.2.3', 'Evento altrui', 'Media', 'Risolto'),
+            id_utente=altro,
+        )
+        self.post('/eventi/risolti/elimina', {'conferma': 'si'})
+        self.assertIsNotNone(cercaEvento(risolto, id_utente=self.id))
+        csv = self.client.get('/eventi/risolti/esporta')
+        self.assertIn(b'Login fallito per utente admin', csv.data)
+        self.assertNotIn(b'Evento altrui', csv.data)
+        self.assertNotIn(b'Evento privato', csv.data)
+        self.assertEqual(self.post('/eventi/risolti/elimina', {'conferma': 'si'}).status_code, 303)
+        self.assertIsNone(cercaEvento(risolto, id_utente=self.id))
+        self.assertIsNotNone(cercaEvento(nuovo, id_utente=self.id))
+        self.assertIsNotNone(cercaEvento(estraneo, id_utente=altro))
+        self.assertEqual(self.client.get(importazione + '/file').data, RIGA.encode())
+
+    def test_risolti_modificati_o_aggiunti_richiedono_nuovo_csv(self):
+        from database.eventi_repository import cercaEvento
+        from database.strumenti import apriCursore
+
+        risolto = self.evento()
+        self.risolvi(risolto)
+        self.client.get('/eventi/risolti/esporta')
+        aggiunto = self.evento()
+        self.risolvi(aggiunto)
+        self.post('/eventi/risolti/elimina', {'conferma': 'si'})
+        self.assertIsNotNone(cercaEvento(risolto, id_utente=self.id))
+        self.assertIsNotNone(cercaEvento(aggiunto, id_utente=self.id))
+        self.client.get('/eventi/risolti/esporta')
+        with apriCursore() as (connessione, cursore):
+            cursore.execute("UPDATE eventi SET stato='In analisi' WHERE id_evento=%s", (risolto,))
+            connessione.commit()
+        self.post('/eventi/risolti/elimina', {'conferma': 'si'})
+        self.assertEqual(cercaEvento(risolto, id_utente=self.id)['stato'], 'In analisi')
+        self.assertIsNotNone(cercaEvento(aggiunto, id_utente=self.id))
+        self.client.get('/eventi/risolti/esporta')
+        self.post('/eventi/risolti/elimina', {'conferma': 'si'})
+        self.assertIsNone(cercaEvento(aggiunto, id_utente=self.id))
+        self.assertIsNotNone(cercaEvento(risolto, id_utente=self.id))
+
+    def test_risolti_amministratore_esporta_ed_elimina_di_tutti(self):
+        from database.eventi_repository import cercaEvento
+
+        risolto = self.evento()
+        self.risolvi(risolto)
+        nuovo = self.evento()
+        amministratore = app.test_client()
+        self.login(amministratore, 'admin_test', 'password-admin-test')
+        csv = amministratore.get('/eventi/risolti/esporta')
+        self.assertEqual(csv.status_code, 200)
+        self.assertEqual(
+            self.post('/eventi/risolti/elimina', {'conferma': 'si'}, amministratore).status_code,
+            303,
+        )
+        self.assertEqual(visualizzaEventi(stato='Risolto', amministratore=True), [])
+        self.assertIsNone(cercaEvento(risolto, amministratore=True))
+        self.assertIsNotNone(cercaEvento(nuovo, id_utente=self.id))
+
+    def test_registro_operazioni_restano_dopo_eliminazione_evento(self):
+        from unittest.mock import patch
+        from database.registro_repository import leggiRegistro
+
+        with patch.dict(app.config, {'REGISTRO_ATTIVITA_NEI_TEST': True}):
+            evento = self.evento()
+            self.post(
+                f'/eventi/{evento}/modifica',
+                dict(
+                    id_categoria=1,
+                    indirizzo_ip='192.0.2.1',
+                    descrizione='Contenuto privato non da copiare nel registro',
+                    gravita='Alta',
+                    stato='Risolto',
+                ),
+            )
+            self.client.get('/eventi/risolti/esporta')
+            self.post('/eventi/risolti/elimina', {'conferma': 'si'})
+        righe = leggiRegistro(testo=self.username, limite=None)['attivita']
+        azioni = {r['azione'] for r in righe}
+        self.assertTrue(
+            {
+                'CREAZIONE_EVENTO',
+                'MODIFICA_EVENTO',
+                'ESPORTAZIONE_RISOLTI',
+                'ELIMINAZIONE_RISOLTI',
+            }.issubset(azioni)
+        )
+        self.assertTrue(any(r['risorsa'] == f'evento:{evento}' for r in righe))
+        self.assertNotIn('Contenuto privato non da copiare nel registro', repr(righe))
+        self.assertEqual(visualizzaEventi(id_utente=self.id), [])
+
+    def test_registro_filtri_paginazione_download_e_permessi_su_db(self):
+        from unittest.mock import patch
+        from database.registro_repository import leggiRegistro
+        from database.strumenti import apriCursore
+
+        with apriCursore() as (connessione, cursore):
+            cursore.executemany(
+                """INSERT INTO registro_attivita
+                (id_utente, username, indirizzo_ip, azione, esito, risorsa, dettagli, metodo, percorso, codice_http)
+                VALUES (%s,%s,'192.0.2.20','MODIFICA_EVENTO','Riuscito',%s,'Campi aggiornati: stato','POST','/eventi/<int:id_evento>/modifica',302)""",
+                [(self.id, self.username, f'evento:{i}') for i in range(51)],
+            )
+            connessione.commit()
+        prima = leggiRegistro(testo=self.username)
+        seconda = leggiRegistro(testo=self.username, pagina=2)
+        self.assertEqual((prima['totale'], len(prima['attivita']), prima['pagine']), (51, 50, 2))
+        self.assertEqual(len(seconda['attivita']), 1)
+        self.assertEqual(leggiRegistro(testo=self.username, esito='Negato')['totale'], 0)
+        admin = app.test_client()
+        self.login(admin, 'admin_test', 'password-admin-test')
+        with patch.dict(app.config, {'REGISTRO_ATTIVITA_NEI_TEST': True}):
+            self.assertEqual(self.client.get('/amministrazione/registro').status_code, 403)
+            self.assertEqual(self.client.get('/amministrazione/registro/esporta').status_code, 403)
+            pagina = admin.get('/amministrazione/registro?testo=' + self.username)
+            self.assertEqual(pagina.status_code, 200)
+            download = admin.get('/amministrazione/registro/esporta?testo=' + self.username)
+        self.assertEqual(download.status_code, 200)
+        # I due accessi negati dello stesso utente sono anch'essi nel registro.
+        self.assertEqual(len(download.data.decode().splitlines()), 53)
+        self.assertIn(b'WARNING', download.data)
+
+    def test_registro_migrazione_non_cancella_la_cronologia(self):
+        from database.registro_repository import inserisciAttivita, leggiRegistro
+
+        inserisciAttivita(
+            dict(
+                id_utente=self.id,
+                username=self.username,
+                indirizzo_ip='192.0.2.1',
+                azione='LOGIN',
+                esito='Riuscito',
+                risorsa='',
+                dettagli='Accesso riuscito.',
+                metodo='POST',
+                percorso='/login',
+                codice_http=303,
+            )
+        )
+        preparaAccount()
+        preparaAccount()
+        self.assertEqual(leggiRegistro(testo=self.username)['totale'], 1)
+
     def test_password_hash_e_login_email(self):
         u = cercaUtente(self.id)
         self.assertNotEqual(u['password_hash'], self.password)
